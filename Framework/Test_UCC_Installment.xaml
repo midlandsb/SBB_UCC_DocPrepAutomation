@@ -1,0 +1,930 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CQ_to_LP_TransactionProcessing" this:CQ_to_LP_TransactionProcessing.in_Environment="Test" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Environment" Type="InArgument(x:String)" />
+    <x:Property Name="in_PRF_TABX_PAYMENT_TYPE_DESCRIPTION" Type="InArgument(x:String)" />
+    <x:Property Name="in_FINAL_LOAN_AMOUNT_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_PROPOSAL_COMMITMENT" Type="InArgument(x:String)" />
+    <x:Property Name="in_NUMBER_OF_PAYMENTS" Type="InArgument(x:String)" />
+    <x:Property Name="in_C_RATE_BASE_NEW" Type="InArgument(x:String)" />
+    <x:Property Name="in_STATE_OF_INCOPRORATION_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_C_INDUSTRY" Type="InArgument(x:String)" />
+    <x:Property Name="in_REQEUST_TYPE" Type="InArgument(x:String)" />
+    <x:Property Name="in_C_ENTITY_TYPE" Type="InArgument(x:String)" />
+    <x:Property Name="in_C_CMB9" Type="InArgument(x:String)" />
+    <x:Property Name="in_MSB_ACCOUNT_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_PAYMENT_ACCOUNT_TYPE_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_TITLE_REGISTRATION_FINANCED_FASB_TP_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_TITLE_REGISTRATION_FEE_PAID_IN_CASH_FAS_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_UCC_CORP_FILING_FEE_PAID_IN_CASH_FASB_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_UCC_CORP_FILING_FEES_FINANCED_FASB_TP_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_UCC_CORP_SEARCH_FEE_PAID_IN_CASHFASB_T_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_UCC_CORP_SEARCH_FEE_FINANCED_FASB_TP_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_CLOSING_DATE_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_D_PRINCIPAL_DUE" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNER_S_LEGAL_NAME_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNERSHIP_TYPE_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_BUSINESS_NAME_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_MSB_ACCOUNT_OR_PAYEE_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_MSB_LOAN_PAYOFF_DISBURSEMENT_AMOUNT_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_BORROWER_ACCOUNT_OR_PAYEE_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_BORROWER_DISBURSEMENT_AMOUNT_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_OTHER_LENDER_ACCOUNT_OR_PAYEE_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_OTHER_LENDER_PAYOFF_DISBURSEMENT_AMOUNT_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNER_S_LEGAL_NAME_C_1" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNER_S_LEGAL_NAME_C_2" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNER_S_LEGAL_NAME_C_3" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNER_S_LEGAL_NAME_C_4" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNER_S_LEGAL_NAME_C_5" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNERSHIP_TYPE_C_1" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNERSHIP_TYPE_C_2" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNERSHIP_TYPE_C_3" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNERSHIP_TYPE_C_4" Type="InArgument(x:String)" />
+    <x:Property Name="in_OWNERSHIP_TYPE_C_5" Type="InArgument(x:String)" />
+    <x:Property Name="in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_ORIGINATION_FEE_FASB_FE_FINANCED" Type="InArgument(x:String)" />
+    <x:Property Name="in_ORIGINATION_FEE_PAID_IN_CASH_FASB_FE_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_STREET1" Type="InArgument(x:String)" />
+    <x:Property Name="in_STREET2" Type="InArgument(x:String)" />
+    <x:Property Name="in_CITY" Type="InArgument(x:String)" />
+    <x:Property Name="in_N_STATE" Type="InArgument(x:String)" />
+    <x:Property Name="in_ZIP" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1007,3235</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CQ_to_LP_TransactionProcessing_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="90">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="116">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CQ_to_LP_TransactionProcessing" sap:VirtualizedContainerService.HintSize="804,3170" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="ApplicationDate" />
+      <Variable x:TypeArguments="x:String" Name="LoanDate" />
+      <Variable x:TypeArguments="x:String" Name="LoanNumber" />
+      <Variable x:TypeArguments="x:String" Name="ULI" />
+      <Variable x:TypeArguments="x:String" Name="LoanClass" />
+      <Variable x:TypeArguments="x:String" Name="LoanType" />
+      <Variable x:TypeArguments="x:String" Name="ProcessorNumber" />
+      <Variable x:TypeArguments="x:String" Name="OfficerNumber" />
+      <Variable x:TypeArguments="x:String" Name="AmountRequested" />
+      <Variable x:TypeArguments="x:String" Name="DefaultedRateType" />
+      <Variable x:TypeArguments="x:String" Name="RateType" />
+      <Variable x:TypeArguments="x:String" Name="CustomerListCustomer1" />
+      <Variable x:TypeArguments="x:String" Name="CustomerListCustomer2" />
+      <Variable x:TypeArguments="x:String" Name="UCCFilingFee" />
+      <Variable x:TypeArguments="x:String" Name="UCCCorpSearchFees" />
+      <Variable x:TypeArguments="x:String" Name="InterestMethod" />
+      <Variable x:TypeArguments="x:String" Name="FirstIntPmtDate" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="TEST" sap:VirtualizedContainerService.HintSize="742,3059" sap2010:WorkflowViewState.IdRef="Sequence_11">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Credit Manager" sap:VirtualizedContainerService.HintSize="680,2948" sap2010:WorkflowViewState.IdRef="NApplicationCard_14" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V2" WindowResize="Maximize">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="646,2731" sap2010:WorkflowViewState.IdRef="Sequence_35">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="Search for Application and Navigate to DocPrep\LaserPro" sap:VirtualizedContainerService.HintSize="584,1292" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Default="58844" Name="ApplicationNumber" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ClickType="Single" DisplayName="Click Binocular Icon for Searching" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_57" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/side_menu.aspx" DesignTimeRectangle="164, 176, 16, 16" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG ximgMmgAdvancedSear…'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='xspnMmgSearch' tag='TABLE' /&gt;&lt;webctrl id='ximgMmgAdvancedSearch' tableRow='1' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='xspnMmgSearch' tag='TABLE' /&gt;&lt;webctrl id='ximgMmgAdvancedSearch' type='' tag='IMG' class='PDS_MMG_SEARCH_IMG' aaname='Advanced Find' /&gt;" Guid="cc7c2bab-3b19-4a29-a24c-9cd3f5985abb" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACUSURBVDhPrY4BDsQgCAT9/6dptmQF63IlZ01G6LCYjmFmnyLlCVKeIOUJWo6g4zNa4vba8hktiz+pfGYXaYn88k92gdvrslj5J+tHCnfJ+/cbs/EAzrZQzQg8icaHOFu4mhF4Eo0PcZZwopzBk2hEkHTm853Z4PYqg+QtFw1urzJI3nLRpADJwW5u+fgCKU+Q8m/MLrX9wmjx/CKqAAAAAElFTkSuQmCC" InformativeScreenshot="0df849fd8d0719aaad29089df951f406.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NClick ClickType="Single" DisplayName="Click Search Template drop down arrow" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_58" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_find_entity.aspx" DesignTimeRectangle="1154, 250, 18, 20" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG cmbSubjectsImage'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl parentid='PageToolbar' tag='TABLE' /&gt;&lt;webctrl id='cmbSubjectsImage' tableRow='1' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl parentid='PageToolbar' tag='TABLE' /&gt;&lt;webctrl id='cmbSubjectsImage' type='' tag='IMG' class='PDS_COMBO_IMAGE PDS_COMBO_POSITION' aaname='' /&gt;" Guid="1490328f-6d27-475b-ba8c-9bfa25afd596" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABYAAAAYCAYAAAD+vg1LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACnSURBVEhL7ZDBCcMwEATVk+pIM/rkqQbUgApQBS4or0B+gaSAs1f4hA26cLbP5OOBxet9DOIcnYRz94FOSXe0iPM3Mg2L6z2m4fF8HU5XbMElbvxfHGOc2xppV4lTSuS9r98l0g5U4pxzFSDo0rZEJQb8OqSU0nrvtUAtBrgnCxHpvmCTGLD8lxRsFoMQwtxkdok1XOJGV/z+fA9nJa4/lmliLqYZaASMQXd8T+NUgQAAAABJRU5ErkJggg==" InformativeScreenshot="dab30252e0577036040260970518a030.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="953, 254, 80, 13" ElementType="Text" FriendlyName="'Search Template'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl parentid='PageToolbar' tag='TABLE' /&gt;&lt;webctrl id='xspanSubjects' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl parentid='PageToolbar' tag='TABLE' /&gt;&lt;webctrl id='xspanSubjects' type='' tag='SPAN' class='PDS_TITLE_NAME' aaname='Search Template' check:innerText='Search Template' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAARCAYAAABD/oseAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHWSURBVFhH7VUxbsMwDMyf8o68JWOfkz+kD8gHPAbw5CWbAQMeDGTIwoqSKJEU3dSB3ACtCRwgixR5PNH2bvfxCRsqYX+ATdCa2AStjE3QynifoFe43AHaxvK9Azdo4QGXs+VbgFLQ0Giy/sZ8NfEDQc8DjJGGtAqNF3gu6KkHGLur6UvQguKhLKJruh/gyPz1sGxCj91jxctFrCjo3CHfFBk110xxA40IRbH64AuiIWEyjJMxz6auFFTnc3t+oieXM267+Mx5gpM/N1eXC8pzRz3MPg0OxStPB+9qMpFs2uPFM/J0B9JcADn5CBlT+iW0oBhP05188RPh9+OahiMPiqyb89o9BT3CZeQcwWdymP0pkbC8sLJy8pz5+DgFsZhNVsZowTSkX9VEw8uOExomUdbUgiZu2KcflDI+myWozWFeUAQjaDccyFGRHPMbghrTVElQX4veRpazFNTgIAV1xfhPKBWLa56gGdyakwtrW1Duk3uvCarzuefOrV8Q1E+iz6MEjbn92hR0hoOe0JCATN6A6aNPg3tueyIiSQcgYTI8K2OkYCVKP8/nDH0LBM1mxefco/t5pZysVx3nDTl8+8r/SViXXRGboJXx/wRdGZuglbE/wBd4m/LfFqALjgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Advanced'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_59" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_find_entity.aspx" DesignTimeRectangle="1035, 290, 123, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Advanced'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='cmbSubjectsTable' tag='TABLE' /&gt;&lt;webctrl tableCol='2' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='cmbSubjectsTable' tag='TABLE' /&gt;&lt;webctrl type='' class='PDS_COMBO_TABLE_DESCR_COL_TD PDS_COMBO_TABLE_DESCR_COL' tag='TD' aaname='Advanced' check:innerText='Advanced' /&gt;" Guid="f02b6688-c3b0-4c48-8f81-89be824eef15" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH8AAAAXCAYAAAAiGpAkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHpSURBVGhD7ZbRjcIwDEA7Agsg2KEzAFswQf5ujaxyP/1BMEZ/EDNUDICE5IsdJ417vbScTjqV+EmG1nXbKM+JWoFjtVpRVB+fGgVE9K3yywuVX3CMylfKQOUXjMovGJVfMCq/YP5GfmuhNg10fPp/tGBrA83/D2QRzJLfNQbq3KSq/EUyQ34HjTFgrQHz06yq/EUyLb9rwKDY8M9p3xS12xE46BpOfg225ZIoY1AbCqhpLNhwrb+Rd5uR+pBLxiJqVf5sJuXjxPoVL1cVTbiQ6GW0diBLNIwDmyg8h2TycZpPjyP4fut+Ed9M9BqqDXld+a8wIT+ZZAeK9Y0g80JyIgPrQ83o6hTN0YsTjRWgRgn3+8CxyFqV/wp5+SRSTriXlZEfryUrlcSNrM5X5cfaHpX/e7Lyv0voJzfd3qkuEYPnxn0kxntTcdQIefmiJsCNGIfjzhs8plpuLKpR+XPJyB+sbqbf+lGW3w1IdLoqh6L4WbRzWPeBNyXfQQ3FzxdNFHIu+jTn3DhU/nwy8pV3R+UXjJC/3W7p5Hq90kXlfUHH6BqdV8/nE/b7PSWOxyPcbjcuU94NFI+O0TU6rx6PB5xOJ0polBOXywWq+/1OXYENsNvtYL1ejxZrLD82mw0cDgc4n8/OOMAXjBMMysCTl8QAAAAASUVORK5CYII=" InformativeScreenshot="7686261c9039075fa46cc8d4f8cd1675.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NClick ClickType="Single" DisplayName="Click App Number text box" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_60" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_find_entity.aspx" DesignTimeRectangle="926, 377, 228, 20" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT txtFieldValueLowN…'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='xdivField_2' tableRow='3' tag='TABLE' /&gt;&lt;webctrl id='txtFieldValueLowNum_2' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='xdivField_2' tag='TABLE' /&gt;&lt;webctrl id='txtFieldValueLowNum_2' type='' tag='INPUT' class='PDS_TEXT_ALIGN PDS_SELECTED_CTRL' aaname='' /&gt;" Guid="efc2b84c-2ce9-4be8-a888-db86555492a6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOgAAAAYCAYAAADwO7FhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE7SURBVHhe7dw7aoVQFEbhDMFefMzBMagzSBPILMVHG1KHVCEjSGcjqQT35RcUTLzpPNnF2vA1HrVb2HjOwziOBsAnAgUcOwQ6TZPN82zLshjDMOFH7alBtXgIVBc0TdNYVVWWpqlFUQQgEDWn9rquW1tUk3ugqrZt29MHAYTV9/3a5B6oPq2qV4uPT8/28vZhX98GIBA1p/bUoFpUk3ugmjiO18UtzqIofr0EwHXUnhrM83xt8hCoFmS7mUCB8LYONQQKOEOggGMECjhGoIBjBAo4RqCAYwQKOEaggGMECjhGoIBjBAo4djdQ/aCrBXayAP/j7s/yP7ebvb5/nr4AwDX+3G7Ghm3Aj2EYjhu2tyNPFGlZlpYkyemDAK6RZZnVdb2epqA5HHmyRapq9WllGCb8qD01qBbHcbQbLE61Y0OdL7YAAAAASUVORK5CYII=" InformativeScreenshot="e8e4aea78faa1cd9fdc5c90363011933.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <uix:Target DesignTimeRectangle="639, 377, 110, 20" ElementType="InputBox" FriendlyName="'App #'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='xdivField_2' tableRow='3' tag='TABLE' /&gt;&lt;webctrl id='cmbFields_2' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='xdivField_2' tag='TABLE' /&gt;&lt;webctrl id='cmbFields_2' type='' tag='INPUT' class='PDS_COMBO_POSITION' aaname='584 : App #' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHIAAAAYCAYAAAAmsqlBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFLSURBVGhD7ZZhasQgEEb3Tp6jN/EocxqP4gX6a2EhkEJ7ADujMatJDLrZQpXvwZdsBslCXmbMbZ5nh/QfiBwkEDlIVpE39YH0nFQk6Atx9nl/+EBkx6TOILJjIHIQIHIQGkVaR0o5RXa5fi+WiP/BucmQM1OogTraRFpiicQywwN/L/yS+BdkcoYMH0ELTSItKSfPOp49k3GaxRLXlHSrXiSU6jtYnF7WZNHoygYaRMpYjaNPP8erFxbFBimhsQr1Aus45a4/WweOqRcpY3XTbcFR8puRbtVipFQvgP3xGtUiRcR2/D0773WRvrs395WcSQd7KkXKWM33rHW8ZsLCV+1ecFI/gteSv3n84AGt1IlMx2okivLnpJuiiFL9AOyP16nsyBOyzkso1cGfAJGDcF0k+BdA5CBA5CCIs6/vH59MJNJxokik58zuF2e2BI2lshUoAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="" ClickBeforeMode="Single" DisplayName="Type Into the App Number search box" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,249" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Text="[in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C]" Version="V3">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_find_entity.aspx" DesignTimeRectangle="946, 373, 228, 20" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT txtFieldValueLowN…'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='xdivField_2' tableRow='3' tag='TABLE' /&gt;&lt;webctrl id='txtFieldValueLowNum_2' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='xdivField_2' tag='TABLE' /&gt;&lt;webctrl id='txtFieldValueLowNum_2' type='' tag='INPUT' class='PDS_TEXT_ALIGN PDS_SELECTED_CTRL' aaname='' /&gt;" Guid="6feab637-fb1d-4c4f-bd1a-9d6261ddd460" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOgAAAAYCAYAAADwO7FhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE7SURBVHhe7dw7aoVQFEbhDMFefMzBMagzSBPILMVHG1KHVCEjSGcjqQT35RcUTLzpPNnF2vA1HrVb2HjOwziOBsAnAgUcOwQ6TZPN82zLshjDMOFH7alBtXgIVBc0TdNYVVWWpqlFUQQgEDWn9rquW1tUk3ugqrZt29MHAYTV9/3a5B6oPq2qV4uPT8/28vZhX98GIBA1p/bUoFpUk3ugmjiO18UtzqIofr0EwHXUnhrM83xt8hCoFmS7mUCB8LYONQQKOEOggGMECjhGoIBjBAo4RqCAYwQKOEaggGMECjhGoIBjBAo4djdQ/aCrBXayAP/j7s/yP7ebvb5/nr4AwDX+3G7Ghm3Aj2EYjhu2tyNPFGlZlpYkyemDAK6RZZnVdb2epqA5HHmyRapq9WllGCb8qD01qBbHcbQbLE61Y0OdL7YAAAAASUVORK5CYII=" InformativeScreenshot="96d21ff73e6c408037c9e18d646f3599.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="660, 373, 110, 20" ElementType="InputBox" FriendlyName="'App #'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='xdivField_2' tableRow='3' tag='TABLE' /&gt;&lt;webctrl id='cmbFields_2' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='xdivField_2' tag='TABLE' /&gt;&lt;webctrl id='cmbFields_2' type='' tag='INPUT' class='PDS_COMBO_POSITION' aaname='584 : App #' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHIAAAAYCAYAAAAmsqlBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFLSURBVGhD7ZZhasQgEEb3Tp6jN/EocxqP4gX6a2EhkEJ7ADujMatJDLrZQpXvwZdsBslCXmbMbZ5nh/QfiBwkEDlIVpE39YH0nFQk6Atx9nl/+EBkx6TOILJjIHIQIHIQGkVaR0o5RXa5fi+WiP/BucmQM1OogTraRFpiicQywwN/L/yS+BdkcoYMH0ELTSItKSfPOp49k3GaxRLXlHSrXiSU6jtYnF7WZNHoygYaRMpYjaNPP8erFxbFBimhsQr1Aus45a4/WweOqRcpY3XTbcFR8puRbtVipFQvgP3xGtUiRcR2/D0773WRvrs395WcSQd7KkXKWM33rHW8ZsLCV+1ecFI/gteSv3n84AGt1IlMx2okivLnpJuiiFL9AOyP16nsyBOyzkso1cGfAJGDcF0k+BdA5CBA5CCIs6/vH59MJNJxokik58zuF2e2BI2lshUoAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NTypeInto.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NTypeInto>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_61" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://pw-fcqap01/CreditQuest/CreditManager/html/prf_find_entity.aspx" DesignTimeRectangle="1153, 482, 55, 19" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl tableRow='11' tag='TABLE' /&gt;&lt;webctrl id='btnCustomSearch' tableRow='1' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='btnCustomSearch' type='button' tag='BUTTON' class='PDS_BTN_MOUSE_OUT' aaname='Search' check:innerText='Search' /&gt;" Guid="51860fd4-7332-42c4-b275-dac75d15d40f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADsAAAAXCAYAAAC1Szf+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAENSURBVFhH7ZTbDcMgDEW7EzMxiFdhh/avbMEK+WQFl/cjOGqkREoCfBwJxW5zT+3y0lrjKIwp+/58u4WUXZalO6bslO2AB8kqFJwhSKq2jxNkfQjGAiCJnjO4gayEUtAEAoFq1XMON5HlQpE1JXg7cQn5GeMolO0NIuBrXkgiVH11T/7sfg7LpvB8NVElkKdnNngbLm+FFyn/AvXGWOqetv6f47KRKB0CVFMNtBMzuP71ilI/Tt3jvv8yWYudJgOU5kyH8YHj2ueeR8iaAOWFZKcbV9dNuggshTmXgf2Zli1r9bNLJ+temtayngZZSxcUN5fN1mQtGxfUlbJPYspO2Q7YlO2VRnYEBpLV+AMCQ7Tr99lOJQAAAABJRU5ErkJggg==" InformativeScreenshot="86faedf0850ceb249968c4a89a8b3a6a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="1082, 482, 45, 19" ElementType="Button" FriendlyName="'Clear'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl tableRow='11' tag='TABLE' /&gt;&lt;webctrl id='btnClearSearch' tableRow='1' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='btnClearSearch' type='button' tag='BUTTON' class='PDS_BTN_MOUSE_OUT' aaname='Clear' check:innerText='Clear' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADEAAAAXCAYAAACiaac3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVFhH7ZPREYMgDIa7EzMxSFbJDu1bswUr+MgKqZCCoaLtnfYQz4fvTiFy+fjjzXvPvXMuifvj2R1ViWEYuuGSOAqXxDLEYCyjq+3tzw4SoWHDJgNMfUmIgEWX1xxaBupJgoCNRXazvVIiiOWkgKQmfJvTS7WO0RoGkD2gdN46myQIVFMFSsIh2yxaT2g6RyTqZy7zd4kihTdyw6FGrSuJXxNIbJKIDX4Zp1gzE5Vm07801TSQSLe5+mPH2VcjRDg+62b1CDWRCHyMRUxGSYw15UhpOXkHaJrEMbgkjsK5JXpjJtEzJ5Dw/AJa1pDooe225gAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <ui:FindOCRText Element="{x:Null}" DisplayName="Find OCR Text Position 'DIV'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="FindOCRText_2" Occurrence="1" Text="[in_OWNER_S_LEGAL_NAME_C]">
+                  <ui:FindOCRText.OCREngine>
+                    <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                      <ActivityFunc.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                      </ActivityFunc.Argument>
+                      <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="GoogleOCR_2" Image="[Image]" />
+                    </ActivityFunc>
+                  </ui:FindOCRText.OCREngine>
+                  <ui:FindOCRText.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b3482350-e388-45e9-a7b1-93ffb6d682bf" InformativeScreenshot="c97b73ad684d7daeabc69e667af59c33" Selector="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResults' tag='TABLE' /&gt;&lt;webctrl aaname='ECLIPSE ATM OPERATIONS, INC.' tableRow='1' tag='DIV' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:FindOCRText.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:FindOCRText>
+                <uix:NClick sap2010:Annotation.AnnotationText="Clicking the search result of the customer name will auto close the search box and bring the entity details for the customer into focus." ClickType="Single" DisplayName="Click Customer Name" sap:VirtualizedContainerService.HintSize="388,139" sap2010:WorkflowViewState.IdRef="NClick_62" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://pw-fcqap01/CreditQuest/CreditManager/html/prf_find_entity.aspx" DesignTimeRectangle="795, 514, 194, 13" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'FLYGIRLWIGS AND'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResults' tag='TABLE' /&gt;&lt;webctrl aaname='FLYGIRLWIGS AND CUSTOMS LLC' tableRow='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResults' tag='TABLE' /&gt;&lt;webctrl aaname='FLYGIRLWIGS AND CUSTOMS LLC' type='' tag='DIV' class='PDS_TD_NOBR_ELLIPSIS' check:innerText='FLYGIRLWIGS AND CUSTOMS LLC' /&gt;" Guid="fcf2ddc6-a6bf-4717-abc8-56700b782219" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAARCAYAAACGoNPKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOASURBVGhD7VftjdxACE1P25ZLcTUuxf9Sg4twgIHhc7xJFN2eFJ60Os8Mw4MHePd+3I1GI6EHo9Eo0IPRaBTowWg0CvRgNBoF5mCc++t+vexnu4/ruo/tde8nG91jvR0XrwHXcW9ky+tz9362A26d9z73dlit7AYwFsdBtnwPETnJP64LHgTZGy5zdh1buZ/BvlUM9Wv2NPahlfoOORXwsQx72jPaiN9J6XQcmuRa8ocvrXOWmJ/2Ql5Wj4kQowBjdbkIgk9X28/ADUYuXJEgNYMKZ+8NwX1zXcfOSUrz0nYQafCInxxLcRcEnHG5mCrbIDTs0V0603g11gJou8M9mx8P6Lap/zgYqh0XP3XLQNYO8gB9fj4NBvPbXL37oAUgDZrTgOsA+Uw/yAFr0ZeGTg/vY183ekoVudJgFLqAXe7Fr8WfDwZg2pJovrmTGBNPg4GuoGB8OcfifZ87+IEmnmKir0nseeq8GGWhaqAfpJC/BBlIw698lR65UQfW2qVGtrbCPw4KRD5cRx7LLc9gx5z0sjiV51HPiUU+ld5vc/gMHn5KYbCLBCkZfFOaM95baxaK5ETyPJX4Ojhoi7Fp8by95akawWKcv//qRrtRPDvAWlSJycZSafesZxXD42Dws/v2dLBaABY8Vcz08sGfpsg98yTj0R+xwR0WeRaDkfP7HvirbwyEaxBEEB39jQGTvVAkEZg/1lUZi4iKPGSMsaE/+TvMPA8+q2+KueATu/gzcMIW1DaJeUbfGPPXDoZg7OUBD5oveMqYydY+B22kfikZxCLP/3IwStvYpKYoRqToq44F70Nx4J6c4T362ndF8zzZ1yqnda7oQwbKDZZrmBHHXjXZRNBgAvdrbqvTwHOcPtfIV/FYf/GZc6sGA7HaX8VYDAbtlT4+i384GLznkrSFCUUKIln+p1jcW5FEhT0XR8HjmkNz8v9sxyYS5P2Ze2iMkf9qMDj+oJmg1A71IQ7Db9eQW/Tv3S9iTzHLuvIBmHnCuf1nO9RQsfBT2he6gF2u/9fitwbDviklsdkcAdIc3h4LJHtchCSSCoSxOB98p2weONe4Cx4Ecs19c0YF1/2yGFUxpVFmwwhsPFm7d8WO2k15Q/wqu80XPqkeeJ6H3fPY+BcNbfL0d7PvgUXfpDoIV7S3MX0GczAajYaiB6PRKNCD0WgU6MFoNBLu+xcjD7By5T3gNwAAAABJRU5ErkJggg==" InformativeScreenshot="deab8b7a9e9d76f397208ed861780b4e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="792, 490, 200, 20" ElementType="Text" FriendlyName="'Name'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResultsTableHeader' tag='TABLE' /&gt;&lt;webctrl id='EntityName' tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResultsTableHeader' tag='TABLE' /&gt;&lt;webctrl id='EntityName' type='' tag='TH' class='PDS_TEXT_COL' aaname='Name' check:innerText='Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMwAAAAYCAYAAAC2jRLLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFKSURBVHhe7dfLjcMgFEBR9+SGqINKqANpZjdbpDTgRaYHt/CGjw1YiWTejlGupaPEDmTFFXjZ910AjFl+nw8BMGbZtk2+vn8kfQJ41fdBMMANggEUCAZQIBhAgWAAhftgghOzrrJaX595u4px4ToO+ACDwRgxxogL5RnB4FMNBmPFe1t3mT6Y4IysaQfK4rhujo3j8vM4r407xmRebJ3bggRmNR7MFsSZstjf7zDp9+P5cYyz/pzfxvdz0/c8Jn7PQXXHPmBGimDKok6L/RLMEcS5y7Rgzp0k7SLvjnP97nIwTkKeA8xJFUxZ5OWo1S/6c5eoMQwHwzEM/4symPbO8rroSzzjwZQjXDuGxXvHkQxzUwdzCSPe9y/zdecZCqb9Vz2S8Q6Dyd0HA6AiGECBYAAFggEUCAZQuASTbgCMIRhAYREuLq7BS+QPXsRzztRb3roAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Credit Application'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_63" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://pw-fcqap01/CreditQuest/CreditManager/html/side_menu.aspx" DesignTimeRectangle="19, 194, 16, 16" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG Switch'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='treCustomers' tag='TABLE' /&gt;&lt;webctrl id='Switch' tableRow='8' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='treCustomers' tag='TABLE' /&gt;&lt;webctrl id='Switch' type='' tag='IMG' class='' aaname='' /&gt;" Guid="9a088156-55a8-484d-82a5-5f5a92bb60e5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABySURBVDhP7dLNDcAgCIBRdmILhuokLNJJ2IIVaG1TY/wLjRw9fAc1vmgUVNUi2+B6waBEgmJMEAgKG8HRgoiYq9dm68JkQNw/4WjTaD41BVP15nrcdN7X7V25rESm2JPzUXzYl/Pb+LA3F/inDa4XDKpdNxmfzzfWjQUAAAAASUVORK5CYII=" InformativeScreenshot="98301e928f8959d37372ffffd33868d7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="35, 194, 85, 13" ElementType="Text" FriendlyName="'Credit Application'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='treCustomers' tag='TABLE' /&gt;&lt;webctrl tableRow='8' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='treCustomers' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='PDS_PARENT_DESCR_CELL' aaname='Credit Application' check:innerText='Credit Application' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFkAAAARCAYAAAC2AACuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHfSURBVFhH7ZZbloMgDIZZH4tiJbzPGlyJu3ALGRKIJEis1tFpz+HhPy0h5PIRbd2yLDB0rwbkBzQgP6AB+QHdBnmOHlyYunt36z9z99RAniF6B86xPMRZ7h9XbTTHDFOyzxG8CzB1/Fl07kJeVM09QXgn1hTA+Qgzrd+MISQgF8ByAlIyH+e6PqHuNL2EjDV4CMG/nRd1eZIV5OuqkHcATMGBDwl4mu7cvJ54mlLyxVuvdj3J+kwXAtaAzfEn26npAIHP81nDbk1yfkqkb68m3YOPP3qSMee6VwbBqq9ohUwFGLeHkOUe+uoEeY8uo9hroww5+b6Y5Bq3eUSpMV6LPcNecwtfys2+Hcl90ZMdA+2lL1lHJ89hyCvU9vZJCE4Uk/zOQxZ+aa1yqqaFn2HvQa62HJ9F9rWPUr8FWdlFjZZ/8auvC3Tce100kBlG1UXItCcvLokLN2Ba9sOQVc8WzL+EXIpUhaTDGERDzsFVsojf83n2I58TkLcQjObk42jYe5DJt2lenZf70i5jyNxk7132LmRUAb1OUwbSQt74qUazzad/CRvI8pwCKn2q1KRwLozNtRj2LmS2s7+oLa/TD1cDMMc8+sN3GPKHSjVxwP5hGpAf0HdA/nINyLdrgV8FpBvkEBSK/AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+              </Sequence>
+              <Sequence DisplayName="CQ to LP Interface: Export Transaction" sap:VirtualizedContainerService.HintSize="584,81" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Doc Prep/Laser Pro'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_64" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/side_menu.aspx" DesignTimeRectangle="53, 461, 93, 13" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Doc Prep/Laser Pro'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='treCustomers' tag='TABLE' /&gt;&lt;webctrl tableRow='20' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='treCustomers' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' aaname='Doc Prep/Laser Pro' check:innerText='Doc Prep/Laser Pro' /&gt;" Guid="558ac9a9-ff83-4ea5-8be6-c4c78285712f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGEAAAARCAYAAADNJMJiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIlSURBVFhH7VXLjcJADKWnlMOdEyda4ApVIFEAEg2wHXCjBorwjj22x+N4FhSQkmhzeCLx2M+f5wmrFQAsGBk/T4AF42IRYQJYRJgA5i/C7QDd/h6fzQRFhMcF1l0HnWILx0ftPAg93gOcIr+BOO072N3SM+X5LvdrPOG4sb1xLaFvG04E0wQPbwhpBceLQ/ve5uIQmHtEEXRGeCsH1NAWAYGkmwtc6d2qbv3qbeiJ5nmFk+07FEXOqQnmkrzkn/wkhxUQOcSvJYLlNLf7et4Wu3LeYed9ozoVTgSKz3G4bOv9IcWm3/OTz5hbZ5rxtwjGZjeYGmAi+6xxFo5XecjuGxA/0xwNUYZXmsQYzJ0bTO9R/Q51buFJuc65LzyXeqivsE4LJwLVaualc8l+UqudJeJNEVyylj0CN6Fb19rcamMzqGi6CXUzOR8+F0HC+gl2uxOoebZVy+P85LzJi8j1lJhSDw5aF8QtT93T25+jT0UImvB2V5iiKQI2ZuLDPNlfhqHbLecUw8P2g6p8gvoJ7f6/IwIXKAnsFbKfoPraBWg18SIfvh/x2RZMPtwM2nsDjUXInPmZYpLvTgak/OZcYvEzFfIK3hUh+8m7nSXCiZAOFX4ruEg6s0VZe1BQq4nIjgPR/MzlbLaRKlevfvbV+G36c5WbUH96Ck9tF8E+FwFhuN3SFhGmCt1Ua8fmg0/HTDFPEXA7e8LMF9MX4R9gEWF0APwCF/Cnkgg/gQcAAAAASUVORK5CYII=" InformativeScreenshot="456ea46dad59d00d2c2267a0d3eaefb8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="35, 245, 85, 13" ElementType="Text" FriendlyName="'Credit Application'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='treCustomers' tag='TABLE' /&gt;&lt;webctrl tableRow='8' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='treCustomers' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='PDS_PARENT_DESCR_CELL' aaname='Credit Application' check:innerText='Credit Application' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFkAAAARCAYAAAC2AACuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHwSURBVFhH7VaxjsIwDOWPGe6D+AIk/oCdia1LB9YinSoxIHXyxU6c2KlNCxQdQy09XfNix/aLW26zAYAVH8bmZw8rPgyTXLEsTHLFsjDJBbBtB4DuYu59Gv+Z24QmznC8hy91tgGOB7k/H6XReGZzCvzhCj3cYGf4MyjujbyIkvsCzStnnW4A9ytsaf3iGRJlkQSWExCS9e25rJ+AOU2TImMNAzTd8HJexNuTrEReAPnhgQC7DqDvguDhDmLzeuJpSskXb12YmmQdY4qANWBz/Jd5avoGDcdzrMN7kxzfkmSitmw5pljf/upJxpzJ8iB49TH4gQpwbg9FlnvoqxPEPbqMxJdGWeTgOzHJ5dzqFaXGeC32HL7kFr6Um30NyH3Rk38G8qkvWYeVhx+mRM6i1rdPhsKJYoLf8yILv7BWOVXTws/hLZELF89nEJ8t1e+JrHhRo+ef/MrnAh0ffS4qkVmMgjdFpr3KuHBHTI+fLbLq2RNzSZFTkaqQEIyHaJHj4SpZi88xnv3I5wmRxyI4zcnX0eEtkcm3bl7Gy33JyzNkbuKty34oMiIJnS0KUos88lONRuvDfwkjkWWcElT6FKhJEZZrcXhTZObZRG1xHX64KgHR5v/wzRb5S6GamMF/G0zy27CKvGISJrliQezhD+qIB/yUi2gGAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NClick ClickType="Single" DisplayName="Click drop down arrow for app number" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_65" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_doc_preparation_list.aspx" DesignTimeRectangle="201, 207, 16, 15" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG PdsListSwitch'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilities' tag='TABLE' /&gt;&lt;webctrl id='PdsListSwitch' tableRow='1' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilities' tag='TABLE' /&gt;&lt;webctrl id='PdsListSwitch' type='' tag='IMG' class='' aaname='' /&gt;" Guid="b08de2c7-9dbc-4dbe-ab25-4f20a1c16e4d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACYSURBVDhPY/hPZTBqICaoatz/PzlnC5RHGBBtILGGEmXg23ff/nsETCXKUIIGggwBGQgzNDZtI1QGOyBoIMgAmIHEGEqSC2/cevP/4JGH/+1cG/4HRq2AqkAFRLsQZpilQ9l/Z+8uqCwmIMpAkGE7994laBgIEDQQFGbEGgYCBA0EGUKsYSBAVKQQSirIgKCBpIIRZ+D//wA9CLFH0pwQlwAAAABJRU5ErkJggg==" InformativeScreenshot="b19c1acb4c66893ce03c51adcd651a17.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="218, 178, 1154, 21" ElementType="Text" FriendlyName="'Facility'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilitiesTableHeader' tag='TABLE' /&gt;&lt;webctrl id='xFacility' tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilitiesTableHeader' tag='TABLE' /&gt;&lt;webctrl id='xFacility' type='' tag='TH' class='PDS_TEXT_COL' aaname='Facility' check:innerText='Facility' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABIYAAAAZCAYAAABEkCWFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHjSURBVHhe7dzNUeNAEIBR56Rw2INi4KhIFIeq4MZVITgYX5od2WNGBvwjZC+187rqlUESw/2rlje73S4AAAAAqM/m5fUtAAAAAKjPZrvdTj+kTwAAAAD+b2UHEoYAAAAAKiIMAQAAAFRKGAIAAAColDAEAAAAUKkHhqEx+raJbvjqHgAAAACPdjkMjX20TRNNqRvmz5wzdNG0fYyzMDRE17TRj+X94m8AAAAAuLsrw1AXQ3ltkW82hoQhAAAAgH9icRga+7bYIirup9CTr6fgc3ZjKH3mM5p4ev4z20aa/sct20kAAAAAXO3KMPQRb5K2H4tn9sFnf20femZbQTe9Spau58iUnj88k88CAAAAYDWLN4ZOg9EUhr56LeymMLSNoTuclc4/PQsAAACA1SwMQ/PNoGPMWSEM5SA09O3JZhIAAAAAa/pBGMqvee0j0XHLpwhGk1vD0OG52fcWAQAAALC6hWGo/PLpLrq8MZTupdAzXf8rBZ9LYegQlo6vo+Wzfek0AAAAwF1dDkMPlwJSjkYAAAAA3MvvC0OfXi0DAAAA4B5+4cYQAAAAAI8gDAEAAABUShgCAAAAqNQsDKVfAAAAAKiPMAQAAABQKWEIAAAAoFKbMMYYY4wxxhhjjDEVTsQ7cUBZVFrw+coAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <ui:ClickOCRText ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" sap2010:Annotation.AnnotationText="" ClickType="CLICK_SINGLE" DisplayName="Click Application from dropdown" sap:VirtualizedContainerService.HintSize="388,83" sap2010:WorkflowViewState.IdRef="ClickOCRText_4" KeyModifiers="None" MouseButton="BTN_LEFT" Occurrence="1" Text="[in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C]">
+                  <ui:ClickOCRText.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:ClickOCRText.CursorPosition>
+                  <ui:ClickOCRText.OCREngine>
+                    <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                      <ActivityFunc.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                      </ActivityFunc.Argument>
+                      <p:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" DisplayName="UiPath Screen OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_4" Image="[Image]" Language="auto" Profile="Screen" Scale="1" Timeout="100000" />
+                    </ActivityFunc>
+                  </ui:ClickOCRText.OCREngine>
+                  <ui:ClickOCRText.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e856247c-3b79-4b36-aaf6-3de16101c9cb" InformativeScreenshot="5f95a6d64233f0f37f70c4953f509fab" Selector="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='cmbCreditAppTable' tag='TABLE' /&gt;&lt;webctrl tableCol='2' tableRow='2' tag='TD' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:ClickOCRText.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ClickOCRText>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Facility'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_66" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://pw-fcqap01/CreditQuest/CreditManager/html/prf_doc_preparation_list.aspx" DesignTimeRectangle="201, 156, 15, 16" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG PdsListSwitch'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilities' tag='TABLE' /&gt;&lt;webctrl id='PdsListSwitch' tableRow='1' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilities' tag='TABLE' /&gt;&lt;webctrl id='PdsListSwitch' type='' tag='IMG' class='' aaname='' /&gt;" Guid="f4d6e1c2-1f59-4271-a086-1ad76113a34f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC4SURBVDhPrdChCgJBFIXhfS2LCCIIFq2CSTDZBINJq913sGwQLAYRwYcQwWBXo/XKWZxlrnPWcDB8LPuzcxg2yya5/Q2NKhpVNKpoVNGoolFFo4rF4Xhrzc7S2t2VDUabAlp4zhaHkjvrXj5wqNaY2m5/tfPlbo/nK4FRcGfdSwQ3qxrEjZMhSEIkDB5Pt3KwcghojMSD4R+y7wo0fsFgvTX/PQQ0Er3+mnaHRhWNKhpVNKpolOT2Bm6kRLC+BKXlAAAAAElFTkSuQmCC" InformativeScreenshot="b3df6298066484483922caa63ed4796c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="218, 127, 1221, 21" ElementType="Text" FriendlyName="'Facility'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilitiesTableHeader' tag='TABLE' /&gt;&lt;webctrl id='xFacility' tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilitiesTableHeader' tag='TABLE' /&gt;&lt;webctrl id='xFacility' type='' tag='TH' class='PDS_TEXT_COL' aaname='Facility' check:innerText='Facility' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABMkAAAAZCAYAAAArIXmoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHiSURBVHhe7dyxUcMwGIBR7+RxoPAM0HkSL0HjO+hoPYKHSSOQEwU5hIQYbLjTK94lyELpv/vlarfbBQAAAAAoWfX88hoAAAAAoGTVOI7Tl/gJAAAAAKXIm5hIBgAAAECRRDIAAAAAiieSAQAAAFA8kQwAAACA4m0YyYbQNXVo+3PPAAAAAODvXI9kQxeaug51ru3ney7p21A3XRhmkawPbd2EbsifZ/8DAAAAABv6ZiRrQ5+vLfLFJJlIBgAAAMAfWxzJhq7Jpsuy5zF6pfUYvy5OksXPdEYd7h7uZ1Nq02/cMrUGAAAAAAt8M5J9hKyo6YZszz5+7df20Ws2LXbTdcu4noJb3H/Yk84CAAAAgBUsniQ7jWdTJDt3dfKmSDaGvj2cFc8/PQsAAAAAVrAwks0nxo5h6xciWYpjfdecTKwBAAAAwDp+EMnSVch9MDtOf2XxbHJrJDvsm73nDAAAAABWtDCS5S/ub0ObJsnisxi9pvV3MX5di2SHyHa8spnO9sJ+AAAAADZyPZJtLsa0FNAAAAAAYH3/L5J9un4JAAAAAOv6h5NkAAAAALAtkQwAAACA4olkAAAAABRvFsniHwAAAABQMpEMAAAAgOKJZAAAAAAUr6oenwIAAAAAlOspvAEdSjrpi77EbwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NClick sap2010:Annotation.AnnotationText="!!!! Need to map to the product argument" ClickType="Double" DisplayName="Click 'New Line of Credit'" sap:VirtualizedContainerService.HintSize="388,188" sap2010:WorkflowViewState.IdRef="NClick_67" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="http://pw-fcqap01/CreditQuest/CreditManager/html/prf_doc_preparation_list.aspx" DesignTimeRectangle="218, 178, 1221, 20" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'New Line of Credit'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilities' tag='TABLE' /&gt;&lt;webctrl class='PDS_TEXT_COL' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilities' tag='TABLE' /&gt;&lt;webctrl class='PDS_TEXT_COL' type='' tag='TD' aaname='New Line of Credit' check:innerText='New Line of Credit' /&gt;" Guid="3f4812fd-bd1b-4382-8ff6-295d28e393e7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABMkAAAAYCAYAAADgfaoNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMSSURBVHhe7dzLcaswAAVQ9+S22L02aCBFvA2lsHuLVOAi9PThIwiOPU6cz+icmTvBIITw8o6c0+nP3yAiIiIiIiIiItJ0Xl5egoiIiIiIiIiISMs5BQAAAABonJIMAAAAgOYpyQAAAABonpIMAAAAgOYpyQAAAABoXmMl2Rj68zmcY7rhMp17hvScLjz1EQAAAAB8msOSbOxTkVSVPJchdOc+jNPHj7uEoTuHfjfhZejCeX/yE92cf+xzgbbk4bVUJVmasxviG5fv9bnlHAAAAACPuFqSdV1VKH1RSfZs75ZUuSCrd3+lNT76zsc7yZRkAAAAAD/T9ZJsGMPQTUXPriTLO7I2u622pVddBh3v3rq1k2y63s87u+rCaf3J5PZ8rdxfxkzr3uwSe1t+XS2wpnfv4/XDuaZdYsnme9nvJNs8/9q6AQAAAPgO75Rkl1zw5L91SZaOl2Jo3TG1lkzxXNctY47Lp/tKsrlcS3PUx/N9xwXcdnwec/PnjqV4O5gqTRDfvb6Wxs4lW/UemyJx/V7iQ/3cEgAAAOCHe78kmwuhqgDa7pYqySVRKoPSQRzbx3vHPpVEqUQ62jV1X0k2X1/PlzJr8/ylsJvt5q7W/nhJNpdf0WZHWEmac1vYKckAAAAAfpMbJVkpqLq+35ZkR21SKpO6IYzxeumz0i60oZRsZUTlIyXZUelWe6QkK/ccXjsqyd4Uc/UaEyUZAAAAwG9ysyQrhU/aMTUVRXknVVVUjcN0XIqmZVwul+LnpTiqPVqSTc9Yboyfh90kUVr/PCbfe09JtX+v/Kz4LvuSbHqvdQnx/dNxvr9+dyUZAAAAwG9xR0k2FU1VUVQ+p0IsZS2W1jIrf8qF1nEpNJVdyxwx3RD+7cqweartvHNpN2U5X6vnX9d9s6TKRdc6dx67L8mS3bh5CbmcS+fS/2Q7KMnW++oyDgAAAIDvdliSAQAAAEBLlGQAAAAANE9JBgAAAEDzlGQAAAAANE9JBgAAAEDzTq+vr0FERERERERERKTl2EkGAAAAQPOUZAAAAAA0LoT/p804ArKpcZ0AAAAASUVORK5CYII=" InformativeScreenshot="724b396fd7e66ae0d7203ef4e013f4a4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="218, 127, 1221, 21" ElementType="Text" FriendlyName="'Facility'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilitiesTableHeader' tag='TABLE' /&gt;&lt;webctrl id='xFacility' tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl id='lstFacilitiesTableHeader' tag='TABLE' /&gt;&lt;webctrl id='xFacility' type='' tag='TH' class='PDS_TEXT_COL' aaname='Facility' check:innerText='Facility' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABMkAAAAZCAYAAAArIXmoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHiSURBVHhe7dyxUcMwGIBR7+RxoPAM0HkSL0HjO+hoPYKHSSOQEwU5hIQYbLjTK94lyELpv/vlarfbBQAAAAAoWfX88hoAAAAAoGTVOI7Tl/gJAAAAAKXIm5hIBgAAAECRRDIAAAAAiieSAQAAAFA8kQwAAACA4m0YyYbQNXVo+3PPAAAAAODvXI9kQxeaug51ru3ney7p21A3XRhmkawPbd2EbsifZ/8DAAAAABv6ZiRrQ5+vLfLFJJlIBgAAAMAfWxzJhq7Jpsuy5zF6pfUYvy5OksXPdEYd7h7uZ1Nq02/cMrUGAAAAAAt8M5J9hKyo6YZszz5+7df20Ws2LXbTdcu4noJb3H/Yk84CAAAAgBUsniQ7jWdTJDt3dfKmSDaGvj2cFc8/PQsAAAAAVrAwks0nxo5h6xciWYpjfdecTKwBAAAAwDp+EMnSVch9MDtOf2XxbHJrJDvsm73nDAAAAABWtDCS5S/ub0ObJsnisxi9pvV3MX5di2SHyHa8spnO9sJ+AAAAADZyPZJtLsa0FNAAAAAAYH3/L5J9un4JAAAAAOv6h5NkAAAAALAtkQwAAACA4olkAAAAABRvFsniHwAAAABQMpEMAAAAgOKJZAAAAAAUr6oenwIAAAAAlOspvAEdSjrpi77EbwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NCheckState DisplayName="Check App State 'Document Preparation'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NCheckState.IfExists>
+                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,270" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Prepare Document'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_68" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_doc_preparation_facility.aspx" DesignTimeRectangle="701, 250, 118, 21" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Prepare Document'" FullSelectorArgument="&lt;webctrl src='prf_doc_preparation_facility.aspx' tag='IFRAME' /&gt;&lt;webctrl id='Table1' tag='TABLE' /&gt;&lt;webctrl id='btnPrepareDocument' tableRow='1' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_doc_preparation_facility.aspx' tag='IFRAME' /&gt;&lt;webctrl id='Table1' tag='TABLE' /&gt;&lt;webctrl id='btnPrepareDocument' type='button' tag='BUTTON' class='PDS_TOOLBAR_BTN_MOUSE_OUT' aaname='Prepare' check:innerText='Prepare Document' /&gt;" Guid="7db99667-4cf2-4bae-bb41-126f873f00ce" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHoAAAAZCAYAAAD+OToQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIVSURBVGhD7ZdNjsIwDIW5Mcs5DneAA3ABlkis2LBDQmKBxIJNJrHjxElfENXMlE6wpU9qX/Nj+7URLJzFR8Ri8bVxxgcARaM/oGj0BxSN/oCi0R9QNPoDikZ/QNHoDyiOYX1x1/innOPmVmjcO9ndYm4SM8wRsDo7dz3u4bPRQHEMZHRuXEjOnU/Dce8kGH2/uKW+dw+3XasxM2TWRqemRv0QjI/Pl8dHuOGQl4HG+3H3Sv86uUOUQkjBVPz5RqcIa3u3lbk+DruYh6Y22kO56BxiFI1VOs/nvWSPvEbUfV4cvl510uWcUK713PgC6r1/46WE4hhaX3QsNBUZ7lOzg4m6IClE6XE9gsbwHrS+Mi00O5kTxlWGNnXRKE+9v+Ssr4XnRhfXsp/aG+eq55Yn4gy/aBVSYPUCUFOqoIYVJpSNpKJTZKNz8bFJReQ9E8+Mrp6l9dGcKr/BF63ybhpaRMi1teYsjQbNRUbHAgqKhuaiabzoai1ktDSpCTAt5TOx0cNcW2v+U6OpYH0s7y756C4M5TG6YLqGRvN9YdSxNsdTm6ZzUXsWxzXptTFsCu/P168b3cq1N6M9bJhEbC41PUcujJtOGv34wkanhktoQ4Vqj8Hxrp4Xa+t5sm7SHv4HlJjymtE417bRei9+EX8AFKekaITxZ0BxSszoaYCi0R9QNPoDikZ/QNHoDyga/QFFozM27hvhTLtDQhrVaAAAAABJRU5ErkJggg==" InformativeScreenshot="2a50c868b2aaea9f9bd6d59c3bcb5669.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target DesignTimeRectangle="621, 221, 516, 28" ElementType="Text" FriendlyName="'Document Preparation'" FullSelectorArgument="&lt;webctrl src='prf_doc_preparation_facility.aspx' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='xtdPdsHeaderTitle' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_doc_preparation_facility.aspx' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='xtdPdsHeaderTitle' type='' tag='TD' class='PDS_TITLE_TEXT' aaname='Document Preparation Instructions' check:innerText='Document Preparation Instructions' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                    </Sequence>
+                  </uix:NCheckState.IfExists>
+                  <uix:NCheckState.IfNotExists>
+                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="400,337" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_67" Level="Info" Message="[&quot;THROW: Document Prepartion Instructions Window did not appear.&quot;]" />
+                      <Throw Exception="[New BusinessRuleException(&quot;THROW: Document Prepartion Instructions Window did not appear.&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                    </Sequence>
+                  </uix:NCheckState.IfNotExists>
+                  <uix:NCheckState.Target>
+                    <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_doc_preparation_facility.aspx" DesignTimeRectangle="621, 221, 516, 28" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Document Preparation'" FullSelectorArgument="&lt;webctrl src='prf_doc_preparation_facility.aspx' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='xtdPdsHeaderTitle' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_doc_preparation_facility.aspx' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='xtdPdsHeaderTitle' type='' tag='TD' class='PDS_TITLE_TEXT' aaname='Document Preparation Instructions' check:innerText='Document Preparation Instructions' /&gt;" Guid="b45fa349-b463-4c16-84e5-9e916c9f3e08" ImageBase64="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" InformativeScreenshot="a9ee8836ef9331e5cc9b5e1215c5ab23.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive" />
+                  </uix:NCheckState.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NCheckState>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Open the CQ LP Interface'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_69" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable DesignTimeRectangle="818, 168, 240, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Open CreditQuest'" FullSelectorArgument="&lt;ctrl name='Open CreditQuest - LaserPro Interface?' role='dialog' /&gt;&lt;ctrl name='Open CreditQuest - LaserPro Interface' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Open CreditQuest - LaserPro Interface?' role='dialog' /&gt;&lt;ctrl name='Open CreditQuest - LaserPro Interface' role='push button' automationid='' check:fulltext='Open CreditQuest - LaserPro Interface' /&gt;" Guid="f27c1e98-e9f3-4a16-b383-b2d9c44b8ce1" ImageBase64="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" InformativeScreenshot="3bf1edb0c181ffef6b94bd7171e6a14d.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Credit Manager - Google Chrome' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="695, 57, 462, 168" FriendlyName="'Open CreditQuest'" FullSelectorArgument="&lt;ctrl name='Open CreditQuest - LaserPro Interface?' role='dialog' /&gt;&lt;ctrl idx='2' role='pane' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Open CreditQuest - LaserPro Interface?' role='dialog' /&gt;&lt;ctrl automationid='' role='pane' check:fulltext='Open CreditQuest - LaserPro Interface?&amp;#xD;&amp;#xA;http://tw-fcqap01 wants to open this application.&amp;#xD;&amp;#xA;Open' /&gt;" ImageBase64="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" SearchSteps="Selector, FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+              </Sequence>
+              <TryCatch DisplayName="CQ to LP Interface Module" sap:VirtualizedContainerService.HintSize="584,1070" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <TryCatch.Try>
+                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: CreditQuest to LaserPro Interface" sap:VirtualizedContainerService.HintSize="546,841" sap2010:WorkflowViewState.IdRef="NApplicationCard_15" OpenMode="IfNotOpen" ScopeGuid="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V2">
+                    <uix:NApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,548" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence sap:VirtualizedContainerService.HintSize="450,83" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,53" sap2010:WorkflowViewState.IdRef="LogMessage_68" Level="Info" Message="[&quot;Select Institution&quot;]">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:LogMessage>
+                            <uix:NSelectItem DisplayName="Select Item 'Institution'" sap:VirtualizedContainerService.HintSize="388,53" sap2010:WorkflowViewState.IdRef="NSelectItem_16" Item="MIDLAND STATES BANK" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                              <uix:NSelectItem.Items>
+                                <scg:List x:TypeArguments="x:String" Capacity="2">
+                                  <x:String>Institution</x:String>
+                                  <x:String>MIDLAND STATES BANK</x:String>
+                                </scg:List>
+                              </uix:NSelectItem.Items>
+                              <uix:NSelectItem.Target>
+                                <uix:TargetAnchorable DesignTimeRectangle="387, 167, 261, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'MIDLAND STATES BANK'" FullSelectorArgument="&lt;wnd ctrlname='comboBoxInstitution' /&gt;&lt;ctrl name='Institution' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='comboBoxInstitution' /&gt;&lt;ctrl name='Institution' role='combo box' automationid='' /&gt;" Guid="832ae346-199e-44d5-999b-09137a09c434" InformativeScreenshot="cb6e302a8efc12bd1569813a3a1612e4.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="309, 167, 72, 22" ElementType="Text" FriendlyName="'Institution'" FullSelectorArgument="&lt;wnd ctrlname='labelInstitution' /&gt;&lt;ctrl name='Institution' role='text' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='labelInstitution' /&gt;&lt;ctrl name='Institution' role='text' automationid='' check:text='Institution' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEwAAAAaCAYAAAAdQLrBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEYSURBVFhH7ZXLEYMgFEUtj4IoIF24oQdLcGMRWVqAPbwE5Scy4J0Y3dwzwwz6ksf1CGMnBILCQCgMhMJAKAyEwkAoDITCQCgM5CBsMUpeXReHMrK4GsRspM//P+qtpx7L9RqtfjdR3mFXBGkJuULYA5wT5q/TEYLPMql9bRiP93ozxz5Ky1Cru3Xfequ1+21Z8tMx+PddzY+BCXOLxAeJIUM4T+0I2Xsnjli6TrOfm68iw0tUMtnLSn6Uy4T5EULcLGzKJPhcpZ34qDBLLm0NSWHtBXchfxFWWqf1eze//UjmuyUNU1rQz8Pwkr+ktdqbDvXCB8QO/2Ctfnn2IOSfwkgdCgOhMBAKA6EwEAoDoTAQCgOhMAiRD5mYqYft5a5wAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NSelectItem.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NSelectItem>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,53" sap2010:WorkflowViewState.IdRef="LogMessage_70" Level="Info" Message="[&quot;Select Transaction Type: Commercial Closing&quot;]">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:LogMessage>
+                            <uix:NSelectItem DisplayName="Select Item 'Transaction Type'" sap:VirtualizedContainerService.HintSize="388,53" sap2010:WorkflowViewState.IdRef="NSelectItem_18" Item="Commercial Closing" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                              <uix:NSelectItem.Items>
+                                <scg:List x:TypeArguments="x:String" Capacity="8">
+                                  <x:String>Transaction Type</x:String>
+                                  <x:String>Commercial Closing</x:String>
+                                  <x:String>Consumer Closing</x:String>
+                                  <x:String>Residential Real Estate Closing</x:String>
+                                  <x:String>Commercial Application</x:String>
+                                  <x:String>Consumer Application</x:String>
+                                  <x:String>Residential Real Estate Application</x:String>
+                                  <x:String>SBA Lending Solution</x:String>
+                                </scg:List>
+                              </uix:NSelectItem.Items>
+                              <uix:NSelectItem.Target>
+                                <uix:TargetAnchorable DesignTimeRectangle="425, 215, 223, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'Commercial Closing'" FullSelectorArgument="&lt;wnd ctrlname='comboBoxTransactionType' /&gt;&lt;ctrl name='Transaction Type' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='comboBoxTransactionType' /&gt;&lt;ctrl name='Transaction Type' role='combo box' automationid='' /&gt;" Guid="4d4ea090-b1f0-41ed-a588-1b535bc64811" InformativeScreenshot="4ee386f9194a0c6879dd38a0a04d47b4.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="309, 215, 112, 21" ElementType="Text" FriendlyName="'Transaction Type'" FullSelectorArgument="&lt;wnd ctrlname='labelTransactionType' /&gt;&lt;ctrl name='Transaction Type' role='text' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='labelTransactionType' /&gt;&lt;ctrl name='Transaction Type' role='text' automationid='' check:text='Transaction Type' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHQAAAAZCAYAAADg8AqjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHESURBVGhD7ZbLkcMgDIZTHgVRwHbhCz24BF9chI8uID1owSAWi0f8nHg1+mY0YyMshH5Q8gKBFSIoM0RQZoigzBBBmSGCMkMEZYYIygwi6AD96wU/JVMG3mHW45gNdDTHQfu89RAGzvB/6lK9oZP2CfdX1ONuSoLexNPrsk9QPPVKQ69CAbGY0RSMM5mfWiz6DKOLkfiWtVrxHDSmNlmcztgPYq5+vbdRqzlxX80cc/K64D4wz+TdtGPTnJa8T3JMULRs46E14TgpahoTN7OKn1GJF9uo9bvnVst1Y+HZF4wI0MixRMmPe1niYy4ur0rs9MChiN5HDu8BDt7QpHAWnBsN/Y1iVW+MpRavmJPjg6Aj+W4lQCPHEmX/38Gb0oNK64XvVuxsj8Fq627ltKA4z5+07TfUUWo5rXjFnBxfFxTHFXTL7dcwuUFaL3xPBK2tc5TLBPXz9gmKpAXeFO9hLXcB4zjD/Fqxie8qzrdcLGZq6G9sCJ+jYRFa8Rxp4ZyF79J4pZtXbfGNHEvU/fTPkYXmas0fqkDmv/E3VNjJpy4Rhu5GBL2I1e8yIoIKZxFBmSGCMkMEZYYIygwRlBkiKCsAfgFFrhz98pLLdwAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NSelectItem.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NSelectItem>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,53" sap2010:WorkflowViewState.IdRef="LogMessage_71" Level="Info" Message="[&quot;Select Product Category: Commercial&quot;]">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:LogMessage>
+                            <uix:NSelectItem DisplayName="Select Item 'Product Category'" sap:VirtualizedContainerService.HintSize="388,158" sap2010:WorkflowViewState.IdRef="NSelectItem_19" Item="Commercial" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                              <uix:NSelectItem.Items>
+                                <scg:List x:TypeArguments="x:String" Capacity="7">
+                                  <x:String>Product Category</x:String>
+                                  <x:String>Commercial</x:String>
+                                  <x:String>Consumer</x:String>
+                                  <x:String>Home Equity</x:String>
+                                  <x:String>Real Estate</x:String>
+                                  <x:String>SBA</x:String>
+                                  <x:String>SFM Construction</x:String>
+                                </scg:List>
+                              </uix:NSelectItem.Items>
+                              <uix:NSelectItem.Target>
+                                <uix:TargetAnchorable DesignTimeRectangle="425, 239, 223, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'Commercial'" FullSelectorArgument="&lt;wnd ctrlname='comboBoxProductCategory' /&gt;&lt;ctrl name='Product Category' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='comboBoxProductCategory' /&gt;&lt;ctrl name='Product Category' role='combo box' automationid='' /&gt;" Guid="dc8c59e1-6535-40d4-8704-6bb0693256e9" InformativeScreenshot="0211d1973870c913633bbaaaafa362af.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="309, 239, 112, 21" ElementType="Text" FriendlyName="'Product Category'" FullSelectorArgument="&lt;wnd ctrlname='labelProductCategory' /&gt;&lt;ctrl name='Product Category' role='text' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='labelProductCategory' /&gt;&lt;ctrl name='Product Category' role='text' automationid='' check:text='Product Category' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHQAAAAZCAYAAADg8AqjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHrSURBVGhD7ZbrsYQgDIUtj4Iox15sxU5yExQ9QUBXR3/k5pthdhHIg2OQgRxTuKDGcEGN4YIawwU1hgtqDBfUGN8IOo8Uwkjz2nXe4yiobP4w0LC1SNM6dJu7gp6sm8cAcQYaew7+yUtVFxQST5sWH0r6gqApLhzjubGnqAu6kvvpN1IMULXyrFXJaoxbtqnszzQGqKwpwvzsa23qpZoodipyiuU68VM+k8cQoxJb7MP8cj+2Mcg55ZVjDvx/oD3kxf/TurjC9QpNieAm6k3VlVwkgDaVfRS0IlIRy0br+QGweVgjvndB5CVY4u3E3stZ5mH88nLi2KV4n3P+DW0F1etfHgNBZQNwjVDaybSeZ7DSW4JKH/PkFmRibV7u/zIG4ovwyfYHnB+5mV4yQi+55thNQWvVnJE121EI9nsxIb15v4wxi5DTHsMH3Be0d/yUG45iiR31Dc7zKiK1YmGSPxzjuelShGvQ/sGW+NNHK+89U8Sh1nVyPthnkn+u/s3J+zwQlMkBp1ZcivDY4zcU126XlnSJgM1Ta2T+8j1L/cqmqMsP+K/br9hS8YO46sjmhnm3cq7u2+LzQz0rgjoaEfeuIlWR38UFrdCq/F8RO19dhjIuqDFcUGO4oMZwQY3hghrDBTWGC2oKoj/zre0+D7tZLwAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NSelectItem.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NSelectItem>
+                            <uix:NSelectItem DisplayName="Select Item 'Product Name'" sap:VirtualizedContainerService.HintSize="388,158" sap2010:WorkflowViewState.IdRef="NSelectItem_20" Item="SBB JHA UCC Installment" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                              <uix:NSelectItem.Items>
+                                <scg:List x:TypeArguments="x:String" Capacity="50">
+                                  <x:String>JHA Real Estate Balloon</x:String>
+                                  <x:String>JHA Change in Terms Agreement</x:String>
+                                  <x:String>JHA Letter of Credit</x:String>
+                                  <x:String>JHA Loss Share Loan</x:String>
+                                  <x:String>JHA Possessory Balloon</x:String>
+                                  <x:String>JHA Possessory Installment</x:String>
+                                  <x:String>JHA Possessory Irregular</x:String>
+                                  <x:String>JHA Possessory NRLOC</x:String>
+                                  <x:String>JHA Possessory RLOC</x:String>
+                                  <x:String>JHA Possessory Single Pay</x:String>
+                                  <x:String>JHA Real Estate NRLOC</x:String>
+                                  <x:String>JHA Real Estate Construction</x:String>
+                                  <x:String>JHA Real Estate Installment</x:String>
+                                  <x:String>JHA Real Estate Irregular</x:String>
+                                  <x:String>JHA Real Estate Principal + Interest</x:String>
+                                  <x:String>JHA Real Estate Single Pay</x:String>
+                                  <x:String>JHA RLOC Real Estate Secured</x:String>
+                                  <x:String>JHA SBA 7A Guaranteed Loan</x:String>
+                                  <x:String>JHA Titled Balloon</x:String>
+                                  <x:String>JHA Titled Installment</x:String>
+                                  <x:String>JHA Titled Irregular</x:String>
+                                  <x:String>JHA Titled Single Pay</x:String>
+                                  <x:String>JHA UCC Balloon</x:String>
+                                  <x:String>JHA Demand -No stated maturity date on note</x:String>
+                                  <x:String>JHA UCC Installment</x:String>
+                                  <x:String>JHA UCC Irregular</x:String>
+                                  <x:String>JHA UCC NRLOC</x:String>
+                                  <x:String>JHA UCC Principal + Interest</x:String>
+                                  <x:String>JHA UCC RLOC Agriculture</x:String>
+                                  <x:String>JHA UCC RLOC Business</x:String>
+                                  <x:String>JHA UCC Single Pay</x:String>
+                                  <x:String>JHA Unsecured Ag RLOC</x:String>
+                                  <x:String>JHA Unsecured Balloon</x:String>
+                                  <x:String>JHA Unsecured Commercial RLOC</x:String>
+                                  <x:String>JHA Unsecured Installment</x:String>
+                                  <x:String>JHA Unsecured Irregular Pay</x:String>
+                                  <x:String>JHA Unsecured NRLOC</x:String>
+                                  <x:String>JHA Unsecured Single Pay</x:String>
+                                  <x:String>JHA Real Estate FSA Guaranty</x:String>
+                                  <x:String>SBA PPP 2021 Draw(1)</x:String>
+                                  <x:String xml:space="preserve">COVID Change in Terms </x:String>
+                                  <x:String>SBA PPP 2021 Draw(2)</x:String>
+                                  <x:String>SBB JHA Titled Installment</x:String>
+                                  <x:String>SBB JHA UCC Installment</x:String>
+                                  <x:String>SBB JHA Unsecured Installment</x:String>
+                                  <x:String>SBB JHA Unsecured Commercial RLOC</x:String>
+                                  <x:String>SBB JHA UCC RLOC Business</x:String>
+                                  <x:String>SBB JHA Titled RLOC</x:String>
+                                  <x:String>SBB JHA Possessory RLOC</x:String>
+                                  <x:String>SBB JHA Possessory Installment</x:String>
+                                </scg:List>
+                              </uix:NSelectItem.Items>
+                              <uix:NSelectItem.Target>
+                                <uix:TargetAnchorable DesignTimeRectangle="425, 263, 223, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'SBB JHA UCC Installment'" FullSelectorArgument="&lt;wnd ctrlname='comboBoxProductName' /&gt;&lt;ctrl name='Product Name' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='comboBoxProductName' /&gt;&lt;ctrl name='Product Name' role='combo box' automationid='' /&gt;" Guid="4b2a652d-3692-4fc4-ba93-336ed9fb0932" InformativeScreenshot="c4aaea02e7357e6c429c92da123cb8cf.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="309, 263, 112, 22" ElementType="Text" FriendlyName="'Product Name'" FullSelectorArgument="&lt;wnd ctrlname='labelProductName' /&gt;&lt;ctrl name='Product Name' role='text' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='labelProductName' /&gt;&lt;ctrl name='Product Name' role='text' automationid='' check:text='Product Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHQAAAAaCAYAAABmZHgNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGmSURBVGhD7ZaNcYYgDIYdj4EYh11cxU0ooQTepKKe7dfTXN47ToEQYh5+XLLLlByoMTlQY3KgxuRAjcmBGpMDNSYHakz/A3RLOYSUt1Z1fU4/gVLylyUvvcS8tq7bugv0aBzHGSE6XzgToJCULQWZtDv6FNAQCtSQ0wjWgbbnkE4K1+sz5hhg11LbbCeLvlLYp/C/5VSgdCBrBHueqxW9qJqfFRec8E3udsZXG/Bd2rsdjBXxY/vDdX2H1g+E5Bd8EepyJxOoJY8q+BT+Eaj0V6ViEep9MNfUHnyTTZ+H2jlOjIXexwIl4P1bHq7zO5S/RCfrqH65D5JIuxPHkLQfFPbxWG2POx6BdhsNEWwwB6WEb6PH6/zIZen2o/rlvj8CWv2UXZTUPP0aULD25p/avEv3gaojUh656vhEWJjo+s52d4/cJt6NOI+Ycw/WBGiNRV4Zid8frl8ALaqJ4mNJ/RThcVcShWPHTwj9nABEMYbsKcmtri+xnXiq37N5xLgZUKrit735DnW9Wg7UmByoMTlQY3KgxuRAjcmBGpMDNSYHako5fwG47SgmY/3VUQAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NSelectItem.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NSelectItem>
+                            <uix:NClick ClickType="Single" DisplayName="Click 'New Transaction'" sap:VirtualizedContainerService.HintSize="388,53" sap2010:WorkflowViewState.IdRef="NClick_70" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable DesignTimeRectangle="9, 32, 96, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'New Transaction'" FullSelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnNew' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnNew' check:text='New Transaction' /&gt;" Guid="ecdc605b-cef1-4cb4-88cd-684d7a60963b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAAaCAYAAABByvnlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJOSURBVGhD7VqxbsIwEOWr6MLEp0B+gH5E24lP6Jih7ciGxAwfgJCysyBlYUTA9c6xHdu5uIEWcKU76Umxfbm887uzhURvMBjA4XCA4/EIp9MJzucziD3OlCCj0QjG47FClmWCB8IKMnn5gMnrJzwT3r4ED4IIkhhEkMQggiQGESQxiCCJQQRJDN0Eed/Ajn61FCt/rtzA1PW7GnNYlOp3UcN2yznjf2eEuc62AH+Wu4/ugpR7FGUPi3d37gakbhX3N7gjp16//9RRkA3ky33dJSFJGuuqNtWTFwDrWbU+xXdttccS5OKWW1irDtpCjnMU15rHx/g582H3OV3OxiFQBxhzY5KRH8dRLxuOdp7l1I6LBJnq5NQme6RoviZihKhFoHV8LrQ/Jtx6FLHJOp3pYQVrs+b50bzmQ5vrimM4eHDieM8aHCc79v0pZ/u9Nk4RXCgIPpvz051TH/ZNbbj1QTJIksgaoUznRL/FjQluBZuEPb+qAOw8uYUx2uKY/Fy/GKfOaw4n48ugNxwOLxNEBcYOWEZIWeiqwCStQFihbjc1EMbixrbSgo33OAbJq/fQXM5cnP8nCMJUlp2jja/vC/Jf6Oe8wKPKEqn8omdpLMFwTM8/dQhydXl573JxFMdg47zY4dj3bxxZHCc15nGdIAh1IYYkabO12U0IKo7ea70/CNHkK9jLWF2YOsm25Nt4tcWhNVNwZComxdNj2myOo15uXuoMJ7POoJsggrtBBEkMIkhiEEESgwiSGESQxCCCJAYRJDFYQeR/WSkgg29bBfKECIC+UAAAAABJRU5ErkJggg==" InformativeScreenshot="50effd724fbc5d7fdfa8f8d90fa304a3.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NClick>
+                          </Sequence>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Test_UCC_UseApplicationLaserPro.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Framework\TEST\Test_UCC_UseApplicationLaserPro.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_CompletedDocPackageName" />
+                              <InArgument x:TypeArguments="x:String" x:Key="in_PRF_TABX_PAYMENT_TYPE_DESCRIPTION">[in_PRF_TABX_PAYMENT_TYPE_DESCRIPTION]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_FINAL_LOAN_AMOUNT">[in_FINAL_LOAN_AMOUNT_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_PROPOSAL_COMMITMENT">[in_PROPOSAL_COMMITMENT]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_NUMBER_OF_PAYMENTS">[in_NUMBER_OF_PAYMENTS]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_C_RATE_BASE_NEW">[in_C_RATE_BASE_NEW]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_STATE_OF_INCORPORATION_C">[in_STATE_OF_INCOPRORATION_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_C_INDUSTRY">[in_C_INDUSTRY]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_REQUEST_TYPE">[in_REQEUST_TYPE]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_C_ENTITY_TYPE">[in_C_ENTITY_TYPE]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_C_CMB9">[in_C_CMB9]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_MSB_ACCOUNT_C">[in_MSB_ACCOUNT_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_PAYMENT_ACCOUNT_TYPE_C">[in_PAYMENT_ACCOUNT_TYPE_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_TITLE_REGISTRATION_FINANCED_FASB_TP_C">[in_TITLE_REGISTRATION_FINANCED_FASB_TP_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_TITLE_REGISTRATION_FEE_PAID_IN_CASH_FAS_C">[in_TITLE_REGISTRATION_FEE_PAID_IN_CASH_FAS_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_FILING_FEE_PAID_IN_CASH_FASB_C">[in_UCC_CORP_FILING_FEE_PAID_IN_CASH_FASB_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_FILING_FEES_FINANCED_FASB_TP_C">[in_UCC_CORP_FILING_FEES_FINANCED_FASB_TP_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_SEARCH_FEE_PAID_IN_CASHFASB_T_C">[in_UCC_CORP_SEARCH_FEE_PAID_IN_CASHFASB_T_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_SEARCH_FEE_FINANCED_FASB_TP_C">[in_UCC_CORP_SEARCH_FEE_FINANCED_FASB_TP_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_CLOSING_DATE_C">[in_CLOSING_DATE_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_D_PRINCIPAL_DUE">[in_D_PRINCIPAL_DUE]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C">[in_OWNER_S_LEGAL_NAME_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C">[in_OWNERSHIP_TYPE_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_BUSINESS_NAME_C">[in_BUSINESS_NAME_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_MSB_ACCOUNT_OR_PAYEE_C">[in_MSB_ACCOUNT_OR_PAYEE_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_MSB_LOAN_PAYOFF_DISBURSEMENT_AMOUNT_C">[in_MSB_LOAN_PAYOFF_DISBURSEMENT_AMOUNT_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_BORROWER_ACCOUNT_OR_PAYEE_C">[in_BORROWER_ACCOUNT_OR_PAYEE_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_BORROWER_DISBURSEMENT_AMOUNT_C">[in_BORROWER_DISBURSEMENT_AMOUNT_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OTHER_LENDER_ACCOUNT_OR_PAYEE_C">[in_OTHER_LENDER_ACCOUNT_OR_PAYEE_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OTHER_LENDER_PAYOFF_DISBURSEMENT_AMOUNT_C">[in_OTHER_LENDER_PAYOFF_DISBURSEMENT_AMOUNT_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_1">[in_OWNER_S_LEGAL_NAME_C_1]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_2">[in_OWNER_S_LEGAL_NAME_C_2]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_3">[in_OWNER_S_LEGAL_NAME_C_3]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_4">[in_OWNER_S_LEGAL_NAME_C_4]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_5">[in_OWNER_S_LEGAL_NAME_C_5]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_1">[in_OWNERSHIP_TYPE_C_1]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_2">[in_OWNERSHIP_TYPE_C_2]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_3">[in_OWNERSHIP_TYPE_C_3]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_4">[in_OWNERSHIP_TYPE_C_4]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_5">[in_OWNERSHIP_TYPE_C_5]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C">[in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="CustomerListCustomer2">[CustomerListCustomer2]</InArgument>
+                              <InArgument x:TypeArguments="x:Object" x:Key="InterestMethod" />
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_ModificationFee" />
+                              <InArgument x:TypeArguments="x:String" x:Key="in_ORIGINATION_FEE_PAID_IN_CASH_FASB_FE_C" />
+                              <InArgument x:TypeArguments="x:String" x:Key="in_CollateralReleaseFee" />
+                              <InArgument x:TypeArguments="x:String" x:Key="in_CollateralSubstitutionFee" />
+                              <InArgument x:TypeArguments="x:String" x:Key="in_ORIGINATION_FEE_FASB_FE_FINANCED" />
+                              <InArgument x:TypeArguments="x:String" x:Key="in_STREET1">[in_STREET1]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_STREET2">[in_STREET2]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_CITY">[in_CITY]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_N_STATE">[in_N_STATE]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_ZIP">[in_ZIP]</InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                          <uix:NClick ClickType="Single" DisplayName="Click 'Exit'" sap:VirtualizedContainerService.HintSize="450,158" sap2010:WorkflowViewState.IdRef="NClick_71" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable DesignTimeRectangle="608, 32, 48, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Exit'" FullSelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnExit' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnExit' check:text='Exit' /&gt;" Guid="9eed25aa-699a-4a5f-8d5a-7292eba796c0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAAaCAYAAAD43n+tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADkSURBVFhH7ZU7DoMwDEA5Fl2YchRO0FN04giMnTqyITHDARBSdxakLLmAix0+GUAqKFRuZEtPIsaR8nBkIggokiSBKE1TCAUSuj9eEAIixB0R4o4IccevUN7BMP3cltAdZFu1Rb++w317dQfxL3TmYP8l1EA7NmqoS7vGzkAPz6W2hEpTL228G2fvcVAojm/XXTkSofwoQXIGqnyqneU3P8Q5/AvtHCyrzSqIORH6DhRSSl0shPkfXjm/QtQHJ7ShXFvYGtspdyhg3hkMHoaCPyEGiBB3RIg7IsSdcIXwIRSUUvAB9PsytG3D+lQAAAAASUVORK5CYII=" InformativeScreenshot="624289ff2312a2ab8ae1884a983dc2a4.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                        </Sequence>
+                      </ActivityAction>
+                    </uix:NApplicationCard.Body>
+                    <uix:NApplicationCard.TargetApp>
+                      <uix:TargetApp Area="586, 111, 665, 611" FilePath="C:\Program Files (x86)\DH\CreditQuest\ProtocolHandler\DocPrepInterface\hfs.creditquest.docprepinterface.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVFhH7Y5RCoAwDEN79BytN6utboJ2f0IYmMAjLBvsmbJREDxaagwiTWKazcuPHdXJo3EegHqH0XeukUkTcHcaSwFmJCABCUhAAhKQgAT2FGDzEsgpBzbja+XXMTsArj6PgOqKIZ8AAAAASUVORK5CYII=" InformativeScreenshot="184780b980f14a51dc81967d3bf9795a.png" Selector="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" />
+                    </uix:NApplicationCard.TargetApp>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NApplicationCard>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="550,22" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94" sap2010:WorkflowViewState.IdRef="LogMessage_75" Level="Info" Message="[&quot;CQ To LP Doc Prep Window did not appear.&quot;]" />
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="584,53" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,194" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Route Application Forward" sap:VirtualizedContainerService.HintSize="450,83" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Credit Manager" sap:VirtualizedContainerService.HintSize="484,823" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" InteractionMode="DebuggerApi" ScopeGuid="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V2">
+                        <uix:NApplicationCard.Body>
+                          <ActivityAction x:TypeArguments="x:Object">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,605" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NClick ClickType="Single" DisplayName="Click 'X' to close the Document Preparation'" sap:VirtualizedContainerService.HintSize="388,158" sap2010:WorkflowViewState.IdRef="NClick_72" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V3">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="http://pw-fcqap01/CreditQuest/CreditManager/html/app_default.aspx" DesignTimeRectangle="1215, 211, 24, 24" DesignTimeScaleFactor="1" FriendlyName="'A #'" FullSelectorArgument="&lt;webctrl tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='A' type='' class='k-button k-bare k-button-icon k-window-action' aaname='' /&gt;" Guid="8bfc73ec-1828-48db-8bb8-5e89e8d267b8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADmSURBVEhL5ZRBEkQwEEXdOAv3cIXJYmwdgFOMhQNwALYs/BG6MzFFiSl6VHmbTuuS7+tOAhB939Nq4qzcCkoRsLJUlHdIUYybCK41mDmyftFf2hRIdIaqo9ylq5DpBEVD+QYe57BGrkMopRBGGcrWqQ9iaUS1xwtGc2s/P4fGBW88iI5Ol5554H/TtKUjEONp1+ko5rvPvqFxXO11xlxYcNazGLFd7xOVHxqKI9xYZsob51hMA8LMBknnqBff/2ByP4dHHnyKYlhBtv8dmaPq8g7Xvuys+L8eSnETQW4os9Zw5vc68AZSpu1ynFfuIQAAAABJRU5ErkJggg==" InformativeScreenshot="0bcc690bfe03ea7bcc33827fd2d74a3f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target DesignTimeRectangle="643, 217, 590, 17" ElementType="Text" FriendlyName="'Document Preparation'" FullSelectorArgument="&lt;webctrl tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' type='' class='k-window-title' aaname='Document Preparation Instructions' check:innerText='Document Preparation Instructions' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                              <uix:NClick ClickType="Single" DisplayName="Click 'Route'" sap:VirtualizedContainerService.HintSize="388,158" sap2010:WorkflowViewState.IdRef="NClick_73" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V3">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="http://pw-fcqap01/CreditQuest/CreditManager/html/side_menu.aspx" DesignTimeRectangle="131, 193, 60, 19" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Route'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl id='tblButtons' tag='TABLE' /&gt;&lt;webctrl id='xbtnNext' tableRow='1' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl id='tblButtons' tag='TABLE' /&gt;&lt;webctrl id='xbtnNext' type='button' tag='BUTTON' class='PDS_BTN_MOUSE_OUT' aaname='Click to route application' check:innerText='Route' /&gt;" Guid="c050a3d9-44ea-4b64-b261-2981333364b6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAAAXCAYAAAC74kmRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGcSURBVFhH7ZS7SsRAFIZ9CHFx0UJZfYFUKl4QQe1FsBAsjJ2XbRYsLAbW0tZaBnwDXbBwClttg3bCoinzAGmOM+MmmSRnk5hMYcgUX5E5JyHnm39mwvM8aCq+74MREDw8Dp4bBSrAdd1GYAQYAUZAGQEOUNsCy4ogDOsrgEPBtggwrJbDfH9HgtWKUklAODQjXEK5IaoI6PDhv75PYOG6vAQ9AlwGxLKBOr/PDrXTyRCSbApOrD+RJMJ4Lb6WlSwhYMgFCMpK0JeAYDg1DXJ3R2JQAUFPlAAhz6ZO+rsKi3zwgI/P45AyEioJCHdO+Um5+3Inoz4pqpCAxHcl6ePx+n40lr9K0JAAJP4VBWTFXjB4O8yk099F38PQIICjDpF1BGI9+BFgJJ4oRtNH4O7lIOQ+wdzVdqw3Dz0CBMpQ6CU4ekeuE6KkRl1PX4LYHTBzuQnt3rrk9mk/ZLa3FesrQkkB/4NWdwVuHvYk7e4G2pNHrQVMni7J4Vtna2i9CLUWMHW+DNMXq2itKLUWoAMjYJyAJpES0ESMAN+HHxocJ0gVEp3UAAAAAElFTkSuQmCC" InformativeScreenshot="b7e4a62dad32b3a19f1b64f3ef178ca7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="LogMessage_76" Level="Info" Message="[&quot;NEED APP TO ROUTE FORWARD TO BUILD&quot;]" />
+                            </Sequence>
+                          </ActivityAction>
+                        </uix:NApplicationCard.Body>
+                        <uix:NApplicationCard.TargetApp>
+                          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVDhPY6A64OTmlvT08T8Qk5D6NT454x8Ig9ggMZAcVBl2oK2rXxiXmPYLqOl/fHL63/CouOchEbGPoAb9B8mB1ECVowKQBEhhXFL6H31D41omJiZmkLiEpLQDxEA4/odhCMhpcYnpv0Ga+fkF1KHCDKbmVj1hUXHP0AwAuwTFOyD/gSRANkOFGERExUzRNSJjkB6oUgaGmPiUbyA/w5wNAhKSUvYBweFXQTg2IfU7ugGggIUqZWAACvwDBRiUiwHsnVxXIGuOTUz9CdIDlYYYgKwAFBbBYdF3DYxM6kGu4uTkEjc2teiwtnWYo6CoHAqyDMUAiBcQBiBjFVX1OKgyMAAZCPIuihdggYgNW9rYz4QqAwNQQIPEUQIRFo3IGq1sHWZraOlkS0pJO0GVMYCiGOQ9jGgEAVhCghkgr6gUDJUCOxtkM0gzSA2+1FgES8pxSWm/w6Jin0ICLP0vWAxfUoYBkNNA/iMrM5EOGBgAbhv5+a23N0oAAAAASUVORK5CYII=" InformativeScreenshot="212d11b185ad8c8ec9384a82c65d3b49.jpg" Selector="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" Url="http://pw-fcqap01/CreditQuest/CreditManager/html/app_default.aspx" />
+                        </uix:NApplicationCard.TargetApp>
+                      </uix:NApplicationCard>
+                    </Sequence>
+                  </Sequence>
+                </ui:CommentOut.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:CommentOut>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVDhPY6A64OTmlvT08T8Qk5D6NT454x8Ig9ggMZAcVBl2oK2rXxiXmPYLqOl/fHL63/CouOchEbGPoAb9B8mB1ECVowKQBEhhXFL6H31D41omJiZmkLiEpLQDxEA4/odhCMhpcYnpv0Ga+fkF1KHCDKbmVj1hUXHP0AwAuwTFOyD/gSRANkOFGERExUzRNSJjkB6oUgaGmPiUbyA/w5wNAhKSUvYBweFXQTg2IfU7ugGggIUqZWAACvwDBRiUiwHsnVxXIGuOTUz9CdIDlYYYgKwAFBbBYdF3DYxM6kGu4uTkEjc2teiwtnWYo6CoHAqyDMUAiBcQBiBjFVX1OKgyMAAZCPIuihdggYgNW9rYz4QqAwNQQIPEUQIRFo3IGq1sHWZraOlkS0pJO0GVMYCiGOQ9jGgEAVhCghkgr6gUDJUCOxtkM0gzSA2+1FgES8pxSWm/w6Jin0ICLP0vWAxfUoYBkNNA/iMrM5EOGBgAbhv5+a23N0oAAAAASUVORK5CYII=" InformativeScreenshot="19c251cb974b3307da270a333ec266a7.jpg" Selector="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" Url="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/app_default.aspx" />
+        </uix:NApplicationCard.TargetApp>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uix:NApplicationCard>
+    </Sequence>
+  </Sequence>
+</Activity>

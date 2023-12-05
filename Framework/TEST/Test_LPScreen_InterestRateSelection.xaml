@@ -1,0 +1,792 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LPScreen_InterestRateSelection" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_RateDescription" Type="InOutArgument(x:String)" />
+    <x:Property Name="in_RateMargin" Type="InOutArgument(x:String)" />
+    <x:Property Name="in_RateFloor" Type="InOutArgument(x:String)" />
+    <x:Property Name="in_IntRateAdjFrequency" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1062,1116</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="74">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Screen :  Interest Rate Selection" sap:VirtualizedContainerService.HintSize="558,1051" sap2010:WorkflowViewState.IdRef="Sequence_12">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="RateDescription" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: LaserPro" sap:VirtualizedContainerService.HintSize="496,940" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="804d49d3-575c-4e5c-a340-7ec13b3ec30c" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="462,649" sap2010:WorkflowViewState.IdRef="Sequence_78">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Field: Rate Description" sap:VirtualizedContainerService.HintSize="400,81" sap2010:WorkflowViewState.IdRef="Sequence_15">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Interest Rate Selection &quot;]" />
+              <uix:NGetText DisplayName="Get Text 'Rate Description'" sap:VirtualizedContainerService.HintSize="510.4,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="ad978434-a960-4382-9511-70f2e482c8b4" TextString="[RateDescription]" Version="V3">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="386, 225, 1427, 26" DesignTimeScaleFactor="1" FriendlyName="'Hfs.Client.Framework.Vi…'" FullSelectorArgument="&lt;ctrl automationid='Child8_Field' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child8_Field' role='combo box' /&gt;" Guid="89733ffb-98fe-4aa4-bef9-247fe387b248" InformativeScreenshot="2dc5c146af7c23bff93b10cbe3916709.png" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="71, 230, 90, 16" ElementType="Text" FriendlyName="'Rate Description'" FullSelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD7_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD7_LABEL' role='text' check:text='Rate Description:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF4AAAAUCAYAAAAEEYpkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIOSURBVFhH7ZUtlgIxDMf3TuPGzREwuJVoBAKPxaxYjcSuxnIB7oDDzBWytJk2H01nFt4sffu24v8enSZp8msa3vq+h6rXq4IvpAq+kCr4QqrgC6mCLyQG/gbn/QKaponqdidhPJ+ucFzTOV7dDk6m7Xy6HtfQrg5wMfbGdDvvYTFzfgr8ElaHC65vZ9gvOtidyNjU9Qjrh5Ny4GVsB6VpV3C4cLtCeqqmx5QHn6wzmgm8k4P/e6/sARUF7zp+SR3oOzKMhdCZLsE4LtrBV44sG6QNXhacieNfYjiTYvhxMNji2Brq+fzwOTp/frH4+4tG3khNLvYyjiiZFx+RScy4l9abn/Ejz150ZgKLv5IM4Enw+TjibO6X5DvUk4Ah8Pzi3DrOf1ETXiqCx5jRTvnJmC7n0IyT4EOx3GnYF53WZJJ0fmSDUnGinQ1+4+Pm42Bny5gcKElfnrRLfPgLz4K/57VRF8z8dEw7L1R+1PDDPXQCJZ5eAt4Amsiyw27CRKfioC12VwqYbP4ieA7CJRKfMn5vTfBqLysNFv1oLPwsTijMvwJz1IyD12MonpcFn+bF/Xj8sIfrtJFGwN/lEohdFeZ/C+/bDXW8D0qjgNaDzP8KZXMXL8a0GeJ4YOGbAie/T4Pvtlv6I2WxdE3iheu8VA5PgP9f0pBerQre2HuFKnhj7xX6t+BLq4Ivoh6+AU/D9CY+KxUtAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+              </uix:NGetText>
+              <If Condition="[RateDescription = in_RateDescription]" DisplayName="If Rate Description Matches" sap:VirtualizedContainerService.HintSize="510.4,1364.8" sap2010:WorkflowViewState.IdRef="If_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376.8,182.4" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Rate Description Matches.&quot;]" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="476.8,999.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Rate Description did not match.  Updating Rate to &quot; +in_RateDescription]" />
+                    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="5970f967-baa0-424a-8b1c-0a217a9f23fb" DisplayName="CV Screen Scope" sap:VirtualizedContainerService.HintSize="433.6,776.8" sap2010:WorkflowViewState.IdRef="CVScope_2" SendOnPremData="False" Version="V5">
+                      <p:CVScope.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                            <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: ArrowButton (1417,227,23,24)&quot; +&#xA;&quot;Anchor: Text 'Rate Description:' (53,234,91,13)&quot;]" DesignTimeCacheId="5970f967-baa0-424a-8b1c-0a217a9f23fb" DesignTimeScaleFactor="1.25" DisplayName="CV Click - ArrowButton" sap:VirtualizedContainerService.HintSize="400,186.4" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" InformativeScreenshot="119032887f78fa22bf7b37716727e19d" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
+                              <p:CvClickWithDescriptor.CursorPosition>
+                                <ui:CursorPosition Position="Center">
+                                  <ui:CursorPosition.OffsetX>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetX>
+                                  <ui:CursorPosition.OffsetY>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetY>
+                                </ui:CursorPosition>
+                              </p:CvClickWithDescriptor.CursorPosition>
+                              <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                                <uc:CvDescriptor Id="7b66aa3b-c8ae-42ba-b167-1749cb0f5ee3">
+                                  <uc:CvDescriptor.Anchors>
+                                    <x:Array Type="uc:CvElementDescriptor">
+                                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="53, 234, 91, 13" ElementType="Text" Text="Rate Description:" />
+                                    </x:Array>
+                                  </uc:CvDescriptor.Anchors>
+                                  <uc:CvDescriptor.Target>
+                                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1417, 227, 23, 24" ElementType="ArrowButton" />
+                                  </uc:CvDescriptor.Target>
+                                </uc:CvDescriptor>
+                              </p:CvClickWithDescriptor.DesignTimeDescriptor>
+                              <p:CvClickWithDescriptor.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="609208e0-c26b-40c5-b358-34dfc0c20ee9">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </p:CvClickWithDescriptor.Target>
+                            </p:CvClickWithDescriptor>
+                            <p:CvSelectItemWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DeselectAfter="{x:Null}" InRegion="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (300,226,1141,25)&quot; +&#xA;&quot;Anchor: Text 'Rate Description:' (53,234,91,13)&quot;]" DesignTimeCacheId="5970f967-baa0-424a-8b1c-0a217a9f23fb" DesignTimeScaleFactor="1.25" DisplayName="CV Dropdown Select - InputBox" EmptyField="False" sap:VirtualizedContainerService.HintSize="400,186.4" sap2010:WorkflowViewState.IdRef="CvSelectItemWithDescriptor_2" InformativeScreenshot="c817cb8e6ebd52c1ef1bbe0e0df5f21d" NumberOfScrolls="2" ScrollDirection="None" Text="[in_RateDescription]" Version="V5">
+                              <p:CvSelectItemWithDescriptor.DesignTimeDescriptor>
+                                <uc:CvDescriptor Id="41463aaa-c1d8-44e9-8b63-cf14be8f2579">
+                                  <uc:CvDescriptor.Anchors>
+                                    <x:Array Type="uc:CvElementDescriptor">
+                                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="53, 234, 91, 13" ElementType="Text" Text="Rate Description:" />
+                                    </x:Array>
+                                  </uc:CvDescriptor.Anchors>
+                                  <uc:CvDescriptor.Target>
+                                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="300, 226, 1141, 25" ElementType="InputBox" />
+                                  </uc:CvDescriptor.Target>
+                                </uc:CvDescriptor>
+                              </p:CvSelectItemWithDescriptor.DesignTimeDescriptor>
+                              <p:CvSelectItemWithDescriptor.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="eb8a418a-3028-4c7b-95b7-98f28ed75ba5">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </p:CvSelectItemWithDescriptor.Target>
+                            </p:CvSelectItemWithDescriptor>
+                          </Sequence>
+                        </ActivityAction>
+                      </p:CVScope.Body>
+                      <p:CVScope.DesignTimeCache>
+                        <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+                      </p:CVScope.DesignTimeCache>
+                      <p:CVScope.DesignTimeCacheContainer>
+                        <uc:CvCacheContainer>
+                          <uc:CvCacheContainer.Caches>
+                            <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+                              <uc:CVCache DataSent="False" DisplayName="Screen CV Dropdown Select - 'R" Id="5970f967-baa0-424a-8b1c-0a217a9f23fb" InformativeScreenshot="3b98e3892d2a73937556e0b69a6cae52" LogicalPosition="7, 50" OcrText="_ X LaserPro® File Edit Customer Actions Options Go To Online Help Interest Rate Selection Rate Type: Variable Rate is not Locked Rate Information Rate Description: 7.750 WSJ-DAILY-COMMERCIAL Margin: Rate for Loan (Unrounded): 7.750 Rounding Options Rate for Loan (Rounded): 7.750 Interest Rate Adjustment Limitations Lifetime Interest Rate Adjustment Cap: Max Incr. / Decr. at One Time: Rate Ceiling: Min. Incr. / Decr. at One Time: N/A Rate Floor: 4.750 Max Subsequ. Incr./Decr. Cap: Int. Rate Adj. Frequency: Annual Interest Rate Lock Details Rate Options Discount/Premium Details Usury Ceiling: {None} Institution Index Substitution Language: {None} Modify ESB\AJOHNSON &lt; Back Next &gt;" Position="7, 50" ScaleFactor="1.25" ScreenshotGuid="7d2ea7d6-399d-4f70-a5ba-19553b252ac6" ServerVersion="1">
+                                <uc:CVCache.CvAnchorRelations>
+                                  <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="16">
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="2">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>29</x:Int32>
+                                          <x:Int32>30</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="3">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>39</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="29">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>96</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="45">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>87</x:Int32>
+                                          <x:Int32>88</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="27">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>57</x:Int32>
+                                          <x:Int32>58</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="12">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>67</x:Int32>
+                                          <x:Int32>68</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="10">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>85</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="44">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>74</x:Int32>
+                                          <x:Int32>75</x:Int32>
+                                          <x:Int32>76</x:Int32>
+                                          <x:Int32>77</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="4">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>70</x:Int32>
+                                          <x:Int32>71</x:Int32>
+                                          <x:Int32>72</x:Int32>
+                                          <x:Int32>73</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="26">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>45</x:Int32>
+                                          <x:Int32>46</x:Int32>
+                                          <x:Int32>47</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="6">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>50</x:Int32>
+                                          <x:Int32>51</x:Int32>
+                                          <x:Int32>52</x:Int32>
+                                          <x:Int32>53</x:Int32>
+                                          <x:Int32>54</x:Int32>
+                                          <x:Int32>55</x:Int32>
+                                          <x:Int32>56</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="0">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>62</x:Int32>
+                                          <x:Int32>63</x:Int32>
+                                          <x:Int32>64</x:Int32>
+                                          <x:Int32>65</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="46">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>90</x:Int32>
+                                          <x:Int32>91</x:Int32>
+                                          <x:Int32>92</x:Int32>
+                                          <x:Int32>93</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="9">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>28</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="47">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>24</x:Int32>
+                                          <x:Int32>25</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="8">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>79</x:Int32>
+                                          <x:Int32>80</x:Int32>
+                                          <x:Int32>81</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                  </scg:List>
+                                </uc:CVCache.CvAnchorRelations>
+                                <uc:CVCache.CvUiElements>
+                                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="64">
+                                    <uc:CvElementInfo Category="InputBox" Region="498, 451, 111, 24" />
+                                    <uc:CvElementInfo Category="Button" Region="1163, 712, 196, 24" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1332, 264, 109, 24" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1331, 302, 110, 23" />
+                                    <uc:CvElementInfo Category="InputBox" Region="498, 488, 110, 23" />
+                                    <uc:CvElementInfo Category="Button" Region="387, 563, 140, 23" />
+                                    <uc:CvElementInfo Category="InputBox" Region="498, 414, 111, 24" />
+                                    <uc:CvElementInfo Category="Button" Region="1205, 600, 168, 24" />
+                                    <uc:CvElementInfo Category="CheckBox" Region="56, 568, 13, 13" />
+                                    <uc:CvElementInfo Category="InputBox" Region="304, 264, 110, 24" />
+                                    <uc:CvElementInfo Category="CheckBox" Region="930, 605, 13, 13" />
+                                    <uc:CvElementInfo Category="Button" Region="52, 302, 280, 23" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1121, 451, 112, 24" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="368, 59, 14, 16" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="233, 59, 14, 16" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="306, 59, 15, 16" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="29, 59, 14, 15" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="80, 59, 15, 16" />
+                                    <uc:CvElementInfo Category="MaximizeButton" Region="1487, 8, 16, 15" />
+                                    <uc:CvElementInfo Category="Button" Region="1380, 792, 72, 24" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="163, 60, 14, 15" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="489, 59, 14, 16" />
+                                    <uc:CvElementInfo Category="Icon" Region="1450, 7, 17, 16" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="433, 59, 15, 16" />
+                                    <uc:CvElementInfo Category="MinimizeButton" Region="1469, 11, 14, 14" />
+                                    <uc:CvElementInfo Category="CloseButton" Region="1506, 9, 14, 13" />
+                                    <uc:CvElementInfo Category="InputBox" Region="498, 376, 111, 24" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1122, 414, 111, 23" />
+                                    <uc:CvElementInfo Category="Button" Region="1450, 792, 71, 24" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1276, 792, 100, 24" />
+                                    <uc:CvElementInfo Category="Button" Region="1276, 792, 99, 23" />
+                                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1397, 800, 11, 10" />
+                                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1493, 800, 10, 10" />
+                                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="0, 789, 1284, 27" />
+                                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="52, 302, 279, 23" />
+                                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="434, 60, 13, 14" />
+                                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="1205, 599, 168, 24" />
+                                    <uc:CvElementInfo Category="MaximizeButton" Confidence="Runtime" Region="1450, 7, 18, 17" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="108, 56, 67, 21" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="36, 550, 344, 36" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1439, 331, 54, 20" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="72, 182, 617, 20" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="24, 527, 448, 24" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="20, 376, 505, 20" />
+                                    <uc:CvElementInfo Category="InputBox" Region="498, 524, 248, 25" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1137, 673, 233, 26" />
+                                    <uc:CvElementInfo Category="InputBox" Region="402, 711, 664, 26" />
+                                    <uc:CvElementInfo Category="InputBox" Region="300, 226, 1141, 25" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1348, 674, 20, 23" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1043, 712, 22, 23" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1417, 227, 23, 24" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="723, 525, 22, 23" />
+                                  </scg:List>
+                                </uc:CVCache.CvUiElements>
+                                <uc:CVCache.OcrTexts>
+                                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="101">
+                                    <uc:OcrTextInfo Region="1472, 11, 8, 10" Text="_" />
+                                    <uc:OcrTextInfo Region="1508, 11, 11, 9" Text="X" />
+                                    <uc:OcrTextInfo Region="12, 18, 139, 29" Text="LaserPro®" />
+                                    <uc:OcrTextInfo Region="10, 61, 19, 11" Text="File" />
+                                    <uc:OcrTextInfo Region="59, 61, 21, 11" Text="Edit" />
+                                    <uc:OcrTextInfo Region="109, 61, 53, 11" Text="Customer" />
+                                    <uc:OcrTextInfo Region="191, 61, 41, 11" Text="Actions" />
+                                    <uc:OcrTextInfo Region="262, 61, 44, 13" Text="Options" />
+                                    <uc:OcrTextInfo Region="335, 61, 16, 11" Text="Go" />
+                                    <uc:OcrTextInfo Region="353, 61, 13, 11" Text="To" />
+                                    <uc:OcrTextInfo Region="396, 60, 37, 12" Text="Online" />
+                                    <uc:OcrTextInfo Region="462, 61, 26, 13" Text="Help" />
+                                    <uc:OcrTextInfo Region="11, 88, 41, 11" Text="Interest" />
+                                    <uc:OcrTextInfo Region="54, 88, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="80, 88, 49, 11" Text="Selection" />
+                                    <uc:OcrTextInfo Region="53, 122, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="80, 122, 28, 13" Text="Type:" />
+                                    <uc:OcrTextInfo Region="275, 122, 44, 11" Text="Variable" />
+                                    <uc:OcrTextInfo Region="733, 122, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="760, 122, 9, 11" Text="is" />
+                                    <uc:OcrTextInfo Region="772, 123, 19, 10" Text="not" />
+                                    <uc:OcrTextInfo Region="793, 122, 37, 11" Text="Locked" />
+                                    <uc:OcrTextInfo Region="33, 188, 25, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="60, 188, 63, 11" Text="Information" />
+                                    <uc:OcrTextInfo Region="53, 234, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="80, 234, 64, 13" Text="Description:" />
+                                    <uc:OcrTextInfo Region="308, 234, 30, 11" Text="7.750" />
+                                    <uc:OcrTextInfo Region="344, 234, 139, 11" Text="WSJ-DAILY-COMMERCIAL" />
+                                    <uc:OcrTextInfo Region="53, 271, 41, 13" Text="Margin:" />
+                                    <uc:OcrTextInfo Region="928, 271, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="954, 271, 16, 11" Text="for" />
+                                    <uc:OcrTextInfo Region="972, 271, 27, 11" Text="Loan" />
+                                    <uc:OcrTextInfo Region="1002, 271, 71, 12" Text="(Unrounded):" />
+                                    <uc:OcrTextInfo Region="1407, 271, 29, 11" Text="7.750" />
+                                    <uc:OcrTextInfo Region="144, 308, 52, 13" Text="Rounding" />
+                                    <uc:OcrTextInfo Region="198, 308, 44, 13" Text="Options" />
+                                    <uc:OcrTextInfo Region="928, 308, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="954, 308, 16, 11" Text="for" />
+                                    <uc:OcrTextInfo Region="972, 308, 27, 11" Text="Loan" />
+                                    <uc:OcrTextInfo Region="1002, 308, 59, 12" Text="(Rounded):" />
+                                    <uc:OcrTextInfo Region="1406, 308, 30, 11" Text="7.750" />
+                                    <uc:OcrTextInfo Region="34, 337, 40, 11" Text="Interest" />
+                                    <uc:OcrTextInfo Region="76, 337, 25, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="104, 337, 63, 13" Text="Adjustment" />
+                                    <uc:OcrTextInfo Region="168, 337, 59, 11" Text="Limitations" />
+                                    <uc:OcrTextInfo Region="53, 383, 43, 11" Text="Lifetime" />
+                                    <uc:OcrTextInfo Region="99, 383, 41, 11" Text="Interest" />
+                                    <uc:OcrTextInfo Region="142, 383, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="168, 383, 63, 13" Text="Adjustment" />
+                                    <uc:OcrTextInfo Region="233, 383, 24, 13" Text="Cap:" />
+                                    <uc:OcrTextInfo Region="53, 420, 24, 11" Text="Max" />
+                                    <uc:OcrTextInfo Region="79, 420, 23, 11" Text="Incr." />
+                                    <uc:OcrTextInfo Region="104, 420, 7, 12" Text="/" />
+                                    <uc:OcrTextInfo Region="112, 420, 28, 11" Text="Decr." />
+                                    <uc:OcrTextInfo Region="143, 420, 12, 10" Text="at" />
+                                    <uc:OcrTextInfo Region="156, 420, 23, 11" Text="One" />
+                                    <uc:OcrTextInfo Region="181, 420, 30, 11" Text="Time:" />
+                                    <uc:OcrTextInfo Region="928, 420, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="955, 420, 40, 13" Text="Ceiling:" />
+                                    <uc:OcrTextInfo Region="53, 457, 24, 11" Text="Min." />
+                                    <uc:OcrTextInfo Region="80, 457, 22, 11" Text="Incr." />
+                                    <uc:OcrTextInfo Region="104, 457, 7, 12" Text="/" />
+                                    <uc:OcrTextInfo Region="113, 457, 28, 11" Text="Decr." />
+                                    <uc:OcrTextInfo Region="144, 458, 11, 10" Text="at" />
+                                    <uc:OcrTextInfo Region="156, 457, 24, 11" Text="One" />
+                                    <uc:OcrTextInfo Region="182, 457, 30, 11" Text="Time:" />
+                                    <uc:OcrTextInfo Region="580, 456, 23, 12" Text="N/A" />
+                                    <uc:OcrTextInfo Region="928, 457, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="955, 457, 30, 11" Text="Floor:" />
+                                    <uc:OcrTextInfo Region="1198, 457, 30, 11" Text="4.750" />
+                                    <uc:OcrTextInfo Region="53, 495, 24, 11" Text="Max" />
+                                    <uc:OcrTextInfo Region="79, 495, 49, 13" Text="Subsequ." />
+                                    <uc:OcrTextInfo Region="130, 495, 55, 12" Text="Incr./Decr." />
+                                    <uc:OcrTextInfo Region="188, 495, 24, 13" Text="Cap:" />
+                                    <uc:OcrTextInfo Region="53, 532, 17, 11" Text="Int." />
+                                    <uc:OcrTextInfo Region="73, 532, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="100, 532, 21, 13" Text="Adj." />
+                                    <uc:OcrTextInfo Region="124, 532, 59, 13" Text="Frequency:" />
+                                    <uc:OcrTextInfo Region="503, 532, 38, 11" Text="Annual" />
+                                    <uc:OcrTextInfo Region="74, 569, 41, 11" Text="Interest" />
+                                    <uc:OcrTextInfo Region="117, 569, 24, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="144, 569, 26, 11" Text="Lock" />
+                                    <uc:OcrTextInfo Region="438, 569, 36, 11" Text="Details" />
+                                    <uc:OcrTextInfo Region="866, 560, 25, 11" Text="Rate" />
+                                    <uc:OcrTextInfo Region="893, 560, 44, 13" Text="Options" />
+                                    <uc:OcrTextInfo Region="949, 606, 99, 12" Text="Discount/Premium" />
+                                    <uc:OcrTextInfo Region="1271, 606, 36, 11" Text="Details" />
+                                    <uc:OcrTextInfo Region="928, 680, 32, 13" Text="Usury" />
+                                    <uc:OcrTextInfo Region="961, 680, 40, 13" Text="Ceiling:" />
+                                    <uc:OcrTextInfo Region="1142, 680, 37, 12" Text="{}{None}" />
+                                    <uc:OcrTextInfo Region="53, 718, 55, 11" Text="Institution" />
+                                    <uc:OcrTextInfo Region="110, 718, 30, 11" Text="Index" />
+                                    <uc:OcrTextInfo Region="142, 718, 65, 11" Text="Substitution" />
+                                    <uc:OcrTextInfo Region="209, 718, 56, 13" Text="Language:" />
+                                    <uc:OcrTextInfo Region="406, 718, 37, 12" Text="{}{None}" />
+                                    <uc:OcrTextInfo Region="1243, 718, 38, 13" Text="Modify" />
+                                    <uc:OcrTextInfo Region="1282, 797, 88, 13" Text="ESB\AJOHNSON" />
+                                    <uc:OcrTextInfo Region="1398, 800, 7, 8" Text="&lt;" />
+                                    <uc:OcrTextInfo Region="1408, 798, 25, 11" Text="Back" />
+                                    <uc:OcrTextInfo Region="1467, 798, 26, 11" Text="Next" />
+                                    <uc:OcrTextInfo Region="1496, 800, 7, 8" Text="&gt;" />
+                                  </scg:List>
+                                </uc:CVCache.OcrTexts>
+                              </uc:CVCache>
+                            </scg:List>
+                          </uc:CvCacheContainer.Caches>
+                        </uc:CvCacheContainer>
+                      </p:CVScope.DesignTimeCacheContainer>
+                      <p:CVScope.OCREngine>
+                        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                          <ActivityFunc.Argument>
+                            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                          </ActivityFunc.Argument>
+                          <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_4" Image="[Image]" Language="en" Profile="Screen" Scale="1" Timeout="100000" />
+                        </ActivityFunc>
+                      </p:CVScope.OCREngine>
+                      <p:CVScope.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c6e9b1e1-b46e-44fe-ae11-27d80fbe5083" InformativeScreenshot="40335277e75b8b31fb7a6e1e663d16b9" Selector="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </p:CVScope.Target>
+                      <p:CVScope.UseLocalServer>
+                        <InArgument x:TypeArguments="x:Boolean" />
+                      </p:CVScope.UseLocalServer>
+                    </p:CVScope>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+            <Sequence DisplayName="Field: Rate Margin" sap:VirtualizedContainerService.HintSize="400,81" sap2010:WorkflowViewState.IdRef="Sequence_16">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="RateMargin" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NGetText DisplayName="Get Text 'Margin'" sap:VirtualizedContainerService.HintSize="410.4,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="ad978434-a960-4382-9511-70f2e482c8b4" TextString="[RateMargin]" Version="V3">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="386, 263, 137, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'0.750'" FullSelectorArgument="&lt;ctrl automationid='Child10_Field' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child10_Field' role='editable text' /&gt;" Guid="b95e2f7b-3f13-4a4e-b0b6-118827ce1b62" InformativeScreenshot="6dd763f789eef4dc814bab27042139a8.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="71, 266, 41, 16" ElementType="Text" FriendlyName="'Margin'" FullSelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD9_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD9_LABEL' role='text' check:text='Margin:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC0AAAAUCAYAAAAZb7T/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF1SURBVEhL7ZMtkoQwEIX3TnE4joDBIdEIxKgxWMwKzBokYs1oLBfgDjgMV+hNNx1IQpjZpWZSS9WIV5Wf7vSXzsvHNE1wNr2hfekN7Utnhx6hKyMQYQGtFqA0NNnu3jHN9cKidezdlwUdQxwnULRm0DR2UMZyL3km9HFtoJNLDnFaQ68FjV0JybWC8r9Cp1/fsqsp1L1aH6DJQihuDWSLPXBNgBCzAnVJepEUqk9pJSFz8MUGmcdxIrxChTXqfq1HY60Gxy62wXzLlltoeQj6V0/KEcqRPIsLIiBCR1pBmgcMJud0ATW3ofFSfD7GBdy430Kvga61OR4tE6kOKhDu9PJKm4I6qA3NF6c4e27KDa3GaBXlYw2AgBcYLc+Cxjjzf7wUeu2ky1toH8PHygJ2p2lPK45n7NpjB3rzWnegKTHfeWqCYWsECVxyzrOhpQwbPfqIf4f2IRvumLxCm3/huF4MjZ1la5CVTOsclWd7PEcnhJ7gB1lMaxwGDi61AAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+              </uix:NGetText>
+              <If Condition="[RateMargin  = in_RateMargin]" sap:VirtualizedContainerService.HintSize="410.4,1004" sap2010:WorkflowViewState.IdRef="If_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376.8,182.4" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;Rate Margin Matches and is set to: &quot; +in_RateMargin]" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376.8,638.4" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;Rate Margin did not match.  Setting Rate Margin to: &quot; +in_RateMargin]" />
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Margin'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_28" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ad978434-a960-4382-9511-70f2e482c8b4" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="389, 332, 136, 28" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'0.750'" FullSelectorArgument="&lt;ctrl automationid='Child10_Field' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child10_Field' role='editable text' /&gt;" Guid="92653942-443b-474f-9819-c90579e6fd83" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIwAAAAgCAYAAADAHpCrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAG6SURBVHhe7ZsxbgIxEEW5016AC2T7HIGWPheg5RSUXCJSGpo06SnSRJvkBBPW3pix1zY7VEZ6T/oFGi+NHzM20q6GYRBClgZhiClBmFX3REgxWWHe3j/k6/uHkJDRiaIw4wIAzegEwsBiEAZMIAyYQBgwgTBgAmHABMI0ymnfS9d1Pv1OXn+nQsRJ9v20Js3mIJ9uzVmO23VS38jBFz3no2zX1/omKsYgTIOcj1tZK0mcPEGAW4wS9bILho3CPKvPKV66IImTRz8fgzDNkW74hRubqHGyRXJlvk8xX18XFGFaw8mRjIxprNRGhScnR12YUY5+9ypR9bSXvjAGEaY1spu1UJjss37kXM8vWp7C9yLMA1ERZtYJIpZJ5UZQkKYiTHownkCY1ri3w2RHWQ4tX0UYOsyDcOcZJnd4LaHPLZxhHp7SLanWPRZ0oIDuMHnRshJNIEyDuGut+oXHGxhvuKN27b50ixclkj/DKPncs+n/MGU5EaZRnDT/N5uoA2SEqYwQVws3pEty6yZp5reoOQgDJhAGTCAMmEAYMIEwYAJhwERVGF5kI2mqL7IRUspMGEKWBGGIIYP8AR9o4DZuUOfVAAAAAElFTkSuQmCC" InformativeScreenshot="a47e795e16723f06c87f69976a9b78a5.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="75, 336, 51, 20" ElementType="Text" FriendlyName="'Margin'" FullSelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD9_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD9_LABEL' role='text' check:text='Margin:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAAYCAYAAABeIWWlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAG+SURBVFhH7ZWheoMwEMf3TjgUr4BBzdUjZmqm0MiJqlpERcVMLWZihnfA4HiFW5Ij2V04sn4rrGUf4i/IJbn7Xf4JT33fw3/VBrdWbXBr1Qa3VjG4S5FAFKVQ1h2bRIVzcqhaOT6PGjjuYojSEupOil8nAS6CKK+gJeNOzRF2sYovDjePRnDpyx6eY7n45riDOM0gm4g/msZw5QkOyhJpWUNHYn1/gSJRlj0d1OlxOHfiRtzWJqaccB7m5FWLsUsBiVuj9jurb2JDuw4dpHPrtR9o12Gd28va2HOcAKegdGLf73bsU1uTwqnE++9N8XS9IlkhSgaMNgGLp3dMgqONM3nI9eDzUTLc0Am/M+bb3LuALb24ScoahXuNnOE1VILja/RY+PGbgBs6YzenBUtw7qGxCnUUC2UnqXUFHF8zsQ/RJBztDBv34NAepIPSyY3ghI7/LZz9foNXWgwr3revH5fgZFuKd3VJOGc3WlyweCw8bMvxY+Dy3AAn5QnDmWIzbiEPzibBu6ZO2PtVSEm1EHBYp6Heb7Plj3D3FHvAZtJjwA22DN2f3+gucMyS1s7+6zmDHsaWS2iDW6d6+ALd8CqoF/2JNQAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Margin'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="ad978434-a960-4382-9511-70f2e482c8b4" Text="[in_RateMargin]" Version="V3">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="389, 332, 136, 28" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'0.750'" FullSelectorArgument="&lt;ctrl automationid='Child10_Field' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child10_Field' role='editable text' /&gt;" Guid="6b8161c6-0b2a-4a46-8da2-2f73f32fb9b4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIwAAAAgCAYAAADAHpCrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAG6SURBVHhe7ZsxbgIxEEVzJy7ACbbPEWjpcwGaFJyCkkOEkkugKN0mKSIhpZiw9saMvbbZoTLSe9Iv0Hhp/Jixkfap73shZG4QhpgShHl9+yKkmKww759n+Tn/EhIyOFEUZlgAoBmcQBiYDcKACYQBEwgDJhAGTCAMmECYRjluO1ksFj7dRg7fYyHiKNtuXJNmtZMPt+Yk+/Uyqa9k54ue017Wy2t9FRVjEKZBTvu1LJUkTp4gwC0GiTrZBMMGYZ7V5xQvXZDEyaOfj0GY5kg3/MKNTdQ42SK5Mt+nmK6vC4owreHkSEbGOFZqo8KTk6MuzCBHtzlIVD1upSuMQYRpjexmzRQm+6wfOdfzi5an8L0I80BUhJl0goh5UrkRFKSpCJMejEcQpjXu7TDZUZZDy1cRhg7zINx5hskdXkvocwtnmIendEuqdY8ZHSigO0xetKxEIwjTIO5aq37h8QbGG+6oXbsv3eJFieTPMEo+92z6P0xZToRpFCfN/80m6gAZYSojxNXCDemS3LpRmuktagrCgAmEARMIAyYQBkwgDJhAGDBRFYYX2Uia6otshJQyEYaQOUEYYkgvf3uFQStaUx1nAAAAAElFTkSuQmCC" InformativeScreenshot="a47e795e16723f06c87f69976a9b78a5.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="75, 336, 51, 20" ElementType="Text" FriendlyName="'Margin'" FullSelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD9_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD9_LABEL' role='text' check:text='Margin:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAAYCAYAAABeIWWlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAG+SURBVFhH7ZWheoMwEMf3TjgUr4BBzdUjZmqm0MiJqlpERcVMLWZihnfA4HiFW5Ij2V04sn4rrGUf4i/IJbn7Xf4JT33fw3/VBrdWbXBr1Qa3VjG4S5FAFKVQ1h2bRIVzcqhaOT6PGjjuYojSEupOil8nAS6CKK+gJeNOzRF2sYovDjePRnDpyx6eY7n45riDOM0gm4g/msZw5QkOyhJpWUNHYn1/gSJRlj0d1OlxOHfiRtzWJqaccB7m5FWLsUsBiVuj9jurb2JDuw4dpHPrtR9o12Gd28va2HOcAKegdGLf73bsU1uTwqnE++9N8XS9IlkhSgaMNgGLp3dMgqONM3nI9eDzUTLc0Am/M+bb3LuALb24ScoahXuNnOE1VILja/RY+PGbgBs6YzenBUtw7qGxCnUUC2UnqXUFHF8zsQ/RJBztDBv34NAepIPSyY3ghI7/LZz9foNXWgwr3revH5fgZFuKd3VJOGc3WlyweCw8bMvxY+Dy3AAn5QnDmWIzbiEPzibBu6ZO2PtVSEm1EHBYp6Heb7Plj3D3FHvAZtJjwA22DN2f3+gucMyS1s7+6zmDHsaWS2iDW6d6+ALd8CqoF/2JNQAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+            <Sequence DisplayName="Field: Rate Floor" sap:VirtualizedContainerService.HintSize="400,81" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="RateFloor" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NGetText DisplayName="Get Text 'Rate Floor'" sap:VirtualizedContainerService.HintSize="410.4,157.6" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="ad978434-a960-4382-9511-70f2e482c8b4" TextString="[RateFloor]" Version="V3">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="1414, 446, 137, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'4.000'" FullSelectorArgument="&lt;ctrl automationid='Child30_Field' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child30_Field' role='editable text' /&gt;" Guid="07c6352f-72c9-4528-be33-2a81b1f26ad5" InformativeScreenshot="ee12df3263d8047aa706cb4dda5c61ad.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="1169, 449, 57, 16" ElementType="Text" FriendlyName="'Rate Floor'" FullSelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD29_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD29_LABEL' role='text' check:text='Rate Floor:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD0AAAAUCAYAAAA+wTUXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFaSURBVFhH7ZS9cYQwEIXdkxpQAxDSwA2hh9AFEHrInBPSwhFTA0NMA2phfat/LZLON3cz9lgEL1jtSnofu+JNCAGl6YQuRSd0KSodeoWp48AYs2rHLSh+nRYYancPYxX08w5inaBrepj32J7XiUA36nKM0QBvYdxccVTLAHU7whbLJYXQkbN/HfoQJ/SvoImBZajdOFZ6HYHpiJJnEn8iP4Nepw64PT+sT+ZkEz7hCz2gz+uxKek3bcC8YiP8ABYm6DSdjgTc4U3rGg9aQvke8B4d53KqEaYBOs5DG8NoytuIQkPcGa36GXZcDw6lMChyjq3Ld3oZLmSf85fLxSCp0uPtb5bAziR+6SYJHess1V+FljFXY4wH2XFS6/FOk1xS96GfGm8fmsY3ZaBvwg3yvSkYM67vHxfXaTvSZoxNrOWbs7oPjXHw8yQ/smTuMehydEKXohO6DAn4Bosk5+mFWd6wAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+              </uix:NGetText>
+              <If Condition="[RateFloor = in_RateFloor]" sap:VirtualizedContainerService.HintSize="410.4,806.4" sap2010:WorkflowViewState.IdRef="If_5">
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376.8,182.4" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;No update needed as the transaction defaulted Rate Floor to correct amount of: &quot; + RateFloor]" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376.8,440.8" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_37" Level="Info" Message="[&quot;Rate Floor will be updated as transaction default does not match expectged rate floor of: &quot; + in_RateFloor]" />
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Rate Floor'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="ad978434-a960-4382-9511-70f2e482c8b4" Text="[in_RateFloor]" Version="V3">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="1412, 565, 137, 28" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'4.000'" FullSelectorArgument="&lt;ctrl automationid='Child30_Field' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child30_Field' role='editable text' /&gt;" Guid="c3f2ca91-bb24-4bb9-bbea-98885bf30e12" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAI0AAAAgCAYAAAAv3PuVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGhSURBVHhe7ZsxboMwFIZzJ66QLeqYC+QWGTJyiOw5Q/aMnaNKXZmyNLQ3eK2NIQ/btfs6Een7pH+AZ7O8DxuQWPV9L4RYgjTEnEmaVfNCSDFZaV6v7/Lx+UXILM6LX6VxAwBinBdIAyaQBswgDZhBGjCDNGAGacAM0jwB3WknTbOV41s4kWEY0wxZ7+V8C4XA/dLKZqxnrlWra5Bm6dwv0m7KjfQNV6J4gbZHmYZ3J9mp+fH4aj0CaRbNXS7tRraHw6ypczo57day1x32oo3nwjVmk92cJpyr1VOQZsH4O96tGNFKMMMLEte0CBmpfnCr0Xp/llu1noI0S0XLUJLG1ZKtREmTlUpJUauHYw3SLJJoy/inNDUp/HNPrR6ONUizQJK7nJUGivgmjq++aZKH02zTeaaB0kqTa/pMpGir8+g5tXoK0jwDsTReikdT3aqgP+jFq8Tw4e4xf3orGw6r9RikeQYq0ji8OOM2lmn4IEaoZz7c1eoapAEzSANmkAbMIA2YQRowgzRgpigNP8uRXIo/yxFSSiINIX8N0hBjevkGGS8521tClrkAAAAASUVORK5CYII=" InformativeScreenshot="83683d981872fd49487cd504a7d851c0.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1168, 569, 71, 20" ElementType="Text" FriendlyName="'Rate Floor'" FullSelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD29_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_VARRATE_CHILD29_LABEL' role='text' check:text='Rate Floor:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEsAAAAYCAYAAACyVACzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHPSURBVFhH7ZUxkoMwDEX3ThyAAzCcgj53SNpwh7Tptl1a7sCk5gJcQYttwJIQxprdzG6h4k/GlvMtPVvmY5omMOXJYClksBQyWAoZLIUMlkIGSyEC6/VooCgKovLyhAGteb9e8GhoDk5128+xEbpb9Qc5Be1g0URC4prk9h5auT1LuDwHIfavYU0wdjeo6hZ6NJeSwcKwxg5uFWqRLbZvn9A6QiwJXwsrzMV9hf/ynMsLPIcYd3W7nD7d7xyv26/gyfJMw/Kb0M3H7g7XbRwgRCgScL7m7HZoYAVv4vV6QIOB8fEsDwcB82MPidZxCmujL5yAJA6Hj8U2dgUcegcAJI+ihrZ3MQrLews+MYejg6EH4uvOqPX4Zi1XF9PG63AxOBkOi6+NWgFw5d8s7y20dDygAH5fQ/BZ5498uNJt6K8wLmo5dWQswdnBykgkSgeL5LuIwpK83gGLX2OhfSQ4eHzUKsfKh/WrbfhzWLPwA8kffB/btyHdONxG4jv73K+8gFX5sERv3g04/2UNz1GCJc2dw1oSXB9Af5rruzObuc8tB7F+pre3As2l3ysnDSynACzpvRzqtiYDzCksU1oGSyGDpZDBUshgKWSwsjXBNz+G8YklvWa+AAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+            <Sequence DisplayName="Field:  Int Rate Adj. Frequency" sap:VirtualizedContainerService.HintSize="400,81" sap2010:WorkflowViewState.IdRef="Sequence_20">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="IntRateAdjFrequency" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NGetText DisplayName="Get Int Rate Adj. Frequency" sap:VirtualizedContainerService.HintSize="410.4,157.6" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="ad978434-a960-4382-9511-70f2e482c8b4" TextString="[IntRateAdjFrequency]" Version="V3">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="632, 656, 309, 32" DesignTimeScaleFactor="1.25" FriendlyName="'Hfs.Client.Framework.Vi…'" FullSelectorArgument="&lt;ctrl automationid='Child26_Field' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child26_Field' role='combo box' /&gt;" Guid="9efcc664-d7db-4458-8234-6ac7725e05a7" InformativeScreenshot="458572b7d1f446bda6111f73cd96ad9a.png" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="69, 657, 175, 25" FriendlyName="'app.prosuiteclient.exe …'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK8AAAAZCAYAAABHAX4dAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAO0SURBVHhe7ZivtuIwEMb3nXAoXgHTF7gee80qNOesWYHCIhArMFjMtbwDBscrZDNJmmYmk39sudA9I36iTTqT+eZLWvhxv9+VIEwRMa8wWcS8wmQR8wqTRcwrTBYxrzBZxLzCZBHzCpNFzCtMFjGvMFmy5j2tF2q5OasbMzYWkGM2myGenTPHZfeh5rOl2pxv7HjEaa0Wy4063+D6onYfczXz13m42mervboyc4WYkc1rm7faX5kxnjjHSa0XLQZuz5kGYnWq6+b1+ZF52/iOw+F/5g3N606/6hNoRPNeduqj00Y8NhhSzPsyGsxrTQLXR32/f835cWj8PHwF1r16q8wLBvFxa3PaE9yPVWwGyNuZ2PZZdkOgtazU/g82L9RT++rPmddooOMetvAZE76JCnUhTbQeh62+1uu82nFuffFhYXvtc4Sb08QHnY/BOpheMz0zvmHXC+tzOSu1A5rNCwvxTTULDBfefgpGDfTiDGKc1p9e/Hicy0nNZ+ekjGKBZ4a4rAmjep2RnmVe1/RhvFCXMy4dN5us2ryxVugZlyOKGRqc0Wn7W8cz94fngDB3i3ZAu3lRcHuPioWNlMcsONih5R875ZzxSaIB4XKx6XgktM0TmY0819KAqHZNX4c1b7rR/b0wP5vbn2z2mpuD4nI6hTGiDULGsx7gNx8/t8xDnw1D8+i99sWgHJwwBhuXazKXkzOFBZshBNcKUKHpteMfzYtzDhhDERPl6+L6o2k0r900XA53kpp44ana58iMB6D83EZp4L3MC0BBocmcodM54pxcg/K41z/XNB8H5jBN+W7zJmMntH/EvDlDVZk3fUiYcfhRrOPn6q/h/cxLYobChuM58xYbQEmdAKhRtFYLzZU3GCbXPK6GUl1sbnIYxHqS5+jhQSmZN/WG8oCOnZ4LP/hInEaeYt5wTo3gUQONgK4wTnx9IlLz4hhWQHRPC/zzF8lj4J7nx2zuoLGmafp0Tpm3YAS2dgevW6GuULdgPvpconPMdfiGsTXjTaDjfLrronkZnfTz5gebmw/jXddF9SHtKhjZvJpeDCcQ34QBvoFOQPecKcq9xpebg9rqMbSzSU5zrzeWey75vcs1I4Cu3zbGxYT75D9h1ACzrjHNqynV5bVwY18wH88J9YS1fkEualb0GUV1JXox95BOGtQvVwM9nZF2FWTNK7STM+RLMEZJb6CXMNKaxLxjwp1Kr+btzMt9ljyGmHcMgld1+ofKi3gj8/rPlRGMC4h5hYlyV38BcE0BmVmIgUwAAAAASUVORK5CYII=" SearchSteps="Image" TargetType="ImageBased" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+              </uix:NGetText>
+              <If Condition="[IntRateAdjFrequency = in_IntRateAdjFrequency]" sap:VirtualizedContainerService.HintSize="410.4,548" sap2010:WorkflowViewState.IdRef="If_6">
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376.8,182.4" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot; Int. Rate Adj. Frequecy: Transaction defaulted the Int. Rate Adj. Frequency to expected value of: &quot; +in_IntRateAdjFrequency]" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376.8,182.4" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_38" Level="Info" Message="[&quot;Int. Rate Adj. Frequecy: Transaction did not default correctly.  Changing the value to: &quot;+ in_IntRateAdjFrequency]" />
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Next _&gt;'" sap:VirtualizedContainerService.HintSize="400,52" sap2010:WorkflowViewState.IdRef="NClick_20" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="804d49d3-575c-4e5c-a340-7ec13b3ec30c" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="1857, 783, 36, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Next _&gt;'" FullSelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;&lt;ctrl automationid='PART_Caption' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;&lt;ctrl automationid='PART_Caption' role='text' check:text='Next _&amp;gt;' /&gt;" Guid="45414324-116b-4c8f-99f8-726c97bb173f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAD/Rn+7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFWSURBVEhL7ZMtb4RAEIb7n1ahqsBfQggSVdekhuDOnyQYzJ05VYKqP0kOD/LMmf0bb3cXBhZYSFvS5pognmSZ2Y+Hmd0nzjkemU1wLZvgWv6RYJ0jchi8uBhOuiZ4CTNUeuwPGQq6LlzHQ1xok9YIqj1DZJUh90VGgiGOpwiuLvSLgrfzG4K0NOaIiWBWXZH4NsKsauIjwTqP4DAGJvFiFBRrx5y3648ndWXUPMHk6ijuuBx2YFaAtBznGgyCYiykfLsfk6AU0at7Tfz24Bp55Kqf6mOjPds1Ru4XHHYMVpCiHOXMguK7O0gTlDGqCGGTsFwvK9ZVcrrnErfzq9jPmrR8VrA5UDyY96GguVUS2drvCzZiDM/7D2N+XlCgWipfttZih1pP6xQ/a7GUmxMjFgWpKl0bBcM2N49JxahyqvL0yKS4o+bOV36ZXvBB2QTXsgmug+MT3NnwCkcfXtgAAAAASUVORK5CYII=" InformativeScreenshot="cde22baafba0a9c3aa4884f8411042e7.png" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1840, 780, 70, 22" ElementType="Button" FriendlyName="'NavNextButton'" FullSelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='NavNextButton' role='push button' check:text='NavNextButton' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAaCAYAAAAQXsqGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGZSURBVFhH7ZUhb8JAFMf5TqdQU9STNA0SNbdkpqmbRzYYDBjUGtSSzSEb8EViMP0QNf/dXftKCwe7AddkyxO/5PVd75L75f3bXlEUYH6GRVnS+/xag7lMLSrP87qpauYIi7KERVnCoixhUZawKEvcidqtEHkCQZy2+5spnsMEWbP3B3AryvfhewHitNG/R5Q+M0SSGdYc41hUiPkigt8U41DUfvmK8WxrXLsX56KSbIPpaIAwycr+iajdKoInBIQiiJFSr6rzvNo/X+go6/ckZ5HWHLCeDCH6Y8y2p2v30YEoWUs5o8GxJlFKSHPaNtNRJWCHVeRrucfeyZnVHiOHNSZDgf54hq1p/Qa6ESWf6ws3RKkeTQgxIHFqv5qgerLOz7zGfvkiz+s/LIqdiSovLj/s721R5ggpVOR+L6oUJPD09mFcv5XuREl01NSfsBE9jyJJ+zS3RU9JerQgolNRNCV1vCTt+JUffd2jSdKTSD8DJdDT716eRDe4E/XPYFGWsChLWJQlLMqSliiSxJipRVHBXIdFWVHgG8ciB+XZ1SjhAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 1838, 846" FilePath="\\msb-lp-prod01\LaserPro\CFI\app.prosuiteclient.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ7SURBVFhHzVdpbBRlGN6fJsaABhE1Ktq0paVgQaFWqq2CpEFiqGJUVBLjmRh+4RVPokQj0ShGBE0ICfUANBLx1kYTNfUgjQfSBjCRa+ab6R7d3c50u7MzPL7vO1+73e7GRGU2Psnb3Z3je57vPb/GzLObcLLNmFqH5JoH8XfIbHgJxmm1iESAOWO2fLoffarpyuF+1gPjjFkRCWA7sxFqThsKR45qylIUjhtQdS0RCiAzptQhsfo+wPc17QQEAQY7V0YrgM04vR7Ojvc0aykyGzdFL4BDYc2/Cn48rmlLEb0AMs729HMvaspSVEWAOX02VOPl8E2laYuojgAy9kL21dc1bRFVE2BOa4C9tAvwPE0donoCuDmddzG8/gFNHaJ6Asi4RTvv7tbUIaorgPIg8/ImTR3ifyCABoI5vXF8gERpHAL3g481dYhYfMUqWM1Xhg9Q7zam1CISUbSm1dxOHTGhqUPE+E8wlMZo389wut9B6uGnIKLmdcA8v1leZFFi1Ne5nETcWSSOBVYSydf4PrVhY2q9uF41tdEI/lJIJyLm/Xm4rDYZQToDb+AA3M97kN2yFalH1iFx+z1Uy9fDWnA11KwWmDNJ4DlzxsnE+Pu5c6FqF8BqXUrT8F5kt26Hb9l65VLE1EWXwG5fhuT9a+XB0b19CJIpfbsCaIwG2WH4SsE79Afyv/yG0R/2Ivdtrxh/9/btR+HYcQSuq1+qDKd7ByUhu0tcpeNPv625VyDedSuGHn0azls7RZTsoFDQr/43+LaN1NrHJDzlZTiDjIYHH5c4dmwcc1XfArtjuRww0uuexfC2box88RXyv+5D4egxBKkhBCMjocgTJ0Im/qTfgePAN0zxUPqZ5ym/2mXDzFcqgL2hk04S7YJmIeYE4uOVargM6sL58qwIHKsYygNVt5DmfgeF81o66dyA+PKbMLjsRtiLr4PVskTW4TXH19acRQGc3SSAXZ997Q3kvumFd/CQjNAgkQx3mExKKAqHj8D7vR+5776H+/4eZGjKpR56Eomb74C9qBOq5lKqGBJ4Sk1o7MVpRMobHOPTJgK4vOy2TuR6vi66798i70mCct44b+/C0BPrkVi5WtzOngp7DbmfN0wVI53QXrKi4mFhIoJhynyKI2e+t3+ArB/egYPiDd8elPsVD58aXNZcMc6bOyUB7Wu6JCwxrmV2ZyWM/tSH9PoNFJbbYC1cLMdoc+Y8GatinCPkbtXYKvd50cSqu5B64HFkXtkMd88nkqSTu5+APM2bjmVe2KivFOEPxpG8e43ETOLHiTa5+000vs73ya0cTumaXEHcOTlBmxZJYvJ/S9zUuBp8yxIuacUlyOeRuOVOGKfWhItPSpp/bGMCWdxYryGxqqFVPFYmgDuZtNRKi51M06LKBLi7PxxvEtWwMgG53h9DdRUejsLKBHDTsajrVUdEE/4CP8GkR51aL7EAAAAASUVORK5CYII=" InformativeScreenshot="a86de500ba43702889a87ceb887f929f.png" Selector="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

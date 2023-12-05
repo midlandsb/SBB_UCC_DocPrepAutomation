@@ -1,0 +1,534 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LPScreen_DocumentOptions" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="LoanDate" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1098,2214</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="39">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="63">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Screen: Document Options" sap:VirtualizedContainerService.HintSize="1108,2149" sap2010:WorkflowViewState.IdRef="Sequence_49">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="uc:CvString" Name="PromissoryNoteDescriptionOfIndebtedness" />
+      <Variable x:TypeArguments="uc:CvString" Default="[&quot;A SEPERATE COMMERCIAL SECURITY AGREEMENT FROM GRANTOR TO LENDER, DATED: &quot;]" Name="PromissoryNoteAlternativeDescription" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: LaserPro" sap:VirtualizedContainerService.HintSize="1046,2038" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="592f209b-d919-461f-b3a9-77375e4346dd" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1012,1747" sap2010:WorkflowViewState.IdRef="Sequence_371">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check App State - Document Options" sap:VirtualizedContainerService.HintSize="950,1511" sap2010:WorkflowViewState.IdRef="NCheckState_35" ScopeIdentifier="592f209b-d919-461f-b3a9-77375e4346dd" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,1294" sap2010:WorkflowViewState.IdRef="Sequence_358">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="7003f3ee-9b46-4c10-9a97-cebef2ab1ac7" DisplayName="CV Screen Scope 'client  FullScreenPanel2'" sap:VirtualizedContainerService.HintSize="434,982" sap2010:WorkflowViewState.IdRef="CVScope_31" SendOnPremData="False" Version="V5">
+                    <p:CVScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_357">
+                          <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: InputBox (78,240,1606,26)&quot; +&#xA;&quot;Anchor: Text 'Alternate Description of &quot;&quot;Collateral&quot;&quot; in the Promissory Note:' (79,207,318,15)&quot;]" DesignTimeCacheId="7003f3ee-9b46-4c10-9a97-cebef2ab1ac7" DesignTimeScaleFactor="1" DisplayName="CV Click - InputBox" sap:VirtualizedContainerService.HintSize="400,185" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_2" InformativeScreenshot="ec2afeda461357777e4be7cee9852a83" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
+                            <p:CvClickWithDescriptor.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </p:CvClickWithDescriptor.CursorPosition>
+                            <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                              <uc:CvDescriptor Id="e875c2cd-4b6a-4503-8ca7-8f109ddd35ff">
+                                <uc:CvDescriptor.Anchors>
+                                  <x:Array Type="uc:CvElementDescriptor">
+                                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="79, 207, 318, 15" ElementType="Text" Text="Alternate Description of &quot;Collateral&quot; in the Promissory Note:" />
+                                  </x:Array>
+                                </uc:CvDescriptor.Anchors>
+                                <uc:CvDescriptor.Target>
+                                  <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="78, 240, 1606, 26" ElementType="InputBox" />
+                                </uc:CvDescriptor.Target>
+                              </uc:CvDescriptor>
+                            </p:CvClickWithDescriptor.DesignTimeDescriptor>
+                            <p:CvClickWithDescriptor.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="59c8450b-f351-4fb5-985e-43cd8bc5e6c9">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </p:CvClickWithDescriptor.Target>
+                          </p:CvClickWithDescriptor>
+                          <p:CvTypeIntoWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (78,240,1606,26)&quot; +&#xA;&quot;Anchor: Text 'Alternate Description of &quot;&quot;Collateral&quot;&quot; in the Promissory Note:' (79,207,318,15)&quot;]" DesignTimeCacheId="7003f3ee-9b46-4c10-9a97-cebef2ab1ac7" DesignTimeScaleFactor="1" DisplayName="CV Type Into - InputBox" EmptyField="True" sap:VirtualizedContainerService.HintSize="400,185" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" InformativeScreenshot="ec2afeda461357777e4be7cee9852a83" NumberOfScrolls="2" ScrollDirection="None" Text="[PromissoryNoteAlternativeDescription]" Version="V5">
+                            <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
+                              <uc:CvDescriptor Id="e4f2fe52-3635-435c-b65c-b923f1e53b21">
+                                <uc:CvDescriptor.Anchors>
+                                  <x:Array Type="uc:CvElementDescriptor">
+                                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="79, 207, 318, 15" ElementType="Text" Text="Alternate Description of &quot;Collateral&quot; in the Promissory Note:" />
+                                  </x:Array>
+                                </uc:CvDescriptor.Anchors>
+                                <uc:CvDescriptor.Target>
+                                  <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="78, 240, 1606, 26" ElementType="InputBox" />
+                                </uc:CvDescriptor.Target>
+                              </uc:CvDescriptor>
+                            </p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
+                            <p:CvTypeIntoWithDescriptor.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="fbc9a393-a552-495f-933c-b36acd4d76e4">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </p:CvTypeIntoWithDescriptor.Target>
+                          </p:CvTypeIntoWithDescriptor>
+                          <p:CvTypeIntoWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (70,322,1725,25)&quot; +&#xA;&quot;Anchor: Text 'Description of &quot;&quot;Indebtedness&quot;&quot; Which Has Been Renewed or Refinanced:' (80,288,379,15)&quot;]" DesignTimeCacheId="7003f3ee-9b46-4c10-9a97-cebef2ab1ac7" DesignTimeScaleFactor="1" DisplayName="CV Type Into - InputBox" EmptyField="True" sap:VirtualizedContainerService.HintSize="400,185" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_2" InformativeScreenshot="ee92866fb9d392378d3c2ad63d828bf2" NumberOfScrolls="2" ScrollDirection="None" Text="[PromissoryNoteDescriptionOfIndebtedness]" Version="V5">
+                            <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
+                              <uc:CvDescriptor Id="ff3c436e-46e7-499b-96cd-656a0022b32b">
+                                <uc:CvDescriptor.Anchors>
+                                  <x:Array Type="uc:CvElementDescriptor">
+                                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="80, 288, 379, 15" ElementType="Text" Text="Description of &quot;Indebtedness&quot; Which Has Been Renewed or Refinanced:" />
+                                  </x:Array>
+                                </uc:CvDescriptor.Anchors>
+                                <uc:CvDescriptor.Target>
+                                  <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="70, 322, 1725, 25" ElementType="InputBox" />
+                                </uc:CvDescriptor.Target>
+                              </uc:CvDescriptor>
+                            </p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
+                            <p:CvTypeIntoWithDescriptor.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="34e34452-eea6-4757-97fa-1101c8e6b0cd">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </p:CvTypeIntoWithDescriptor.Target>
+                          </p:CvTypeIntoWithDescriptor>
+                        </Sequence>
+                      </ActivityAction>
+                    </p:CVScope.Body>
+                    <p:CVScope.DesignTimeCache>
+                      <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+                    </p:CVScope.DesignTimeCache>
+                    <p:CVScope.DesignTimeCacheContainer>
+                      <uc:CvCacheContainer>
+                        <uc:CvCacheContainer.Caches>
+                          <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+                            <uc:CVCache DataSent="False" DisplayName="Screen CV Click - 'Alternate D (Main)" Id="7003f3ee-9b46-4c10-9a97-cebef2ab1ac7" InformativeScreenshot="6eebc71a154923ed5c4dc49ca4a40764" LogicalPosition="8, 80" OcrText="Document Options Promissory Note Options Note Format: Standard Form Alternate Signature Text Alternate Description of &quot;Collateral&quot; in the Promissory Note: Description of &quot;Indebtedness&quot; Which Has Been Renewed or Refinanced: Security Document Options Security Document Format: Standard v Alternate Definition of &quot;Note&quot; in Documents: Alternate Description of &quot;Indebtedness&quot; in the Security Documents: Current Debt Description: Cross-collateralization Description: Final Payment Address: MIDLAND STATES BANK-Final Payment" Position="8, 80" ScreenshotGuid="c9c9ca32-1f44-406f-92d6-5b5bbbb6e17b" ServerVersion="1">
+                              <uc:CVCache.CvAnchorRelations>
+                                <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="8">
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="10">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>54</x:Int32>
+                                        <x:Int32>55</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="11">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>51</x:Int32>
+                                        <x:Int32>52</x:Int32>
+                                        <x:Int32>53</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="9">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>32</x:Int32>
+                                        <x:Int32>33</x:Int32>
+                                        <x:Int32>34</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="12">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>56</x:Int32>
+                                        <x:Int32>57</x:Int32>
+                                        <x:Int32>58</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="8">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>5</x:Int32>
+                                        <x:Int32>6</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="0">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>9</x:Int32>
+                                        <x:Int32>10</x:Int32>
+                                        <x:Int32>11</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="13">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>37</x:Int32>
+                                        <x:Int32>38</x:Int32>
+                                        <x:Int32>39</x:Int32>
+                                        <x:Int32>40</x:Int32>
+                                        <x:Int32>41</x:Int32>
+                                        <x:Int32>42</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                </scg:List>
+                              </uc:CVCache.CvAnchorRelations>
+                              <uc:CVCache.CvUiElements>
+                                <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="32">
+                                  <uc:CvElementInfo Category="CheckBox" Region="82, 165, 14, 14" />
+                                  <uc:CvElementInfo Category="InputBox" Region="70, 322, 1725, 25" />
+                                  <uc:CvElementInfo Category="InputBox" Region="78, 240, 1606, 26" />
+                                  <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1769, 242, 15, 20" />
+                                  <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="807, 595, 959, 13" />
+                                  <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1744, 569, 15, 20" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="430, 301, 1108, 24" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1038, 492, 160, 128" />
+                                  <uc:CvElementInfo Category="InputBox" Region="386, 78, 651, 26" />
+                                  <uc:CvElementInfo Category="InputBox" Region="642, 402, 722, 28" />
+                                  <uc:CvElementInfo Category="InputBox" Region="852, 606, 910, 25" />
+                                  <uc:CvElementInfo Category="InputBox" Region="663, 566, 1099, 25" />
+                                  <uc:CvElementInfo Category="InputBox" Region="617, 688, 1169, 26" />
+                                  <uc:CvElementInfo Category="InputBox" Region="75, 484, 1711, 26" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1339, 404, 24, 25" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1012, 78, 24, 25" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1760, 689, 22, 24" />
+                                  <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1769, 487, 15, 20" />
+                                  <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1747, 608, 15, 19" />
+                                  <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1746, 568, 15, 19" />
+                                </scg:List>
+                              </uc:CVCache.CvUiElements>
+                              <uc:CVCache.OcrTexts>
+                                <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="63">
+                                  <uc:OcrTextInfo Region="9, 9, 57, 12" Text="Document" />
+                                  <uc:OcrTextInfo Region="67, 9, 45, 15" Text="Options" />
+                                  <uc:OcrTextInfo Region="41, 34, 61, 15" Text="Promissory" />
+                                  <uc:OcrTextInfo Region="103, 34, 28, 12" Text="Note" />
+                                  <uc:OcrTextInfo Region="133, 34, 44, 15" Text="Options" />
+                                  <uc:OcrTextInfo Region="80, 86, 28, 11" Text="Note" />
+                                  <uc:OcrTextInfo Region="110, 85, 41, 12" Text="Format:" />
+                                  <uc:OcrTextInfo Region="389, 85, 49, 12" Text="Standard" />
+                                  <uc:OcrTextInfo Region="440, 85, 29, 12" Text="Form" />
+                                  <uc:OcrTextInfo Region="100, 166, 51, 12" Text="Alternate" />
+                                  <uc:OcrTextInfo Region="152, 166, 53, 15" Text="Signature" />
+                                  <uc:OcrTextInfo Region="206, 166, 24, 12" Text="Text" />
+                                  <uc:OcrTextInfo Region="79, 207, 51, 12" Text="Alternate" />
+                                  <uc:OcrTextInfo Region="132, 207, 61, 15" Text="Description" />
+                                  <uc:OcrTextInfo Region="195, 207, 14, 12" Text="of" />
+                                  <uc:OcrTextInfo Region="210, 207, 59, 12" Text="&quot;Collateral&quot;" />
+                                  <uc:OcrTextInfo Region="272, 208, 11, 11" Text="in" />
+                                  <uc:OcrTextInfo Region="284, 207, 20, 12" Text="the" />
+                                  <uc:OcrTextInfo Region="305, 207, 60, 15" Text="Promissory" />
+                                  <uc:OcrTextInfo Region="367, 207, 30, 12" Text="Note:" />
+                                  <uc:OcrTextInfo Region="80, 288, 62, 15" Text="Description" />
+                                  <uc:OcrTextInfo Region="144, 288, 13, 12" Text="of" />
+                                  <uc:OcrTextInfo Region="158, 288, 80, 12" Text="&quot;Indebtedness&quot;" />
+                                  <uc:OcrTextInfo Region="240, 288, 36, 12" Text="Which" />
+                                  <uc:OcrTextInfo Region="278, 288, 21, 12" Text="Has" />
+                                  <uc:OcrTextInfo Region="301, 288, 27, 12" Text="Been" />
+                                  <uc:OcrTextInfo Region="331, 288, 49, 12" Text="Renewed" />
+                                  <uc:OcrTextInfo Region="382, 291, 13, 9" Text="or" />
+                                  <uc:OcrTextInfo Region="397, 288, 62, 12" Text="Refinanced:" />
+                                  <uc:OcrTextInfo Region="41, 359, 44, 15" Text="Security" />
+                                  <uc:OcrTextInfo Region="87, 359, 57, 12" Text="Document" />
+                                  <uc:OcrTextInfo Region="145, 359, 44, 14" Text="Options" />
+                                  <uc:OcrTextInfo Region="80, 410, 44, 15" Text="Security" />
+                                  <uc:OcrTextInfo Region="125, 410, 58, 12" Text="Document" />
+                                  <uc:OcrTextInfo Region="184, 410, 41, 12" Text="Format:" />
+                                  <uc:OcrTextInfo Region="646, 410, 49, 12" Text="Standard" />
+                                  <uc:OcrTextInfo Region="1343, 411, 13, 9" Text="v" />
+                                  <uc:OcrTextInfo Region="79, 451, 51, 12" Text="Alternate" />
+                                  <uc:OcrTextInfo Region="132, 451, 53, 12" Text="Definition" />
+                                  <uc:OcrTextInfo Region="186, 451, 14, 12" Text="of" />
+                                  <uc:OcrTextInfo Region="201, 451, 37, 12" Text="&quot;Note&quot;" />
+                                  <uc:OcrTextInfo Region="240, 452, 11, 11" Text="in" />
+                                  <uc:OcrTextInfo Region="253, 451, 64, 12" Text="Documents:" />
+                                  <uc:OcrTextInfo Region="80, 532, 50, 12" Text="Alternate" />
+                                  <uc:OcrTextInfo Region="132, 532, 61, 15" Text="Description" />
+                                  <uc:OcrTextInfo Region="195, 532, 13, 12" Text="of" />
+                                  <uc:OcrTextInfo Region="210, 532, 80, 12" Text="&quot;Indebtedness&quot;" />
+                                  <uc:OcrTextInfo Region="293, 532, 11, 12" Text="in" />
+                                  <uc:OcrTextInfo Region="305, 532, 20, 12" Text="the" />
+                                  <uc:OcrTextInfo Region="326, 532, 44, 15" Text="Security" />
+                                  <uc:OcrTextInfo Region="372, 532, 64, 12" Text="Documents:" />
+                                  <uc:OcrTextInfo Region="126, 573, 42, 12" Text="Current" />
+                                  <uc:OcrTextInfo Region="170, 573, 27, 12" Text="Debt" />
+                                  <uc:OcrTextInfo Region="199, 573, 64, 15" Text="Description:" />
+                                  <uc:OcrTextInfo Region="126, 613, 119, 12" Text="Cross-collateralization" />
+                                  <uc:OcrTextInfo Region="247, 613, 65, 15" Text="Description:" />
+                                  <uc:OcrTextInfo Region="80, 695, 26, 12" Text="Final" />
+                                  <uc:OcrTextInfo Region="108, 695, 47, 15" Text="Payment" />
+                                  <uc:OcrTextInfo Region="156, 695, 48, 12" Text="Address:" />
+                                  <uc:OcrTextInfo Region="623, 695, 55, 12" Text="MIDLAND" />
+                                  <uc:OcrTextInfo Region="679, 695, 39, 12" Text="STATES" />
+                                  <uc:OcrTextInfo Region="720, 695, 61, 12" Text="BANK-Final" />
+                                  <uc:OcrTextInfo Region="783, 695, 48, 15" Text="Payment" />
+                                </scg:List>
+                              </uc:CVCache.OcrTexts>
+                            </uc:CVCache>
+                          </scg:List>
+                        </uc:CvCacheContainer.Caches>
+                      </uc:CvCacheContainer>
+                    </p:CVScope.DesignTimeCacheContainer>
+                    <p:CVScope.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                        <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_33" Image="[Image]" Language="en" Profile="Screen" Scale="1" Timeout="100000" />
+                      </ActivityFunc>
+                    </p:CVScope.OCREngine>
+                    <p:CVScope.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d35dccf7-0b00-4dad-865f-61aa459ba21b" InformativeScreenshot="c39a66dff3ba35546311d631053f07e7" Selector="&lt;ctrl automationid='FullScreenPanel2' /&gt;" WaitForReady="INTERACTIVE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </p:CVScope.Target>
+                    <p:CVScope.UseLocalServer>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </p:CVScope.UseLocalServer>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </p:CVScope>
+                  <uix:NClick ClickType="Single" DisplayName="Click 'NavNextButton'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_127" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="592f209b-d919-461f-b3a9-77375e4346dd" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="1778, 814, 70, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'NavNextButton'" FullSelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='NavNextButton' role='push button' check:text='NavNextButton' /&gt;" Guid="863402ca-bf5e-460f-b668-34748ea57cca" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAaCAYAAAAQXsqGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGZSURBVFhH7ZUhb8JAFMf5TqdQU9STNA0SNbdkpqmbRzYYDBjUGtSSzSEb8EViMP0QNf/dXftKCwe7AddkyxO/5PVd75L75f3bXlEUYH6GRVnS+/xag7lMLSrP87qpauYIi7KERVnCoixhUZawKEvcidqtEHkCQZy2+5spnsMEWbP3B3AryvfhewHitNG/R5Q+M0SSGdYc41hUiPkigt8U41DUfvmK8WxrXLsX56KSbIPpaIAwycr+iajdKoInBIQiiJFSr6rzvNo/X+go6/ckZ5HWHLCeDCH6Y8y2p2v30YEoWUs5o8GxJlFKSHPaNtNRJWCHVeRrucfeyZnVHiOHNSZDgf54hq1p/Qa6ESWf6ws3RKkeTQgxIHFqv5qgerLOz7zGfvkiz+s/LIqdiSovLj/s721R5ggpVOR+L6oUJPD09mFcv5XuREl01NSfsBE9jyJJ+zS3RU9JerQgolNRNCV1vCTt+JUffd2jSdKTSD8DJdDT716eRDe4E/XPYFGWsChLWJQlLMqSliiSxJipRVHBXIdFWVHgG8ciB+XZ1SjhAAAAAElFTkSuQmCC" InformativeScreenshot="e968774d42b17ad1709aefa8be530c47.png" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="1795, 817, 36, 16" ElementType="Text" FriendlyName="'Next _&gt;'" FullSelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;&lt;ctrl automationid='PART_Caption' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;&lt;ctrl automationid='PART_Caption' role='text' check:text='Next _&amp;gt;' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAD/Rn+7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFWSURBVEhL7ZMtb4RAEIb7n1ahqsBfQggSVdekhuDOnyQYzJ05VYKqP0kOD/LMmf0bb3cXBhZYSFvS5pognmSZ2Y+Hmd0nzjkemU1wLZvgWv6RYJ0jchi8uBhOuiZ4CTNUeuwPGQq6LlzHQ1xok9YIqj1DZJUh90VGgiGOpwiuLvSLgrfzG4K0NOaIiWBWXZH4NsKsauIjwTqP4DAGJvFiFBRrx5y3648ndWXUPMHk6ijuuBx2YFaAtBznGgyCYiykfLsfk6AU0at7Tfz24Bp55Kqf6mOjPds1Ru4XHHYMVpCiHOXMguK7O0gTlDGqCGGTsFwvK9ZVcrrnErfzq9jPmrR8VrA5UDyY96GguVUS2drvCzZiDM/7D2N+XlCgWipfttZih1pP6xQ/a7GUmxMjFgWpKl0bBcM2N49JxahyqvL0yKS4o+bOV36ZXvBB2QTXsgmug+MT3NnwCkcfXtgAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="400,337" sap2010:WorkflowViewState.IdRef="Sequence_359">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_209" Level="Info" Message="[&quot;Error: Document Options did not display. &quot;]" />
+                  <Throw Exception="[New ApplicationException(&quot;Error: Document Options window did not display in the transaction.&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_20" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="18, 87, 1822, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'PanelTitle'" FullSelectorArgument="&lt;ctrl automationid='PanelTitle' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PanelTitle' role='text' check:text='PanelTitle' /&gt;" Guid="efa6515c-642a-46af-afb7-0491ba810abc" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAByIAAAAUCAYAAADBX/rxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAL6SURBVHhe7d0xbtswGIDR3qkn7DF6Cl8hB/CeNR4yZXGyOEAGNqQk6yctKXYqpFXwCDwgMkVacscPUn/8/L1PAAAAAAAAAGsSIgEAAAAAAIDVCZEAAAAAAADA6oRIAAAAAAAAYHVCJAAAAAAAALA6IRIAAAAAAABYXQiRD2n/murx+pJ+hZO/l6d06G+zG6e0mzzvCvenb/5bAQAAAAAAwG2aEPmW9nfj5K/Ht78LdP9Qvvbnx4fJuSFCHu7DZ3cv6TnV9z8vr9/m7wIAAAAAAABfYTFEZstB7/+1dN27Y5qey082Hp8uP78gRAIAAAAAAMCSD0NkeVLw/NrR5vWtTbTLgW8YJfRVa5u9+r935anL91E+D69LrfaOr1EdrzF/3+H+ck33JOcw2mA4c59ZvL4+So73NKyJ19LfZxMwZ7//Ys9mbhjxNwMAAAAAAIANuiFEdhEyPkkYnyws8a2Kh3HtxHH+O43ruzg3hLkc+2L4C8Eu7DG/ZumJyGa/ubk+DJ5f35qPz/fS7BFCZPkd4j3Hdc2e4++3EEcBAAAAAABgg64LkSWyPaVDDGzDXPnso4g5cdzM1eEw7JfPK/kuji4C5pAX/5/HeDwfIpeiX7jHEBc7cd18iNwd273DunbPat14X+NaAAAAAAAA2KYPQ+T41N5SiGzC3MX8xPEtIbL93t7nQmS8p2YuhsIvDpGdvO/7mLlfAAAAAAAA2IrFEFme0jtHsTxfB7wY9Mq5VVTLclgb96xeW3ptiOzjXAyOgxge2+OlEFm+u90zR8Fwrd1xExvP1zsfIqt7HOaG43Beu250+e8AAAAAAAAAW9OEyFSPybAYRjVfrx8iYAlz/Xg+nm5/InI4t9+jjP57l0LkuGbudafNvbTnlUh4CufU8yW8vo9yzU1QHOa6MR0s6+Pp3w4AAAAAAAC2KoRIKpNPKwIAAAAAAADXECLnCJEAAAAAAADwaULkHCESAAAAAAAAPk2IBAAAAAAAAFYnRAIAAAAAAAAr26c/uK8fF5UiTAgAAAAASUVORK5CYII=" InformativeScreenshot="075e7e7fac4f0ecdc418e7d69b8a5d34.png" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="18, 8, 136, 48" ElementType="Text" FriendlyName="'ProductName'" FullSelectorArgument="&lt;ctrl automationid='ProductName' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='ProductName' role='text' check:text='ProductName' /&gt;" ImageBase64="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" SearchSteps="Selector, FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <Sequence DisplayName="Screen: Document Options 2" sap:VirtualizedContainerService.HintSize="950,81" sap2010:WorkflowViewState.IdRef="Sequence_368">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NCheckState DisplayName="Check App State -Document Options 2" sap:VirtualizedContainerService.HintSize="854,659" sap2010:WorkflowViewState.IdRef="NCheckState_39" ScopeIdentifier="ad978434-a960-4382-9511-70f2e482c8b4" Version="V3">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,402" sap2010:WorkflowViewState.IdRef="Sequence_369">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_214" Level="Info" Message="[&quot;Document Option 2 Window displayed.  clicking Next.&quot;]" />
+                    <uix:NClick ClickType="Single" DisplayName="Click 'NavNextButton'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_129" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ad978434-a960-4382-9511-70f2e482c8b4" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="1778, 814, 70, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'NavNextButton'" FullSelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='NavNextButton' role='push button' check:text='NavNextButton' /&gt;" Guid="41d63c6d-45b8-4603-af22-d14771c291af" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAaCAYAAAAQXsqGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGZSURBVFhH7ZUhb8JAFMf5TqdQU9STNA0SNbdkpqmbRzYYDBjUGtSSzSEb8EViMP0QNf/dXftKCwe7AddkyxO/5PVd75L75f3bXlEUYH6GRVnS+/xag7lMLSrP87qpauYIi7KERVnCoixhUZawKEvcidqtEHkCQZy2+5spnsMEWbP3B3AryvfhewHitNG/R5Q+M0SSGdYc41hUiPkigt8U41DUfvmK8WxrXLsX56KSbIPpaIAwycr+iajdKoInBIQiiJFSr6rzvNo/X+go6/ckZ5HWHLCeDCH6Y8y2p2v30YEoWUs5o8GxJlFKSHPaNtNRJWCHVeRrucfeyZnVHiOHNSZDgf54hq1p/Qa6ESWf6ws3RKkeTQgxIHFqv5qgerLOz7zGfvkiz+s/LIqdiSovLj/s721R5ggpVOR+L6oUJPD09mFcv5XuREl01NSfsBE9jyJJ+zS3RU9JerQgolNRNCV1vCTt+JUffd2jSdKTSD8DJdDT716eRDe4E/XPYFGWsChLWJQlLMqSliiSxJipRVHBXIdFWVHgG8ciB+XZ1SjhAAAAAElFTkSuQmCC" InformativeScreenshot="37957e24c7bc7a4c11e1295ece214345.png" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1795, 817, 36, 16" ElementType="Text" FriendlyName="'Next _&gt;'" FullSelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;&lt;ctrl automationid='PART_Caption' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;&lt;ctrl automationid='PART_Caption' role='text' check:text='Next _&amp;gt;' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAD/Rn+7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFWSURBVEhL7ZMtb4RAEIb7n1ahqsBfQggSVdekhuDOnyQYzJ05VYKqP0kOD/LMmf0bb3cXBhZYSFvS5pognmSZ2Y+Hmd0nzjkemU1wLZvgWv6RYJ0jchi8uBhOuiZ4CTNUeuwPGQq6LlzHQ1xok9YIqj1DZJUh90VGgiGOpwiuLvSLgrfzG4K0NOaIiWBWXZH4NsKsauIjwTqP4DAGJvFiFBRrx5y3648ndWXUPMHk6ijuuBx2YFaAtBznGgyCYiykfLsfk6AU0at7Tfz24Bp55Kqf6mOjPds1Ru4XHHYMVpCiHOXMguK7O0gTlDGqCGGTsFwvK9ZVcrrnErfzq9jPmrR8VrA5UDyY96GguVUS2drvCzZiDM/7D2N+XlCgWipfttZih1pP6xQ/a7GUmxMjFgWpKl0bBcM2N49JxahyqvL0yKS4o+bOV36ZXvBB2QTXsgmug+MT3NnwCkcfXtgAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="400,205" sap2010:WorkflowViewState.IdRef="Sequence_370">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_215" Level="Info" Message="[&quot;Document Option 2 window did not display.  Moving On.&quot;]" />
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="11, 82, 121, 25" DesignTimeScaleFactor="1" FriendlyName="'app.prosuiteclient.exe …'" Guid="cdff3219-033b-4372-8d23-27be4cd3d845" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHkAAAAZCAYAAAAVDoETAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJlSURBVGhD7ZRNbgIxDIV7p56wx+gpuEIPwK4S3bYLVkgIuqGiizR2/p49ycDQCujElp40mcSO7S/Jw/F4dKZ5yyB3IIPcgTLkx+elaaYyyB3IIHcgg9yBDHIHMsgd6ATkd7f8ctK+Pt1Tde0ctHEfscxgB7eorjtDb4cr9Ery2a/fK2vOgvztli/l39P624f7RfE3FOXeakQC/PEG/14+3d7J+tsi/yv3xee3zPkG4CL/qMmQSePNul+N5b3YNW4C3cjdZvh/oBtAVqIa/gwyn/D8FMknQzeENk7GTRS+Klb8XvBr4Y3/wxMqYuPTWnIMhQ59wguUTMNo1EnC/CLwUlPywVxinepwNPcfxFRzybBnVbVr+CXkABhvACWbxlyYAIO+lTF9+3qSfyg8FU2NxKZCMyBG22fsJqt4rbnY9HxbaJxrUTEAMvcBa0Y/FbP0b+TgVVTtddTlkDmgLwyTT3P879QBqYzVnIQC8WgdtwYtNJiahE8WjtuQxxoKNQK4IPRrQ17sdGzw0zGFX6mr+GpRLHnRpF4vg1xO2xhkVfRgvjKeAlnvG3UZZKxJzSGEK0MOorjeqvXW+WhNhsynK29I87I52CxeKxImUdIlJj8zUyHHwhFmEkLV4zHIvLeOSQ2HXMNYgcz5tiGLGtNcGsM67VfUgOnXNusBnQHZ14VWhQYm5qV/SoiLjrbf+UQnQ45rYwy2uO8Y5OLTegJVLXodAzjAGjnPh9ob56xgpblg9cMgx/XeobCP2UT/g05ANglpIP9EBnmKDHIHMsime5VB7kAZ8mq1ctvt1jRDGeTZa+t+AFA1iC+wx1ZTAAAAAElFTkSuQmCC" InformativeScreenshot="3acb5fb1defb13c54cc8b62977a5687f.png" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="18, 8, 136, 48" ElementType="Text" FriendlyName="'ProductName'" FullSelectorArgument="&lt;ctrl automationid='ProductName' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='ProductName' role='text' check:text='ProductName' /&gt;" ImageBase64="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" SearchSteps="Selector, FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NCheckState.Target>
+              </uix:NCheckState>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 1838, 846" FilePath="\\msb-lp-prod01\LaserPro\CFI\app.prosuiteclient.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ7SURBVFhHzVdpbBRlGN6fJsaABhE1Ktq0paVgQaFWqq2CpEFiqGJUVBLjmRh+4RVPokQj0ShGBE0ICfUANBLx1kYTNfUgjQfSBjCRa+ab6R7d3c50u7MzPL7vO1+73e7GRGU2Psnb3Z3je57vPb/GzLObcLLNmFqH5JoH8XfIbHgJxmm1iESAOWO2fLoffarpyuF+1gPjjFkRCWA7sxFqThsKR45qylIUjhtQdS0RCiAzptQhsfo+wPc17QQEAQY7V0YrgM04vR7Ojvc0aykyGzdFL4BDYc2/Cn48rmlLEb0AMs729HMvaspSVEWAOX02VOPl8E2laYuojgAy9kL21dc1bRFVE2BOa4C9tAvwPE0donoCuDmddzG8/gFNHaJ6Asi4RTvv7tbUIaorgPIg8/ImTR3ifyCABoI5vXF8gERpHAL3g481dYhYfMUqWM1Xhg9Q7zam1CISUbSm1dxOHTGhqUPE+E8wlMZo389wut9B6uGnIKLmdcA8v1leZFFi1Ne5nETcWSSOBVYSydf4PrVhY2q9uF41tdEI/lJIJyLm/Xm4rDYZQToDb+AA3M97kN2yFalH1iFx+z1Uy9fDWnA11KwWmDNJ4DlzxsnE+Pu5c6FqF8BqXUrT8F5kt26Hb9l65VLE1EWXwG5fhuT9a+XB0b19CJIpfbsCaIwG2WH4SsE79Afyv/yG0R/2Ivdtrxh/9/btR+HYcQSuq1+qDKd7ByUhu0tcpeNPv625VyDedSuGHn0azls7RZTsoFDQr/43+LaN1NrHJDzlZTiDjIYHH5c4dmwcc1XfArtjuRww0uuexfC2box88RXyv+5D4egxBKkhBCMjocgTJ0Im/qTfgePAN0zxUPqZ5ym/2mXDzFcqgL2hk04S7YJmIeYE4uOVargM6sL58qwIHKsYygNVt5DmfgeF81o66dyA+PKbMLjsRtiLr4PVskTW4TXH19acRQGc3SSAXZ997Q3kvumFd/CQjNAgkQx3mExKKAqHj8D7vR+5776H+/4eZGjKpR56Eomb74C9qBOq5lKqGBJ4Sk1o7MVpRMobHOPTJgK4vOy2TuR6vi66798i70mCct44b+/C0BPrkVi5WtzOngp7DbmfN0wVI53QXrKi4mFhIoJhynyKI2e+t3+ArB/egYPiDd8elPsVD58aXNZcMc6bOyUB7Wu6JCwxrmV2ZyWM/tSH9PoNFJbbYC1cLMdoc+Y8GatinCPkbtXYKvd50cSqu5B64HFkXtkMd88nkqSTu5+APM2bjmVe2KivFOEPxpG8e43ETOLHiTa5+000vs73ya0cTumaXEHcOTlBmxZJYvJ/S9zUuBp8yxIuacUlyOeRuOVOGKfWhItPSpp/bGMCWdxYryGxqqFVPFYmgDuZtNRKi51M06LKBLi7PxxvEtWwMgG53h9DdRUejsLKBHDTsajrVUdEE/4CP8GkR51aL7EAAAAASUVORK5CYII=" InformativeScreenshot="a86de500ba43702889a87ceb887f929f.png" Selector="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
