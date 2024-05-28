@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CQ_to_LP_TransactionProcessing" this:CQ_to_LP_TransactionProcessing.in_Environment="Test" this:CQ_to_LP_TransactionProcessing.Screenshot="U:\IT\Business Intelligence\UiPath\Projects\REF_SBB_UCC_DocPrepAutomation\screenshot.png" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CQ_to_LP_TransactionProcessing" this:CQ_to_LP_TransactionProcessing.in_Environment="Test" this:CQ_to_LP_TransactionProcessing.SCREENSHOT="U:\IT\Business Intelligence\UiPath\Projects\REF_SBB_UCC_DocPrepAutomation\screenshot.png" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Environment" Type="InArgument(x:String)" />
     <x:Property Name="in_PRF_TABX_PAYMENT_TYPE_DESCRIPTION" Type="InArgument(x:String)" />
@@ -52,16 +52,27 @@
     <x:Property Name="in_LAST_NAME" Type="InArgument(x:String)" />
     <x:Property Name="in_SF_COLLATERAL_ID_1" Type="InArgument(x:String)" />
     <x:Property Name="in_SECURITY_AGREEMENT_DATE_1" Type="InArgument(x:String)" />
+    <x:Property Name="in_SECURITY_AGREEMENT_MASTER" Type="InArgument(x:String)" />
+    <x:Property Name="in_C_LEGAL_ENTITY" Type="InArgument(x:String)" />
     <x:Property Name="in_PRO_TAB_BUSINESS_UNIT_NAME" Type="InArgument(x:String)" />
     <x:Property Name="in_ORIGINATION_FEE_FINANCED_C" Type="InArgument(x:String)" />
     <x:Property Name="in_ORIGINATION_FEE_PAID_IN_CASH_C" Type="InArgument(x:String)" />
-    <x:Property Name="Screenshot" Type="InArgument(x:String)" />
+    <x:Property Name="in_AUTHORIZED_SIGNER_OF_BUSINESS" Type="InArgument(x:String)" />
+    <x:Property Name="in_VARIABLE_RATE_MARGIN" Type="InArgument(x:String)" />
+    <x:Property Name="in_VARIABLE_RATE_DESCRIPTION" Type="InArgument(x:String)" />
+    <x:Property Name="in_VARIABLE_RATE_FLOOR" Type="InArgument(x:String)" />
+    <x:Property Name="SCREENSHOT" Type="InArgument(x:String)" />
     <x:Property Name="DT_AllCustomers" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_AUTHROIZED_SIGNER_OF_BUSINESS_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_AUTHROIZED_SIGNER_OF_BUSINESS_C_2" Type="InArgument(x:String)" />
+    <x:Property Name="in_AUTHROIZED_SIGNER_OF_BUSINESS_C_3" Type="InArgument(x:String)" />
+    <x:Property Name="in_AUTHROIZED_SIGNER_OF_BUSINESS_C_4" Type="InArgument(x:String)" />
+    <x:Property Name="in_AUTHROIZED_SIGNER_OF_BUSINESS_C_5" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1670,2509</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1199,2966</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CQ_to_LP_TransactionProcessing_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="90">
@@ -195,7 +206,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CQ_to_LP_TransactionProcessing" sap:VirtualizedContainerService.HintSize="670,2444" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CQ_to_LP_TransactionProcessing" sap:VirtualizedContainerService.HintSize="804,2901" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ApplicationDate" />
       <Variable x:TypeArguments="x:String" Name="LoanDate" />
@@ -223,27 +234,26 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="608,92" sap2010:WorkflowViewState.IdRef="LogMessage_83" Level="Info" Message="[&quot;Begin SBB UCC Installment Flow&quot;]" />
-    <Sequence DisplayName="TEST" sap:VirtualizedContainerService.HintSize="608,2201" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence DisplayName="TEST" sap:VirtualizedContainerService.HintSize="742,2790" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Credit Manager" sap:VirtualizedContainerService.HintSize="546,1606" sap2010:WorkflowViewState.IdRef="NApplicationCard_14" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Credit Manager" sap:VirtualizedContainerService.HintSize="680,2195" sap2010:WorkflowViewState.IdRef="NApplicationCard_14" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="512,1389" sap2010:WorkflowViewState.IdRef="Sequence_35">
+            <Sequence sap:VirtualizedContainerService.HintSize="646,1978" sap2010:WorkflowViewState.IdRef="Sequence_35">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Search for Application Number" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_28">
+              <Sequence DisplayName="Search for Application Number" sap:VirtualizedContainerService.HintSize="584,81" sap2010:WorkflowViewState.IdRef="Sequence_28">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -258,13 +268,13 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:LogMessage>
-                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Binocular Icon for Searching" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_57" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Binocular Icon for Searching" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_57" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/side_menu.aspx" DesignTimeRectangle="164, 176, 16, 16" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG ximgMmgAdvancedSear…'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='xspnMmgSearch' tag='TABLE' /&gt;&lt;webctrl id='ximgMmgAdvancedSearch' tableRow='1' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl parentid='xspnMmgSearch' tag='TABLE' /&gt;&lt;webctrl id='ximgMmgAdvancedSearch' type='' tag='IMG' class='PDS_MMG_SEARCH_IMG' aaname='Advanced Find' /&gt;" Guid="cc7c2bab-3b19-4a29-a24c-9cd3f5985abb" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACUSURBVDhPrY4BDsQgCAT9/6dptmQF63IlZ01G6LCYjmFmnyLlCVKeIOUJWo6g4zNa4vba8hktiz+pfGYXaYn88k92gdvrslj5J+tHCnfJ+/cbs/EAzrZQzQg8icaHOFu4mhF4Eo0PcZZwopzBk2hEkHTm853Z4PYqg+QtFw1urzJI3nLRpADJwW5u+fgCKU+Q8m/MLrX9wmjx/CKqAAAAAElFTkSuQmCC" InformativeScreenshot="0df849fd8d0719aaad29089df951f406.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
                   </uix:NClick.Target>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -349,26 +359,20 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </uix:NClick>
-                <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Clicking the search result of the customer name will auto close the search box and bring the entity details for the customer into focus." ClickType="Single" DisplayName="Click CM" sap:VirtualizedContainerService.HintSize="334,214" sap2010:WorkflowViewState.IdRef="NClick_62" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+                <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Clicking the search result of the customer name will auto close the search box and bring the entity details for the customer into focus." ClickType="Single" DisplayName="Click CM" sap:VirtualizedContainerService.HintSize="388,139" sap2010:WorkflowViewState.IdRef="NClick_82" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
                   <uix:NClick.Target>
-                    <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_find_entity.aspx" DesignTimeRectangle="681, 533, 54, 13" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'CM'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResults' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResults' tag='TABLE' /&gt;&lt;webctrl type='' tag='DIV' class='PDS_TD_NOBR_ELLIPSIS' aaname='CM' check:innerText='CM' /&gt;" Guid="d7458ad5-b2a2-4cda-8951-43f6ad2f02a0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAARCAYAAACM0L/dAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACiSURBVFhH7dXBDcMgDAXQ7uS1PIqn8ShegyF+DcEiqaL2Wjv8KJKBSx5Y5IWHZEOrZUOr5Qo1ARGtVwxoCo46cjf351nQgWRom2M0KAtsoBjc61jRPuacUBMCL+XKgDrSN+JY9w0QhTk2JVS8FW+/O6D+CCvaBPdTLQo9WpbOdUao8o/WjXri0kK/X0YTekpeaM/H72WccElo4WxotTwECrwBoqH8RZmiqcoAAAAASUVORK5CYII=" InformativeScreenshot="e9f0550b8713f300181ca329993ac7bb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
-                      <uix:TargetAnchorable.Anchors>
-                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                          <uix:Target DesignTimeRectangle="678, 530, 60, 25" FriendlyName="'CM'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResults' tag='TABLE' /&gt;&lt;webctrl class='PDS_TEXT_COL' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResults' tag='TABLE' /&gt;&lt;webctrl class='PDS_TEXT_COL' type='' tag='TD' aaname='' check:innerText='CM' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAAAdCAYAAAAaeWr3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADNSURBVFhH7ZnBDcMgDEW7E2t5FE9jqb11CdZAYoVfIEaJWtSey/eLrG/CyU8kOeR2fzzBXCEA5IQAT1pCgCctIcDzk6xIKZ2lGSgGmf1kde+PWAsYwwus+BoFJoo8hhVI7+eO9bXsJSBrgpzTnwwBbfgm6NhvYtSQm4StBGg70st5poB2qRiKi+ingEzAcfTTtd9JgMmPR2D2PvR2Ar6/BF3Ahf0EdN4+g+NEUAkgIQR40hICPGkJAZ60hABPWkLA6mcBU91qrWAucgEVLwQ/zjBb5JSJAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
-                        </scg:List>
-                      </uix:TargetAnchorable.Anchors>
-                    </uix:TargetAnchorable>
+                    <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_find_entity.aspx" CvTextArea="671, 526, 17, 11" CvTextArgument="CM" CvType="Text" DesignTimeRectangle="681, 533, 54, 13" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'CM'" FullSelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResults' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl src='prf_find_entity.aspx' tag='IFRAME' /&gt;&lt;webctrl id='tblSearchResults' tag='TABLE' /&gt;&lt;webctrl type='' tag='DIV' class='PDS_TD_NOBR_ELLIPSIS' aaname='CM' check:innerText='CM' /&gt;" Guid="3938b13e-20df-4f77-a460-c587bb5d8ab2" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAARCAYAAACM0L/dAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACiSURBVFhH7dXBDcMgDAXQ7uS1PIqn8ShegyF+DcEiqaL2Wjv8KJKBSx5Y5IWHZEOrZUOr5Qo1ARGtVwxoCo46cjf351nQgWRom2M0KAtsoBjc61jRPuacUBMCL+XKgDrSN+JY9w0QhTk2JVS8FW+/O6D+CCvaBPdTLQo9WpbOdUao8o/WjXri0kK/X0YTekpeaM/H72WccElo4WxotTwECrwBoqH8RZmiqcoAAAAASUVORK5CYII=" InformativeScreenshot="e071d2f401f77144efd6ca16f39135e0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
                   </uix:NClick.Target>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </uix:NClick>
               </Sequence>
-              <Sequence DisplayName="CQ to LP Interface: Export Transaction" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_31">
+              <Sequence DisplayName="CQ to LP Interface: Export Transaction" sap:VirtualizedContainerService.HintSize="584,81" sap2010:WorkflowViewState.IdRef="Sequence_31">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -434,7 +438,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </uix:NClick>
-                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into Application Number" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Text="[in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C]" Version="V3">
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into Application Number" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Text="[in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C]" Version="V3">
                   <uix:NTypeInto.Target>
                     <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_doc_preparation_list.aspx" DesignTimeRectangle="1560, 96, 155, 20" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'#58334 - In progress'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl parentid='xdivPageToolbar' tag='TABLE' /&gt;&lt;webctrl id='cmbCreditApp' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl parentid='xdivPageToolbar' tag='TABLE' /&gt;&lt;webctrl id='cmbCreditApp' type='' tag='INPUT' class='PDS_COMBO_POSITION' aaname='58334 : #58334  - In progress' /&gt;" Guid="8fb3036a-1c86-4a65-8768-44cf08c8a9a3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAYCAYAAADkri+AAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKNSURBVGhD7ZfLbcMwDIa7U+boJr53CU3jbOIFeipQwIcC7QAuKYoSKUuOlTh2jfIHCNiMqAf5iUleXt6uk5nZIVZ0mpntYfHh8mpmtq9J+EymZws5e//49GbwmXaV5MzgM+0qg890mAw+02Ey+EyHqRm+sXdTP8LD4CY3kA9eJne5TBdh/NnghD8GZONv+lnj1Hfg73p4ekBjP3W8xqNzme5WI3xQfEfFGpwDVFgITUdQSgGgqbgEludpBm6IrfmDEGQH624CjAdQnsG0t1bDpzqYMIJlDXzUtebNrAJB5vfg4Yua8wEV5u8AbO6Is32iQozjXPA+lD/MifsMc3X6BkU/ml/nRnx+gcmfLux83DnU1vngoJwsp0iTSQETlSt/7aJqX6Fz/9h3qYCY7C2SXICP58X1imv4GAZTXCbl53e+jJQb+kxe0oV4P473lsb5PfKgoYd55Nzo2iAvO6oJvvLvvVwiIZhUWdBSd1SFEor+ACPMqewGgLQejVWdh+Xnzzofj6sBXovJ/Hl8HKf8OXxZvDxrOAOfKeWecyNiT6R18BWS4a1IICUEk6UKCvLJm8WIIihV/DUwWvXX4Vs4I86H+U+5oQt/NggbOh8ckDIV/3REQbJiInwiqZPpr68EZeyg3i3Hl/1KNwqzWlnB2+HLOrwsvNp7Po79C/D5dwEXvPfwnP7kcSzXBF3ZHCfQevgYMDik/r0HCsnijhiLCOJbqjolFleMj0mu+aW2gE/uN8y1Hr60v3ieUuHFWar5AOOcLsXzOPlTgvZHELJPrnMGNXQ+UxGSu4UdsdDZ/5EMvhY9DN+5O9XWMvhMh8ngMx0m5Ozr+8ebgs/MbFeL8JmZ7W1Fp5nZ0+06/QK5IvlqQ1F29QAAAABJRU5ErkJggg==" InformativeScreenshot="1f2e1bb4b516c7b2f1e1de98771cf2e7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
                       <uix:TargetAnchorable.Anchors>
@@ -446,7 +450,7 @@
                   </uix:NTypeInto.Target>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -488,10 +492,10 @@
                 </uix:NClick>
                 <uix:NCheckState DisplayName="Check App State 'Document Preparation'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
                   <uix:NCheckState.IfExists>
-                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,360" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,364" sap2010:WorkflowViewState.IdRef="Sequence_29">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -555,7 +559,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </uix:NClick>
-                <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'Open the CQ LP Interface'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_81" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Timeout="10" Version="V3">
+                <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'Open the CQ LP Interface'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_81" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Timeout="10" Version="V3">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable DesignTimeRectangle="798, 168, 240, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Open CreditQuest'" FullSelectorArgument="&lt;ctrl name='Open CreditQuest - LaserPro Interface?' role='dialog' /&gt;&lt;ctrl name='Open CreditQuest - LaserPro Interface' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Open CreditQuest - LaserPro Interface?' role='dialog' /&gt;&lt;ctrl name='Open CreditQuest - LaserPro Interface' role='push button' automationid='' check:fulltext='Open CreditQuest - LaserPro Interface' /&gt;" Guid="f16d1145-bbcc-4083-9743-35e6b35b4475" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPQAAAAkCAYAAAC+ERfRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAf7SURBVHhe7Z09TyNJEIbvd+yfICMj25CMjIzMGcEFDpAQAUibbICQCBwgoQssa5MJkIiMRAABQk5AWukg8Pm8dzuY8ZeMB3uR6qqqaz7dwxqMF/DVI412xtMz3V1Vb3d1G61/A0VRZgYVtKLMEAlB/3h4AK/Zhupf3+DP66oeeujxRg/SKGmVNBsnFDTdqNX/hVuvBYPBUD5VFOUtQholrZJmH2KiDgVNaqcCiqK8H0izcd2GgqYpXGdmRXlf3A8GUK19k6uYoCkvVxTl/RHXrgpaUd45KmhFmSFU0IoyQ6igFWWGUEErygyhglaUGWKKgr6Hq+MGrK59hw+/f4e5vAvr5S605e6v4QHa1x6sb2L92AZqR87pgi93n8v5Hr5rz/SkfeFBqXLH53bu4PzLDSznTf3zay4UHi3/enC/PnngyvW04frEL3QsF5pQk3uT8Mv60e/A/icTWzsX8tkrMyVBP8BlkZzkws5ZF9zOHVxVbmEVg3oRhTCpoMbjAWrlG5hHY68UW3Dl+VC7uIXc58kdHQl6wOfzuy0zUNWbkN+8gcOwgj4c7WLZtRsoXfSg3enBuXMDS9imXLknZV6QkfqfxqsIetODq44P7XoLtnDwXyx25e7zGb8fPTjcdmH1mb7gGMd6am/ob7CmI+hOE1YxaLcq9/KB8PUWPuLnpbpcT5MhBohFOH4VBxg5fy6RoFNcNHgQc4IKgv5Wk3803z6+wXINOJfrFyNd/xN5FUHH6qsduC9S//j9aMMO+mflmYLOjINXZCqC9s+yAtYYMH+Kc7TrwQqebx00YX0DDYPnS7uxlKvfBaeAsx9+/gFn9vVjMboE7X65Eaax66ejDjFtuMkUDTsDZ7OdbUyZ2PmYnlcakJN3Lny6hcuOCNFrQUFSq3n8vECzLjuyBw5+zufcLvMsHRQkNQfPbYHleZDDMoVrPE+LMHXtV3HJIPaZ38DZt07TAWYfp1EaP/e5Ca6l/qdiF4KZxRbkvWyXPn1uaQOXxyVGMSqf+9Ix2Yv4O79n/EYparagxa67DShQ39nWSf/QEi5r6ZJ4b2a8mFikaz6kvN3eo+3hOsLnjb9qOFCH9sD27X8NJjRjk0W5lzswvrHXNRlTEbRbzhppjWE42MTBHwstcIdD8N0WrGPKtexQZzFVRaEFHYe6KcszuwRuzsFAGfqS2jfg0pQMyW6DwTjExXeKEa9vYXENByEWsQ8neH8O2+ZLm9PtHBE0kRIj1xHcS2CCidddqWcS15jp5DEwHG7j0AQ8pqi1cEBIBUD6XU8kLTBDH2rVvlkmDTuwg33PlVFI1jaYpdbinixBOiaN3qoMIn8H95BEfViW3m38L3bFpcqJDKr+1wYsks0q2JbhAFwcsOnalu0l3vtovKRm6Cx7W9pDpP3brnexDro/hMs/8B4v72T5ic8e1e/BJ5sU8ZnMuiZjKoJu48htE1lgwPWzyME8SwmhgSRYyBHxI1sAaKyOXAvZbTCkg5cdkK6T7sdnUyFy5OOCZkfa1uzyzhKZ2dofc82DUrw9fFDm04V9HNnncFTfP6MgGn12BLF39I5R0jYxmM3NPPZzSWYYIwBbG1KznhzxATy+ecT1xcpFGVrKrgj7Z7sZDgZUfwnrt2UiiX5Y7RvES1LQ2fYebQ8RxYHBrzahgNnMEtmFnuU2dKGAAxVnpYLr9h6pazKmImiaUZexgek1tI/G/IjGPCRjioM5qJmHyEAWEYVYHWQJ4ow2BKSDdzRghMfa+RNB0/UcX0ejOsHOXMPUlS6uaZ1t70+iXJphH67OZAd/Q8pk2WJM0jYhaGCc45mJFGv6G4popA1GIPHgDckSdLApxjNbQIagOWMKMILmbCFFoh8Wn0TXFkFb7T2GoHHmzVO8nfF6xLyL2xCbxGI86tsJmI6gYSAzXmyX+6wBKzjCh7uY4mBOz9CZPgqQRGyCoQclChKc3WrkaAycS8ezB21mEAdtQGM6bahh0LjVFpQcTJ3xbjp4/QoGLpallI5ES6l1iddaOBPhCLvIKfeA1z2cPdgEjfdoB3s/TENx/fkZ76d2uSlVzJ8axweDV/64h6lkn1P9sD8yKOUO5Ku2TgdK5WRQUf8XsPyhh+cj9T+NhMD4uDeBh2K9Eh+Rz0ZmxbANAzgpUH8bMgBQauzBEfUlS9CpAcQwKiAzGRj/RCk31jn68BMEbQaFpS8Sk5n2HkPQ0j+2/RDfS+W5DYFNJOUe9uCogvWN49tnMCVBEz5clZObBPQ9dDjCigHyxVsWOpWhDZTwfmwjijbFVlH4P3dQmmQb+D24fiGzjQYTppaxsgubKMJrM6qSiOkrN/qcvit1QkemHS0Cpr4EM8fwDk5iGyLz9C8616kGmQMOPNh42kTijZQiLRWC/iQ3gug77J0Kislrhu1hu4abgpb6nwDbBJ+NDkwB+22zEYTXy0WPv3dlQWe1Ib6ZSc9s40BM2p5Q0GjIxKYTbSKVwk2nJOMLOvpqM1jvWu09jqAxfs5xiUXvmt9ogPMlmKERFPFhIbZRyHtDWXVNxhQF/RMsDv5/gAMHztLk+NUX+CMXRYmjglaUGUIFrSgzxOsJWlGUF0cFrSgzhApaUWYIFbSizBAqaEWZIayC1v9oX1HeH5n/0b7+FI6ivD8yfwqHf6zu73/4JqleUZS3C2mUtEqatf5YHfHjh/ycLE7hlJfroYceb/MgjfLPyaJm4yQErSjK+0YFrSgzA8B/xKKpKS6EwhkAAAAASUVORK5CYII=" InformativeScreenshot="7b2c9e8fa52d6797c3572b98187a35e4.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Credit Manager - Google Chrome' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
                       <uix:TargetAnchorable.Anchors>
@@ -567,21 +571,22 @@
                   </uix:NClick.Target>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </uix:NClick>
               </Sequence>
-              <TryCatch DisplayName="CQ to LP Interface Module" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+              <TryCatch sap2010:Annotation.AnnotationText="Institution, branch, Product, Product Type" DisplayName="CQ to LP Interface Module" sap:VirtualizedContainerService.HintSize="584,746" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <TryCatch.Try>
-                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: CreditQuest to LaserPro Interface" sap:VirtualizedContainerService.HintSize="546,527" sap2010:WorkflowViewState.IdRef="NApplicationCard_15" OpenMode="IfNotOpen" ScopeGuid="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V2">
+                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: CreditQuest to LaserPro Interface" sap:VirtualizedContainerService.HintSize="546,487" sap2010:WorkflowViewState.IdRef="NApplicationCard_15" OpenMode="IfNotOpen" ScopeGuid="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V2">
                     <uix:NApplicationCard.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
@@ -591,37 +596,38 @@
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="Select items from Dropdowns in CQ LP Interface" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                          <Sequence DisplayName="Select items from Dropdowns in CQ LP Interface" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_50">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="459,52" sap2010:WorkflowViewState.IdRef="LogMessage_81" Level="Info" Message="[&quot;Type PRO TAB BUSINESS UNIT NAME for Branch&quot;]">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_85" Level="Info" Message="[&quot;Type PRO TAB BUSINESS UNIT NAME for Branch&quot;]">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:LogMessage>
-                            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - in_PRO_TAB_BUSINESS_UNIT_NAME - Select Branch" sap:VirtualizedContainerService.HintSize="459,52" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="7698a835e76212aa23618ae614c1f739" Selector="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;">
+                            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - in_PRO_TAB_BUSINESS_UNIT_NAME - Select Branch" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="WindowScope_4" InformativeScreenshot="7698a835e76212aa23618ae614c1f739" Selector="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;">
                               <ui:WindowScope.Body>
                                 <ActivityAction x:TypeArguments="x:Object">
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                                   </ActivityAction.Argument>
-                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,393" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,393" sap2010:WorkflowViewState.IdRef="Sequence_49">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.STATIC.a...'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.STATIC.a...'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
                                       <ui:Click.CursorPosition>
                                         <ui:CursorPosition Position="Center">
                                           <ui:CursorPosition.OffsetX>
@@ -643,7 +649,7 @@
                                         </ui:Target>
                                       </ui:Click.Target>
                                     </ui:Click>
-                                    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'combo box  Branch'" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[in_PRO_TAB_BUSINESS_UNIT_NAME.ToUpper]">
+                                    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'combo box  Branch'" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="[in_PRO_TAB_BUSINESS_UNIT_NAME.ToUpper]">
                                       <ui:SelectItem.Items>
                                         <scg:List x:TypeArguments="x:String" Capacity="50">
                                           <x:String>Branch</x:String>
@@ -719,7 +725,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:WindowScope>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="459,52" sap2010:WorkflowViewState.IdRef="LogMessage_68" Level="Info" Message="[&quot;Select Institution&quot;]">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_86" Level="Info" Message="[&quot;Select Institution&quot;]">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -727,7 +733,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:LogMessage>
-                            <uix:NSelectItem DisplayName="Select Item 'Institution'" sap:VirtualizedContainerService.HintSize="459,52" sap2010:WorkflowViewState.IdRef="NSelectItem_16" Item="MIDLAND STATES BANK" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                            <uix:NSelectItem DisplayName="Select Item 'Institution'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NSelectItem_22" Item="MIDLAND STATES BANK" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
                               <uix:NSelectItem.Items>
                                 <scg:List x:TypeArguments="x:String" Capacity="2">
                                   <x:String>Institution</x:String>
@@ -750,7 +756,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </uix:NSelectItem>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="459,52" sap2010:WorkflowViewState.IdRef="LogMessage_70" Level="Info" Message="[&quot;Select Transaction Type: Commercial Closing&quot;]">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_87" Level="Info" Message="[&quot;Select Transaction Type: Commercial Closing&quot;]">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -758,7 +764,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:LogMessage>
-                            <uix:NSelectItem DisplayName="Select Item 'Transaction Type'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NSelectItem_18" Item="Commercial Closing" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                            <uix:NSelectItem DisplayName="Select Item 'Transaction Type'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NSelectItem_23" Item="Commercial Closing" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
                               <uix:NSelectItem.Items>
                                 <scg:List x:TypeArguments="x:String" Capacity="8">
                                   <x:String>Transaction Type</x:String>
@@ -787,7 +793,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </uix:NSelectItem>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_71" Level="Info" Message="[&quot;Select Product Category: Commercial&quot;]">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_88" Level="Info" Message="[&quot;Select Product Category: Commercial&quot;]">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -812,8 +818,15 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </uix:NTypeInto>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_82" Level="Info" Message="[&quot;Choose Product Name&quot;]" />
-                            <uix:NSelectItem DisplayName="Select Item 'Product Name'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NSelectItem_20" Item="SBB JHA UCC Installment" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_89" Level="Info" Message="[&quot;Choose Product Name&quot;]">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:LogMessage>
+                            <uix:NSelectItem DisplayName="Select Item 'Product Name'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_24" Item="SBB JHA UCC RLOC Business" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
                               <uix:NSelectItem.Items>
                                 <scg:List x:TypeArguments="x:String" Capacity="50">
                                   <x:String>JHA Real Estate Balloon</x:String>
@@ -879,18 +892,29 @@
                               </uix:NSelectItem.Target>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </uix:NSelectItem>
-                            <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'New Transaction'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_70" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'New Transaction'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_87" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
                               <uix:NClick.Target>
                                 <uix:TargetAnchorable DesignTimeRectangle="9, 32, 96, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'New Transaction'" FullSelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnNew' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnNew' check:text='New Transaction' /&gt;" Guid="ecdc605b-cef1-4cb4-88cd-684d7a60963b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAAaCAYAAABByvnlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJOSURBVGhD7VqxbsIwEOWr6MLEp0B+gH5E24lP6Jih7ciGxAwfgJCysyBlYUTA9c6xHdu5uIEWcKU76Umxfbm887uzhURvMBjA4XCA4/EIp9MJzucziD3OlCCj0QjG47FClmWCB8IKMnn5gMnrJzwT3r4ED4IIkhhEkMQggiQGESQxiCCJQQRJDN0Eed/Ajn61FCt/rtzA1PW7GnNYlOp3UcN2yznjf2eEuc62AH+Wu4/ugpR7FGUPi3d37gakbhX3N7gjp16//9RRkA3ky33dJSFJGuuqNtWTFwDrWbU+xXdttccS5OKWW1irDtpCjnMU15rHx/g582H3OV3OxiFQBxhzY5KRH8dRLxuOdp7l1I6LBJnq5NQme6RoviZihKhFoHV8LrQ/Jtx6FLHJOp3pYQVrs+b50bzmQ5vrimM4eHDieM8aHCc79v0pZ/u9Nk4RXCgIPpvz051TH/ZNbbj1QTJIksgaoUznRL/FjQluBZuEPb+qAOw8uYUx2uKY/Fy/GKfOaw4n48ugNxwOLxNEBcYOWEZIWeiqwCStQFihbjc1EMbixrbSgo33OAbJq/fQXM5cnP8nCMJUlp2jja/vC/Jf6Oe8wKPKEqn8omdpLMFwTM8/dQhydXl573JxFMdg47zY4dj3bxxZHCc15nGdIAh1IYYkabO12U0IKo7ea70/CNHkK9jLWF2YOsm25Nt4tcWhNVNwZComxdNj2myOo15uXuoMJ7POoJsggrtBBEkMIkhiEEESgwiSGESQxCCCJAYRJDFYQeR/WSkgg29bBfKECIC+UAAAAABJRU5ErkJggg==" InformativeScreenshot="50effd724fbc5d7fdfa8f8d90fa304a3.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
                               </uix:NClick.Target>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NClick>
+                            <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'New Transaction'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_88" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="106b804c-2e34-4735-80dd-d71f7a9d9538" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable DesignTimeRectangle="9, 32, 96, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'New Transaction'" FullSelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnNew' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnNew' check:text='New Transaction' /&gt;" Guid="ecdc605b-cef1-4cb4-88cd-684d7a60963b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAAaCAYAAABByvnlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJOSURBVGhD7VqxbsIwEOWr6MLEp0B+gH5E24lP6Jih7ciGxAwfgJCysyBlYUTA9c6xHdu5uIEWcKU76Umxfbm887uzhURvMBjA4XCA4/EIp9MJzucziD3OlCCj0QjG47FClmWCB8IKMnn5gMnrJzwT3r4ED4IIkhhEkMQggiQGESQxiCCJQQRJDN0Eed/Ajn61FCt/rtzA1PW7GnNYlOp3UcN2yznjf2eEuc62AH+Wu4/ugpR7FGUPi3d37gakbhX3N7gjp16//9RRkA3ky33dJSFJGuuqNtWTFwDrWbU+xXdttccS5OKWW1irDtpCjnMU15rHx/g582H3OV3OxiFQBxhzY5KRH8dRLxuOdp7l1I6LBJnq5NQme6RoviZihKhFoHV8LrQ/Jtx6FLHJOp3pYQVrs+b50bzmQ5vrimM4eHDieM8aHCc79v0pZ/u9Nk4RXCgIPpvz051TH/ZNbbj1QTJIksgaoUznRL/FjQluBZuEPb+qAOw8uYUx2uKY/Fy/GKfOaw4n48ugNxwOLxNEBcYOWEZIWeiqwCStQFihbjc1EMbixrbSgo33OAbJq/fQXM5cnP8nCMJUlp2jja/vC/Jf6Oe8wKPKEqn8omdpLMFwTM8/dQhydXl573JxFMdg47zY4dj3bxxZHCc15nGdIAh1IYYkabO12U0IKo7ea70/CNHkK9jLWF2YOsm25Nt4tcWhNVNwZComxdNj2myOo15uXuoMJ7POoJsggrtBBEkMIkhiEEESgwiSGESQxCCCJAYRJDFYQeR/WSkgg29bBfKECIC+UAAAAABJRU5ErkJggg==" InformativeScreenshot="50effd724fbc5d7fdfa8f8d90fa304a3.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
@@ -927,67 +951,171 @@
                   </Catch>
                 </TryCatch.Catches>
               </TryCatch>
-              <Delay Duration="00:00:25" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Delay_2" />
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Test_UCC_UseApplicationLaserPro.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Framework\TEST\Test_UCC_UseApplicationLaserPro.xaml">
+              <Delay Duration="00:00:25" sap:VirtualizedContainerService.HintSize="584,90" sap2010:WorkflowViewState.IdRef="Delay_2" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Test_UCC_UseApplicationLaserPro.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="584,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Framework\TEST\Test_UCC_UseApplicationLaserPro.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_CompletedDocPackageName" />
-                  <InArgument x:TypeArguments="x:String" x:Key="in_PRF_TABX_PAYMENT_TYPE_DESCRIPTION">[in_PRF_TABX_PAYMENT_TYPE_DESCRIPTION]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FINAL_LOAN_AMOUNT">[in_FINAL_LOAN_AMOUNT_C]</InArgument>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="in_PROPOSAL_COMMITMENT">[in_PROPOSAL_COMMITMENT]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_NUMBER_OF_PAYMENTS">[in_NUMBER_OF_PAYMENTS]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_C_RATE_BASE_NEW">[in_C_RATE_BASE_NEW]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_STATE_OF_INCORPORATION_C">[in_STATE_OF_INCOPRORATION_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_C_INDUSTRY">[in_C_INDUSTRY]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_REQUEST_TYPE">[in_REQEUST_TYPE]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_C_ENTITY_TYPE">[in_C_ENTITY_TYPE]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_C_CMB9">[in_C_CMB9]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_MSB_ACCOUNT_C">[in_MSB_ACCOUNT_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_PAYMENT_ACCOUNT_TYPE_C">[in_PAYMENT_ACCOUNT_TYPE_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_TITLE_REGISTRATION_FINANCED_FASB_TP_C">[in_TITLE_REGISTRATION_FINANCED_FASB_TP_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_TITLE_REGISTRATION_FEE_PAID_IN_CASH_FAS_C">[in_TITLE_REGISTRATION_FEE_PAID_IN_CASH_FAS_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_FILING_FEE_PAID_IN_CASH_FASB_C">[in_UCC_CORP_FILING_FEE_PAID_IN_CASH_FASB_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_FILING_FEES_FINANCED_FASB_TP_C">[in_UCC_CORP_FILING_FEES_FINANCED_FASB_TP_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_SEARCH_FEE_PAID_IN_CASHFASB_T_C">[in_UCC_CORP_SEARCH_FEE_PAID_IN_CASHFASB_T_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_SEARCH_FEE_FINANCED_FASB_TP_C">[in_UCC_CORP_SEARCH_FEE_FINANCED_FASB_TP_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_CLOSING_DATE_C">[in_CLOSING_DATE_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_D_PRINCIPAL_DUE">[in_D_PRINCIPAL_DUE]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C">[in_OWNER_S_LEGAL_NAME_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C">[in_OWNERSHIP_TYPE_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_BUSINESS_NAME_C">[in_BUSINESS_NAME_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_MSB_ACCOUNT_OR_PAYEE_C">[in_MSB_ACCOUNT_OR_PAYEE_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_MSB_LOAN_PAYOFF_DISBURSEMENT_AMOUNT_C">[in_MSB_LOAN_PAYOFF_DISBURSEMENT_AMOUNT_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_BORROWER_ACCOUNT_OR_PAYEE_C">[in_BORROWER_ACCOUNT_OR_PAYEE_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_BORROWER_DISBURSEMENT_AMOUNT_C">[in_BORROWER_DISBURSEMENT_AMOUNT_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OTHER_LENDER_ACCOUNT_OR_PAYEE_C">[in_OTHER_LENDER_ACCOUNT_OR_PAYEE_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OTHER_LENDER_PAYOFF_DISBURSEMENT_AMOUNT_C">[in_OTHER_LENDER_PAYOFF_DISBURSEMENT_AMOUNT_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_1">[in_OWNER_S_LEGAL_NAME_C_1]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_2">[in_OWNER_S_LEGAL_NAME_C_2]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_3">[in_OWNER_S_LEGAL_NAME_C_3]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_4">[in_OWNER_S_LEGAL_NAME_C_4]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_5">[in_OWNER_S_LEGAL_NAME_C_5]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_1">[in_OWNERSHIP_TYPE_C_1]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_2">[in_OWNERSHIP_TYPE_C_2]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_3">[in_OWNERSHIP_TYPE_C_3]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_4">[in_OWNERSHIP_TYPE_C_4]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_5">[in_OWNERSHIP_TYPE_C_5]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C">[in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="CustomerListCustomer2">[CustomerListCustomer2]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_PRF_TABX_PAYMENT_TYPE_DESCRIPTION">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PRF_TABX_PAYMENT_TYPE_DESCRIPTION" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FINAL_LOAN_AMOUNT">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FINAL_LOAN_AMOUNT_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:Int32" x:Key="in_PROPOSAL_COMMITMENT">
+                    <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_PROPOSAL_COMMITMENT" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NUMBER_OF_PAYMENTS">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_NUMBER_OF_PAYMENTS" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_C_RATE_BASE_NEW">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_C_RATE_BASE_NEW" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_STATE_OF_INCORPORATION_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_STATE_OF_INCOPRORATION_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_C_INDUSTRY">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_C_INDUSTRY" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_REQUEST_TYPE">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_REQEUST_TYPE" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_C_ENTITY_TYPE">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_C_ENTITY_TYPE" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_C_CMB9">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_C_CMB9" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_MSB_ACCOUNT_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_MSB_ACCOUNT_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_PAYMENT_ACCOUNT_TYPE_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PAYMENT_ACCOUNT_TYPE_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_TITLE_REGISTRATION_FINANCED_FASB_TP_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TITLE_REGISTRATION_FINANCED_FASB_TP_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_TITLE_REGISTRATION_FEE_PAID_IN_CASH_FAS_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TITLE_REGISTRATION_FEE_PAID_IN_CASH_FAS_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_FILING_FEE_PAID_IN_CASH_FASB_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_UCC_CORP_FILING_FEE_PAID_IN_CASH_FASB_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_FILING_FEES_FINANCED_FASB_TP_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_UCC_CORP_FILING_FEES_FINANCED_FASB_TP_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_SEARCH_FEE_PAID_IN_CASHFASB_T_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_UCC_CORP_SEARCH_FEE_PAID_IN_CASHFASB_T_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_UCC_CORP_SEARCH_FEE_FINANCED_FASB_TP_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_UCC_CORP_SEARCH_FEE_FINANCED_FASB_TP_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CLOSING_DATE_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_CLOSING_DATE_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_D_PRINCIPAL_DUE">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_D_PRINCIPAL_DUE" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNER_S_LEGAL_NAME_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNERSHIP_TYPE_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_BUSINESS_NAME_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_BUSINESS_NAME_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_MSB_ACCOUNT_OR_PAYEE_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_MSB_ACCOUNT_OR_PAYEE_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_MSB_LOAN_PAYOFF_DISBURSEMENT_AMOUNT_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_MSB_LOAN_PAYOFF_DISBURSEMENT_AMOUNT_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_BORROWER_ACCOUNT_OR_PAYEE_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_BORROWER_ACCOUNT_OR_PAYEE_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_BORROWER_DISBURSEMENT_AMOUNT_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_BORROWER_DISBURSEMENT_AMOUNT_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OTHER_LENDER_ACCOUNT_OR_PAYEE_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OTHER_LENDER_ACCOUNT_OR_PAYEE_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OTHER_LENDER_PAYOFF_DISBURSEMENT_AMOUNT_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OTHER_LENDER_PAYOFF_DISBURSEMENT_AMOUNT_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_1">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNER_S_LEGAL_NAME_C_1" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_2">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNER_S_LEGAL_NAME_C_2" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_3">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNER_S_LEGAL_NAME_C_3" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_4">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNER_S_LEGAL_NAME_C_4" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNER_S_LEGAL_NAME_C_5">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNER_S_LEGAL_NAME_C_5" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_1">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNERSHIP_TYPE_C_1" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_2">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNERSHIP_TYPE_C_2" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_3">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNERSHIP_TYPE_C_3" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_4">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNERSHIP_TYPE_C_4" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OWNERSHIP_TYPE_C_5">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OWNERSHIP_TYPE_C_5" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="CustomerListCustomer2">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CustomerListCustomer2" />
+                  </InArgument>
                   <InArgument x:TypeArguments="x:Object" x:Key="InterestMethod" />
                   <InArgument x:TypeArguments="x:Int32" x:Key="in_ModificationFee" />
                   <InArgument x:TypeArguments="x:String" x:Key="in_CollateralReleaseFee" />
                   <InArgument x:TypeArguments="x:String" x:Key="in_CollateralSubstitutionFee" />
-                  <InArgument x:TypeArguments="x:String" x:Key="in_STREET1">[in_STREET1]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_STREET2">[in_STREET2]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_CITY">[in_CITY]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_N_STATE">[in_N_STATE]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_ZIP">[in_ZIP]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_PRO_TAB_STATE_DESCRIPTION">[in_PRO_TAB_STATE_DESCRIPTION]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_PRF_TABX_RATE_BASE_NAME">[in_PRF_TABX_RATE_BASE_NAME]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_STREET1">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_STREET1" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_STREET2">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_STREET2" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CITY">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_CITY" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_N_STATE">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_N_STATE" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ZIP">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ZIP" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_PRO_TAB_STATE_DESCRIPTION">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PRO_TAB_STATE_DESCRIPTION" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_PRF_TABX_RATE_BASE_NAME">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PRF_TABX_RATE_BASE_NAME" />
+                  </InArgument>
                   <InArgument x:TypeArguments="sd:DataTable" x:Key="DT_CustomerList" />
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FIRST_NAME">[in_FIRST_NAME]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_LAST_NAME">[in_LAST_NAME]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_SF_COLLATERAL_ID_1">[in_SF_COLLATERAL_ID_1]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_SECURITY_AGREEMENT_DATE_1">[in_SECURITY_AGREEMENT_DATE_1]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FIRST_NAME">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FIRST_NAME" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_LAST_NAME">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_LAST_NAME" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_SF_COLLATERAL_ID_1">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SF_COLLATERAL_ID_1" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_SECURITY_AGREEMENT_DATE_1">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SECURITY_AGREEMENT_DATE_1" />
+                  </InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_SECURITY_AGREEMENT_DATE_2" />
                   <InArgument x:TypeArguments="x:String" x:Key="in_SECURITY_AGREEMENT_DATE_3" />
                   <InArgument x:TypeArguments="x:String" x:Key="in_SECURITY_AGREEMENT_DATE_4" />
@@ -997,20 +1125,38 @@
                   <InArgument x:TypeArguments="x:String" x:Key="in_SECURITY_AGREEMENT_DATE_8" />
                   <InArgument x:TypeArguments="x:String" x:Key="in_SECURITY_AGREEMENT_DATE_9" />
                   <InArgument x:TypeArguments="x:String" x:Key="in_SECURITY_AGREEMENT_DATE_10" />
-                  <InArgument x:TypeArguments="x:String" x:Key="in_SECURITY_AGREEMENT_DATE_MASTER" />
-                  <InArgument x:TypeArguments="x:String" x:Key="in_C_LEGAL_ENTITY" />
+                  <InArgument x:TypeArguments="x:String" x:Key="in_SECURITY_AGREEMENT_DATE_MASTER">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SECURITY_AGREEMENT_MASTER" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_C_LEGAL_ENTITY">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_C_LEGAL_ENTITY" />
+                  </InArgument>
                   <InArgument x:TypeArguments="sd:DataTable" x:Key="DT_W9List" />
-                  <InArgument x:TypeArguments="x:String" x:Key="in_ORIGINATION_FEE_FINANCED_C">[in_ORIGINATION_FEE_FINANCED_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_ORIGINATION_FEE_PAID_IN_CASH_C">[in_ORIGINATION_FEE_PAID_IN_CASH_C]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_VARIABLE_RATE_MARGIN" />
-                  <InArgument x:TypeArguments="x:String" x:Key="in_VARIABLE_RATE_FLOOR" />
-                  <InArgument x:TypeArguments="x:String" x:Key="in_VARIABLE_RATE_DESCRIPTION" />
-                  <InArgument x:TypeArguments="x:String" x:Key="in_AUTHORIZIED_SIGNER_OF_BUSINESS_C" />
-                  <InArgument x:TypeArguments="sd:DataTable" x:Key="DT_AllCustomers">[DT_AllCustomers]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ORIGINATION_FEE_FINANCED_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ORIGINATION_FEE_FINANCED_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ORIGINATION_FEE_PAID_IN_CASH_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ORIGINATION_FEE_PAID_IN_CASH_C" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_VARIABLE_RATE_MARGIN">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_VARIABLE_RATE_MARGIN" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_VARIABLE_RATE_FLOOR">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_VARIABLE_RATE_FLOOR" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_VARIABLE_RATE_DESCRIPTION">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_VARIABLE_RATE_DESCRIPTION" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_AUTHORIZIED_SIGNER_OF_BUSINESS_C">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_AUTHORIZED_SIGNER_OF_BUSINESS" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="DT_AllCustomers">
+                    <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="DT_AllCustomers" />
+                  </InArgument>
                   <InOutArgument x:TypeArguments="x:Int32" x:Key="NoSigners" />
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: CreditQuest to LaserPro Interface" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="NApplicationCard_17" ScopeGuid="bb191788-8aa4-4c52-888a-ae3461ad4ae2" Version="V2">
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: CreditQuest to LaserPro Interface" sap:VirtualizedContainerService.HintSize="584,52" sap2010:WorkflowViewState.IdRef="NApplicationCard_17" ScopeGuid="ca76aeba-faa4-4923-9d42-40bcc24cdecc" Version="V2">
                 <uix:NApplicationCard.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
@@ -1022,23 +1168,23 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Exit'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_82" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bb191788-8aa4-4c52-888a-ae3461ad4ae2" Version="V3">
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Exit'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_83" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ca76aeba-faa4-4923-9d42-40bcc24cdecc" Version="V3">
                         <uix:NClick.Target>
-                          <uix:TargetAnchorable DesignTimeRectangle="608, 32, 48, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Exit'" FullSelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnExit' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnExit' check:text='Exit' /&gt;" Guid="dd868048-0ce1-45e1-ba7a-8ac344297148" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAAaCAYAAAD43n+tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADSSURBVFhH7ZUxCoRADEW9xtzPE+wptvIIllttaSdY6wFE2N5GmGYu8NdkXJ3ChVVciUMCDzRmwGdCTBBRGGOQpGmKWGCh2/2JGFAh6aiQdFRIOscK5R2G6ec2h+2QrdUW/fKMzn2r28jxQnte7FpCDdqxUUNd+nvqDHo85toSleVe+ng1wdnt/H3kWITzowTLOVT5VPuRX/0Q+zht5LLaLYKUU6HfOEeI8pcdOe5DENZxri18je9UuBQoHywGUUtBACokHRWSjgpJJ14huogFYwzeEfkmySYSBuoAAAAASUVORK5CYII=" InformativeScreenshot="616df15f5a8783cdb750879b23365d7c.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                          <uix:TargetAnchorable DesignTimeRectangle="608, 32, 48, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Exit'" FullSelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnExit' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnExit' check:text='Exit' /&gt;" Guid="19cb34e7-7f31-4dd4-a35e-85da1ed55e88" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAAaCAYAAAD43n+tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADSSURBVFhH7ZUxCoRADEW9xtzPE+wptvIIllttaSdY6wFE2N5GmGYu8NdkXJ3ChVVciUMCDzRmwGdCTBBRGGOQpGmKWGCh2/2JGFAh6aiQdFRIOscK5R2G6ec2h+2QrdUW/fKMzn2r28jxQnte7FpCDdqxUUNd+nvqDHo85toSleVe+ng1wdnt/H3kWITzowTLOVT5VPuRX/0Q+zht5LLaLYKUU6HfOEeI8pcdOe5DENZxri18je9UuBQoHywGUUtBACokHRWSjgpJJ14huogFYwzeEfkmySYSBuoAAAAASUVORK5CYII=" InformativeScreenshot="01c4e223243e4c69d67ae1c3dc71ae73.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V2" Visibility="Interactive">
                             <uix:TargetAnchorable.Anchors>
                               <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                <uix:Target DesignTimeRectangle="15, 4, 180, 28" FriendlyName="'hfs.creditquest.docprep…'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALQAAAAcCAYAAADIgpWxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMySURBVHhe7ZgBsqMgDIY9l+fpcB5P42V6GB8BIklIKK32TYfJN8NuVUh+wg+6uxyOMxFuaGcq3NDOVLihnalwQztT4YZ2psIN7UyFMPTz2NblWJbS1i3eucJ+hGU9Ngjy3I4Vfxs8t7Xmhhb28uTXIfP8OpCL1OiWvBAzxD+/yB6y3sue6lMNnQy3HMxD8d52aZbWQrf3s5l5UffwDVP3zNd71uPTcZ/Ac6W63XLwjBj6Sn2Et75EMXQ+me9PaBVA3E+bSSso6LrbKL1FubJgd+u0kLnuyA0xvm3o/6lPNrRpKCQLCoGcouVEz689MpbcX7eNTAQnBX/juNhgF8HryNhNcEqvKYAsirhW9fBPqLAruU+MZyyutemltkp6y8iYjS68rc0hx661l7notewbGdbP821b+USIrda/xtHro2kmY2LLsWIPtS7AO7VpqYbuvrbyZFDMOenzMrBJ17nChHix29+ln17p9Oy1ocUz1KNuFBmHouWQRdXG9mIipM+ILlFTq/b8k0PrO6qfmpGYDLRKs5/jxfWgZg59ls1cxyFWnpa3TugzBtstpUEBmo1Bx1m/4dI+oYcM3dMTf/PJyzgU8UypC5wsrdROzGQI1MX1Ml3WHJrYcE37UX1X9I+YVotPtcRmaqbXEbMuig/NPC2D39DaRIzEnxjaipd0GWPotTk+k98UOD8Zh/Ja11uGZuPpXDJMlzmHzrwbrujHfr18r+NnejEiVl2seGaelmLoSNkxbLIxUP5fDk2g9WqoMfKC4TgaQ8aLd+Cbim2GvMnqThSbLuml8TQ9Ffukp8hnOW6VMLqABdCIc0pj2z5c18Dr1sqV0PqO6sf7vXx6/Lc1m3XJa6zH668vUg0NpODkWD8NJgVGZF+sGnmV6P8oTL2ygem4CJ5YtYmcJPYSAtek6aH9yUJquZHmGYsr9JzkgtdcWPyyKeHeGvXiSWTo0msqa6+sxcmrdeqNGzF0vOrWB+/3Y5h1SUDfGu9cIjVPCzf0r3FOgk7YcWx+29CO8yZuaGcq3NDOVLihnalwQztT4YZ2psIN7UyFG9qZCje0MxVuaGcqlsfjcXjzNkd7HH9zuFsHW2FhigAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                                <uix:Target DesignTimeRectangle="477, 32, 80, 22" ElementType="Button" FriendlyName="'Link Existing'" FullSelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnLink' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnLink' check:text='Link Existing' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAAaCAYAAAApOXvdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG2SURBVGhD7Zk7joMwEIY5LCfYkhNslSOkpEqZLlLq5AAoEj1NpDS5wKxnsM1gbGx2J5F2d0b6pHheHv4ALqhATdSquq5BkaP6+DyAIkfVNA0gsaCyHXqHqqByqKDCqKDCqKDCvE/Q/Q3ujxvsYrE/xDZBU6IcB4CcWCWCYg4OxC1V8509S2p+iIygJZQKKnnB0v0KkBGU++n3AN0DOxvrr8scvFOMdUdb74j2v0Jncu+X07im2gHaWe4Jzm4/NNoz4iuZk+3pbTFTmtcICk847zGGg5mL5zkUt74Qis2NhPQ12M/2dv2wDkX2ghghezYLn5evqWdkTvtH+D877JHhRXeoy8HhmAAkUUJMZGX43eVJ1f5ODffEYFgb9gtrfCyYM1VTwHsFNf4WhUkNuDL8qqAO9GGS84c5fD2L/WJB0d/2TBjOWv/MIx99RMN+yRibk+8R65Fhu6BYwMy/43KDLvymeHYQ2Jyx7WSmHn1OsPFONeKGe1LyaNNhZ/dBix5KkTlxbQ9Nbz4vzzZB/yOzAy+PChoBX0mTrRyiEVRQYVRQYVRQYVRQYfSbkjD61VMY/S4vSg1fb6ehYXXFv1QAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
                               </scg:List>
                             </uix:TargetAnchorable.Anchors>
                           </uix:TargetAnchorable>
                         </uix:NClick.Target>
                       </uix:NClick>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'Exit'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_83" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bb191788-8aa4-4c52-888a-ae3461ad4ae2" Version="V3">
+                      <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'Exit'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_84" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ca76aeba-faa4-4923-9d42-40bcc24cdecc" Version="V3">
                         <uix:NClick.Target>
-                          <uix:TargetAnchorable DesignTimeRectangle="608, 32, 48, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Exit'" FullSelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnExit' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnExit' check:text='Exit' /&gt;" Guid="dd868048-0ce1-45e1-ba7a-8ac344297148" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAAaCAYAAAD43n+tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADSSURBVFhH7ZUxCoRADEW9xtzPE+wptvIIllttaSdY6wFE2N5GmGYu8NdkXJ3ChVVciUMCDzRmwGdCTBBRGGOQpGmKWGCh2/2JGFAh6aiQdFRIOscK5R2G6ec2h+2QrdUW/fKMzn2r28jxQnte7FpCDdqxUUNd+nvqDHo85toSleVe+ng1wdnt/H3kWITzowTLOVT5VPuRX/0Q+zht5LLaLYKUU6HfOEeI8pcdOe5DENZxri18je9UuBQoHywGUUtBACokHRWSjgpJJ14huogFYwzeEfkmySYSBuoAAAAASUVORK5CYII=" InformativeScreenshot="616df15f5a8783cdb750879b23365d7c.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                          <uix:TargetAnchorable DesignTimeRectangle="608, 32, 48, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Exit'" FullSelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnExit' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnExit' check:text='Exit' /&gt;" Guid="19cb34e7-7f31-4dd4-a35e-85da1ed55e88" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAAaCAYAAAD43n+tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADSSURBVFhH7ZUxCoRADEW9xtzPE+wptvIIllttaSdY6wFE2N5GmGYu8NdkXJ3ChVVciUMCDzRmwGdCTBBRGGOQpGmKWGCh2/2JGFAh6aiQdFRIOscK5R2G6ec2h+2QrdUW/fKMzn2r28jxQnte7FpCDdqxUUNd+nvqDHo85toSleVe+ng1wdnt/H3kWITzowTLOVT5VPuRX/0Q+zht5LLaLYKUU6HfOEeI8pcdOe5DENZxri18je9UuBQoHywGUUtBACokHRWSjgpJJ14huogFYwzeEfkmySYSBuoAAAAASUVORK5CYII=" InformativeScreenshot="01c4e223243e4c69d67ae1c3dc71ae73.png" ScopeSelectorArgument="&lt;wnd app='hfs.creditquest.docprepinterface.exe' ctrlname='MainForm' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V2" Visibility="Interactive">
                             <uix:TargetAnchorable.Anchors>
                               <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                <uix:Target DesignTimeRectangle="15, 4, 180, 28" FriendlyName="'hfs.creditquest.docprep…'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALQAAAAcCAYAAADIgpWxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMySURBVHhe7ZgBsqMgDIY9l+fpcB5P42V6GB8BIklIKK32TYfJN8NuVUh+wg+6uxyOMxFuaGcq3NDOVLihnalwQztT4YZ2psIN7UyFMPTz2NblWJbS1i3eucJ+hGU9Ngjy3I4Vfxs8t7Xmhhb28uTXIfP8OpCL1OiWvBAzxD+/yB6y3sue6lMNnQy3HMxD8d52aZbWQrf3s5l5UffwDVP3zNd71uPTcZ/Ac6W63XLwjBj6Sn2Et75EMXQ+me9PaBVA3E+bSSso6LrbKL1FubJgd+u0kLnuyA0xvm3o/6lPNrRpKCQLCoGcouVEz689MpbcX7eNTAQnBX/juNhgF8HryNhNcEqvKYAsirhW9fBPqLAruU+MZyyutemltkp6y8iYjS68rc0hx661l7notewbGdbP821b+USIrda/xtHro2kmY2LLsWIPtS7AO7VpqYbuvrbyZFDMOenzMrBJ17nChHix29+ln17p9Oy1ocUz1KNuFBmHouWQRdXG9mIipM+ILlFTq/b8k0PrO6qfmpGYDLRKs5/jxfWgZg59ls1cxyFWnpa3TugzBtstpUEBmo1Bx1m/4dI+oYcM3dMTf/PJyzgU8UypC5wsrdROzGQI1MX1Ml3WHJrYcE37UX1X9I+YVotPtcRmaqbXEbMuig/NPC2D39DaRIzEnxjaipd0GWPotTk+k98UOD8Zh/Ja11uGZuPpXDJMlzmHzrwbrujHfr18r+NnejEiVl2seGaelmLoSNkxbLIxUP5fDk2g9WqoMfKC4TgaQ8aLd+Cbim2GvMnqThSbLuml8TQ9Ffukp8hnOW6VMLqABdCIc0pj2z5c18Dr1sqV0PqO6sf7vXx6/Lc1m3XJa6zH668vUg0NpODkWD8NJgVGZF+sGnmV6P8oTL2ygem4CJ5YtYmcJPYSAtek6aH9yUJquZHmGYsr9JzkgtdcWPyyKeHeGvXiSWTo0msqa6+sxcmrdeqNGzF0vOrWB+/3Y5h1SUDfGu9cIjVPCzf0r3FOgk7YcWx+29CO8yZuaGcq3NDOVLihnalwQztT4YZ2psIN7UyFG9qZCje0MxVuaGcqlsfjcXjzNkd7HH9zuFsHW2FhigAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                                <uix:Target DesignTimeRectangle="477, 32, 80, 22" ElementType="Button" FriendlyName="'Link Existing'" FullSelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnLink' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panelToolbar' /&gt;&lt;wnd ctrlname='btnLink' check:text='Link Existing' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAAaCAYAAAApOXvdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG2SURBVGhD7Zk7joMwEIY5LCfYkhNslSOkpEqZLlLq5AAoEj1NpDS5wKxnsM1gbGx2J5F2d0b6pHheHv4ALqhATdSquq5BkaP6+DyAIkfVNA0gsaCyHXqHqqByqKDCqKDCqKDCvE/Q/Q3ujxvsYrE/xDZBU6IcB4CcWCWCYg4OxC1V8509S2p+iIygJZQKKnnB0v0KkBGU++n3AN0DOxvrr8scvFOMdUdb74j2v0Jncu+X07im2gHaWe4Jzm4/NNoz4iuZk+3pbTFTmtcICk847zGGg5mL5zkUt74Qis2NhPQ12M/2dv2wDkX2ghghezYLn5evqWdkTvtH+D877JHhRXeoy8HhmAAkUUJMZGX43eVJ1f5ODffEYFgb9gtrfCyYM1VTwHsFNf4WhUkNuDL8qqAO9GGS84c5fD2L/WJB0d/2TBjOWv/MIx99RMN+yRibk+8R65Fhu6BYwMy/43KDLvymeHYQ2Jyx7WSmHn1OsPFONeKGe1LyaNNhZ/dBix5KkTlxbQ9Nbz4vzzZB/yOzAy+PChoBX0mTrRyiEVRQYVRQYVRQYVRQYfSbkjD61VMY/S4vSg1fb6ehYXXFv1QAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
                               </scg:List>
                             </uix:TargetAnchorable.Anchors>
                           </uix:TargetAnchorable>
@@ -1057,7 +1203,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NApplicationCard>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="LogMessage_84" Level="Info" Message="[&quot;Close Doc Prep Instructions pop-up&quot;]">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="584,52" sap2010:WorkflowViewState.IdRef="LogMessage_83" Level="Info" Message="[&quot;Close Doc Prep Instructions pop-up&quot;]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1065,7 +1211,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:LogMessage>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Document Preparation'" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="NClick_84" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Document Preparation'" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="NClick_85" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/app_default.aspx" DesignTimeRectangle="1184, 183, 24, 24" DesignTimeScaleFactor="1" FriendlyName="'A #'" FullSelectorArgument="&lt;webctrl tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='A' type='' class='k-button k-bare k-button-icon k-window-action' aaname='' /&gt;" Guid="631b9d8d-399f-4071-b361-e27b43eca0d8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADmSURBVEhL5ZRBEkQwEEXdOAv3cIXJYmwdgFOMhQNwALYs/BG6MzFFiSl6VHmbTuuS7+tOAhB939Nq4qzcCkoRsLJUlHdIUYybCK41mDmyftFf2hRIdIaqo9ylq5DpBEVD+QYe57BGrkMopRBGGcrWqQ9iaUS1xwtGc2s/P4fGBW88iI5Ol5554H/TtKUjEONp1+ko5rvPvqFxXO11xlxYcNazGLFd7xOVHxqKI9xYZsob51hMA8LMBknnqBff/2ByP4dHHnyKYlhBtv8dmaPq8g7Xvuys+L8eSnETQW4os9Zw5vc68AZSpu1ynFfuIQAAAABJRU5ErkJggg==" InformativeScreenshot="2c85f866e2468c0cb0b7d1a4d0dd9dbd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
@@ -1084,7 +1230,7 @@
               </uix:NClick>
               <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                 <ui:CommentOut.Body>
-                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,192" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,192" sap2010:WorkflowViewState.IdRef="Sequence_48">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1097,20 +1243,20 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Credit Manager" sap:VirtualizedContainerService.HintSize="484,923" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" InteractionMode="DebuggerApi" ScopeGuid="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V2">
+                      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Credit Manager" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" InteractionMode="DebuggerApi" ScopeGuid="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V2">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,666" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,347" sap2010:WorkflowViewState.IdRef="Sequence_33">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'X' to close the Document Preparation'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_72" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V3">
+                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'X' to close the Document Preparation'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_72" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V3">
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable BrowserURL="http://pw-fcqap01/CreditQuest/CreditManager/html/app_default.aspx" DesignTimeRectangle="1215, 211, 24, 24" DesignTimeScaleFactor="1" FriendlyName="'A #'" FullSelectorArgument="&lt;webctrl tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='A' type='' class='k-button k-bare k-button-icon k-window-action' aaname='' /&gt;" Guid="8bfc73ec-1828-48db-8bb8-5e89e8d267b8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADmSURBVEhL5ZRBEkQwEEXdOAv3cIXJYmwdgFOMhQNwALYs/BG6MzFFiSl6VHmbTuuS7+tOAhB939Nq4qzcCkoRsLJUlHdIUYybCK41mDmyftFf2hRIdIaqo9ylq5DpBEVD+QYe57BGrkMopRBGGcrWqQ9iaUS1xwtGc2s/P4fGBW88iI5Ol5554H/TtKUjEONp1+ko5rvPvqFxXO11xlxYcNazGLFd7xOVHxqKI9xYZsob51hMA8LMBknnqBff/2ByP4dHHnyKYlhBtv8dmaPq8g7Xvuys+L8eSnETQW4os9Zw5vc68AZSpu1ynFfuIQAAAABJRU5ErkJggg==" InformativeScreenshot="0bcc690bfe03ea7bcc33827fd2d74a3f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -1122,23 +1268,23 @@
                                 </uix:NClick.Target>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NClick>
-                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Route'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_73" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V3">
+                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Route'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_73" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V3">
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable BrowserURL="http://pw-fcqap01/CreditQuest/CreditManager/html/side_menu.aspx" DesignTimeRectangle="131, 193, 60, 19" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Route'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl id='tblButtons' tag='TABLE' /&gt;&lt;webctrl id='xbtnNext' tableRow='1' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='SideMenuFrame' tag='FRAME' /&gt;&lt;webctrl id='tblButtons' tag='TABLE' /&gt;&lt;webctrl id='xbtnNext' type='button' tag='BUTTON' class='PDS_BTN_MOUSE_OUT' aaname='Click to route application' check:innerText='Route' /&gt;" Guid="c050a3d9-44ea-4b64-b261-2981333364b6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAAAXCAYAAAC74kmRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGcSURBVFhH7ZS7SsRAFIZ9CHFx0UJZfYFUKl4QQe1FsBAsjJ2XbRYsLAbW0tZaBnwDXbBwClttg3bCoinzAGmOM+MmmSRnk5hMYcgUX5E5JyHnm39mwvM8aCq+74MREDw8Dp4bBSrAdd1GYAQYAUZAGQEOUNsCy4ogDOsrgEPBtggwrJbDfH9HgtWKUklAODQjXEK5IaoI6PDhv75PYOG6vAQ9AlwGxLKBOr/PDrXTyRCSbApOrD+RJMJ4Lb6WlSwhYMgFCMpK0JeAYDg1DXJ3R2JQAUFPlAAhz6ZO+rsKi3zwgI/P45AyEioJCHdO+Um5+3Inoz4pqpCAxHcl6ePx+n40lr9K0JAAJP4VBWTFXjB4O8yk099F38PQIICjDpF1BGI9+BFgJJ4oRtNH4O7lIOQ+wdzVdqw3Dz0CBMpQ6CU4ekeuE6KkRl1PX4LYHTBzuQnt3rrk9mk/ZLa3FesrQkkB/4NWdwVuHvYk7e4G2pNHrQVMni7J4Vtna2i9CLUWMHW+DNMXq2itKLUWoAMjYJyAJpES0ESMAN+HHxocJ0gVEp3UAAAAAElFTkSuQmCC" InformativeScreenshot="b7e4a62dad32b3a19f1b64f3ef178ca7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
                                 </uix:NClick.Target>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NClick>
-                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_80" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V3">
+                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_80" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ad909c1e-29d3-4ae8-80e3-699d1668cee2" Version="V3">
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/pro_wfl_next_step.aspx" DesignTimeRectangle="930, 628, 75, 19" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl src='pro_wfl_next_step.aspx' tag='IFRAME' /&gt;&lt;webctrl parentid='xdivWizardButtons' tag='TABLE' /&gt;&lt;webctrl id='btnNext' tableRow='2' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl src='pro_wfl_next_step.aspx' tag='IFRAME' /&gt;&lt;webctrl parentid='xdivWizardButtons' tag='TABLE' /&gt;&lt;webctrl id='btnNext' type='button' tag='BUTTON' class='PDS_MARGIN_5 PDS_BTN_MOUSE_OUT' aaname='Next' check:innerText='Next' /&gt;" Guid="e938e00d-8313-4fd0-92db-a87a0d05bb62" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAXCAYAAABK6RIcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGzSURBVFhH7dU9SwMxGMBxP4RYLDoo1S9wk4oviKDuIjgIDsbNly4FB4dAHV2dJeCuoAUHM7jqeugmiN54X+ExL815d03bq7lkODL8aZvkDvrjuXYsjmPw/S+PZ1CC99h59hVMixdFkW9IHs+gyuHNtrdEur2yqxxeg8F9/xzB3KV9wErifTE8nm1Ay3ghEBRAEGCgao1iCBCBMHOuQCEBlL5PrnmGpvr4PEyyCegEDyEEiIRyzRLe6/tB32wBOsHDlAJWXzyHFxLEJpNPJwtTuR8gIKHcp5iv33UnOHWue72q87Y/sEZ7u+ca0xzhSST+msHj05RAcmCJJkD5ev7sgMm7edlLus01c7GpvcY0Z3gJVAokM3XdxFm2JyYuNYHD8KbO16HeWhVdP+0mTbc2tOfLyB0e+8xBMM7haR5BdXYUPFWtuQRXDzuienNNe6asnOJJAIaiHsXc71tEiXzP19XvX8HHVjV+vCDgaicr2v0yc4vHEhOlQFjZR5dB3nPQPyT5h8GnU95LnOszrbyJ00WYPFvW7pWdZbxq5/EM8ngGeTyD+uL5itWD5xs9j/fvYvgFQYQwIAWIIA8AAAAASUVORK5CYII=" InformativeScreenshot="7b39a8e66925b7ecbc89fdb08018cacf.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -1150,7 +1296,7 @@
                                 </uix:NClick.Target>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
@@ -1159,11 +1305,11 @@
                           </ActivityAction>
                         </uix:NApplicationCard.Body>
                         <uix:NApplicationCard.TargetApp>
-                          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVDhPY6A64OTmlvT08T8Qk5D6NT454x8Ig9ggMZAcVBl2oK2rXxiXmPYLqOl/fHL63/CouOchEbGPoAb9B8mB1ECVowKQBEhhXFL6H31D41omJiZmkLiEpLQDxEA4/odhCMhpcYnpv0Ga+fkF1KHCDKbmVj1hUXHP0AwAuwTFOyD/gSRANkOFGERExUzRNSJjkB6oUgaGmPiUbyA/w5wNAhKSUvYBweFXQTg2IfU7ugGggIUqZWAACvwDBRiUiwHsnVxXIGuOTUz9CdIDlYYYgKwAFBbBYdF3DYxM6kGu4uTkEjc2teiwtnWYo6CoHAqyDMUAiBcQBiBjFVX1OKgyMAAZCPIuihdggYgNW9rYz4QqAwNQQIPEUQIRFo3IGq1sHWZraOlkS0pJO0GVMYCiGOQ9jGgEAVhCghkgr6gUDJUCOxtkM0gzSA2+1FgES8pxSWm/w6Jin0ICLP0vWAxfUoYBkNNA/iMrM5EOGBgAbhv5+a23N0oAAAAASUVORK5CYII=" InformativeScreenshot="fc35822c259b71d6f27d38441bfc219b.jpg" Selector="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" Title="Credit Manager" Url="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/app_default.aspx" />
+                          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVDhPY6A64OTmlvT08T8Qk5D6NT454x8Ig9ggMZAcVBl2oK2rXxiXmPYLqOl/fHL63/CouOchEbGPoAb9B8mB1ECVowKQBEhhXFL6H31D41omJiZmkLiEpLQDxEA4/odhCMhpcYnpv0Ga+fkF1KHCDKbmVj1hUXHP0AwAuwTFOyD/gSRANkOFGERExUzRNSJjkB6oUgaGmPiUbyA/w5wNAhKSUvYBweFXQTg2IfU7ugGggIUqZWAACvwDBRiUiwHsnVxXIGuOTUz9CdIDlYYYgKwAFBbBYdF3DYxM6kGu4uTkEjc2teiwtnWYo6CoHAqyDMUAiBcQBiBjFVX1OKgyMAAZCPIuihdggYgNW9rYz4QqAwNQQIPEUQIRFo3IGq1sHWZraOlkS0pJO0GVMYCiGOQ9jGgEAVhCghkgr6gUDJUCOxtkM0gzSA2+1FgES8pxSWm/w6Jin0ICLP0vWAxfUoYBkNNA/iMrM5EOGBgAbhv5+a23N0oAAAAASUVORK5CYII=" InformativeScreenshot="fc35822c259b71d6f27d38441bfc219b.jpg" Selector="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" Url="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/app_default.aspx" />
                         </uix:NApplicationCard.TargetApp>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
@@ -1178,11 +1324,17 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:CommentOut>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="LogMessage_85" Level="Info" Message="[&quot;Close Credit Manager&quot;]" />
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Close'" sap:VirtualizedContainerService.HintSize="450,157" sap2010:WorkflowViewState.IdRef="NClick_85" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="LogMessage_84" Level="Info" Message="[&quot;Close Credit Manager&quot;]" />
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Close'" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="NClick_86" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="731626bf-36bf-45f1-a5ed-187efba62e18" Version="V3">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable DesignTimeRectangle="1758, 8, 46, 23" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Close'" FullSelectorArgument="&lt;ctrl name='Credit Manager - Google Chrome' role='pane' /&gt;&lt;ctrl name='Close' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Credit Manager - Google Chrome' role='pane' /&gt;&lt;ctrl name='Close' role='push button' automationid='' check:text='Close' /&gt;" Guid="62b77f4a-9bc0-4d38-9580-94df82a941e1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAAbCAYAAAA+nNxPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADHSURBVFhH7dW/CsIwEMfxPr1oaK1/Bt8jryAqUhF1d3ISBMeOPz3FIni0kHolV67wXXIZ8qEpTZ4PehK7qK/z5QrNGSS2DBJbBmnKjWdYF0d2RtGM9nCzkMQgq+KAUTrBZnf6mdGay6bsLDQxCMVhaO3fCEoUQn1j6t5S28Qh1HK7x8BlGKb5C8PtaVtnELpO+XyhF9KLq8UdXAojBqk7sARGDNL0Q/x8N9wsJDFI1xkktgwSWwaJrQrivYfmKsjtXkJzb0iCBz+8iPTm+YEUAAAAAElFTkSuQmCC" InformativeScreenshot="4e357dc3ac3ca39617f17201c1f8b68f.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Credit Manager - Google Chrome' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V2" Visibility="Interactive" />
                 </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
               </uix:NClick>
             </Sequence>
           </ActivityAction>
@@ -1212,7 +1364,7 @@
         <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[&quot;The SBB UCC DocPrep RPA has completed for CreditQuest Application Number: &quot;+ in_REQUEST_NUMBER_ASSIGNED_BY_CQ_C]" DisplayName="Send SMTP Mail Message" Email="[EmailUsername]" EnableSSL="True" From="DigitalAutomation@midlandsb.com" sap:VirtualizedContainerService.HintSize="388,152" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Name="DigitalAutomation@midlandsb.com" Port="25" SecureConnection="Auto" SecurePassword="[EmailPassword]" Server="smtp.office365.com" Subject="DocPrep RPA: SBB UCC Transaction" To="[DocPrepEmail]">
           <ui:SendMail.Files>
             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-              <InArgument x:TypeArguments="x:String">[Screenshot]</InArgument>
+              <InArgument x:TypeArguments="x:String">[SCREENSHOT]</InArgument>
             </scg:List>
           </ui:SendMail.Files>
         </ui:SendMail>

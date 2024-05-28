@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>882,764</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>720,686</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -46,6 +46,7 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -106,7 +107,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="450,699" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="450,467" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -114,27 +115,28 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
-    <If Condition="[in_Environment = &quot;Test&quot;]" sap:VirtualizedContainerService.HintSize="388,414" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_Environment = &quot;Test&quot;]" sap:VirtualizedContainerService.HintSize="334,182" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="300,232" sap2010:WorkflowViewState.IdRef="Sequence_13">
+        <Sequence sap:VirtualizedContainerService.HintSize="996,1085" sap2010:WorkflowViewState.IdRef="Sequence_13">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: CreditQuest Launch Page" sap:VirtualizedContainerService.HintSize="258,52" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: CreditQuest Launch Page" sap:VirtualizedContainerService.HintSize="954,619" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,524" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,402" sap2010:WorkflowViewState.IdRef="Sequence_12">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NClick ClickType="Single" DisplayName="Click 'Credit Manager'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Credit Manager'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/default.htm" DesignTimeRectangle="694, 270, 531, 44" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Credit Manager'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='P' class='' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Credit Manager&amp;#xD;&amp;#xA;End-to-end commercial credit management' /&gt;" Guid="ad046eee-0fec-49d5-97df-5710880bdd4d" ImageBase64="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" InformativeScreenshot="ce623d0079771e22938f3368c51d6598.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CreditQuest Launch Page' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
@@ -145,13 +147,94 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
-                  <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" Version="V3" />
+                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
                 </Sequence>
               </ActivityAction>
             </uix:NApplicationCard.Body>
             <uix:NApplicationCard.TargetApp>
-              <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAbxSURBVFhHpZZtTFvnFcf9pWuypg3tmjVrGmLeEoMBG2PaJBDb2CkvyQJpvlXtFqRpmrSXT5s67a3pl0nTptXkhdAklEsCbZdG3VsrVe3AhhBCs3ZDi5ZAo21OA5hAOztNmrXhXj9n//M8j415SUe7I/30P+fh+vzPufcasC03YgF3zkzQ0zITrDLAyPshb3ImVEXTQS/NBDn3RmeClcZ0qHIvX6s/9v/HVIPbfjVU1com2kxcra2k6VovqBQM14sIVBpTAbddt/nsoTb2htlUGgWUWcYQ9dWAR0wFOPcgV8r1VMCj8AOfZ59uufzgyWES00a6sUfm8ww0cTZiuPZViLi/Qp1xrohNbV7m3ZiurXChUSzbIIO/QjDKUBlpE4r73BmdhE5ucys4V/X/HoI3h1EsvYFSjTaa9Kmm8W3aSDXPMJGmxkWTNS4BBaoer3ZhCMfSQ/Azh1FMGWU1z5ipxnIA1hq3kDUbaENlJHMxLmul49XljFDqii35LZnwucMZE4XI3khvo41Uzg1lzc1l7aIrOGO0KV3ZupAycWVLWVjbqnC/tNve/h3/nAmboqk2I7mNNpn57jfoxss9ZMYnKR3i5rskZl4la2QXWecqGcGaYn3LQ5JzHpx5BM5kTcNZ70PlS3uMbUYzjYUq1Fb6dknFxDKvr6YbJ3u0JVE8Kah/bBaYdGkqpU8xzNSLZL3jJ/OtChgxbgzhxjDQYbeqoajVXXAbu3M8LzxGzL4fBjO3io1Z39tSRuN1W+nWpTFp8JeYSd8yPqKqZ65R1T4N8qbwdYqOzsprxM0xst6ugZmLDZUOc85aDi3HEOVJGsG74H5hd4u7ZzdVANb+Jq80ZfCsBOv133TLxkein5AXhhmezso1R3ENh4h3K7PhMk1pljJOMXumpMXm7m42ALm6m4S7p1k8+Ys6ury5lN7b7BTMxGP1siFvV/l0UuLROse1eefv4C5xpC7sFdZZJ5lnS8hagtRwiWFzdTdHXScwwIkmTTO9useLIZwUe8RJN177nWy289kPqeJnyTlglNF0rutvdt6QnxFTJ4R5thhm2TgwlINS0NRQ8Yit/HhTsvz4LkpT1rWLth9spL/7yij2cIm4dWmUxuIWudF8MYnbkKTJJF7MTyZguBGGmiEJMSZInS1K2MqMr8JUImSu659/u5piVcWCN4lcnCXXTxNLA7P5dYLKoRH9QlpDRWSeKSSLQW4NaZV1gbCVdu6kUpiWGjuF1C6lj7Q30vkap2zSd/EWlaHpQtgoW7PP+zA0h3WmAEb5wjoDhgowTD7O5uABks7OHUKxk6BAqvjeUz5hxidoMpGi0p/8+zMxiscmProAkzwyB/Ogdgxhl7XKN3CdsJU8v+OvJR2NpNhBqGXuZH2+UQz2n5SbtHRcJycaO38MWD+Ful9dk59JTZ+CGRvlCnMwlyzJBrBecG4Oro/aHB0NRvGxRpqjQQ7gONYgOP/6a0/JZn/+1yyVwLwYKP1A5nP13HkvHhmH9fYWMk+vBw/B9CHBqnOyWE+vM2yOow0tIGPIyPpovQCsdPy8+ioe6rtJjh99QA6YSF0Izg/1/kdee228E4brYLYO2z6I/EGYK6y0Dqzba7MbgZziI/XJTUfqKRsH69E6wXi79ojR9/8hG//pwi0K/jJJm2CYzdeOfUjn/qlevInEu5QYLCFz4CuatTBdK9JqnX5A5hTNUX+WNz1X37rpuTraqJH5kTqRroHwGntE1/nfSgOOi5OWHIaZwEuaDr6m849bsN1aGD+QwWLt/7JUa2CNsPrXGNKcw9HeYN/Y/igxRVrTeRaisH27CPQ8Sa+MvkEX9R3hGL9+lYy/vUJP/P4H5O/wwWiNYkBr//0ytwbuFzIH2H7+f0ZFbaHWosPbKU1hG+ujxKaFhyWkNCT4ZxldwKk/FMHkS8pU6n3YVipZyFlTA/ct/k/ZHg7kFBwOxQraVOOCQyEqBKx8JpXP2ubX2Tze9TDM7hVm9F4YAlaAM605wormxLTl4sAQ9oK2YCzdMP9gkApA/qGgkHCu66XOL7+JZxxdjQHuAathuBqGUNSa2KJbvzB4iPwDtTHZ9EAt5R2sFQznafJY8XNWmR8I0ve7y8mM3I1N71EKrOgqmK4SnM9G7ob5ik83TwcPkbe/NgbIfiAg8vYHpMochvb9Kk9T076VLr+B5xxZxabQu+ZhRe6Kfbxc8+zAIM/YW2F+W/wYxi86Xs4ns28ljL4oMSMrBNdmBPStDGe+758n+G7khv3GhrCfNrT6Re6zPsF5btgn6+q2zTBZobmTzF4QuTNp9q5s/fj1z7H17QKD5Kz/9bYWDNCFAaLQJKCTp/A7PXJHItX7hZFU7wpjtu+OluVvbLP9F5lmWAkTeM7rAAAAAElFTkSuQmCC" InformativeScreenshot="d3ce3eabe70967e179dd1ee8223493e1.jpg" Selector="&lt;html app='chrome.exe' title='CreditQuest Launch Page' /&gt;" Url="http://tw-fcqap01/CreditQuest.Test/default.htm" />
+              <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="d3ce3eabe70967e179dd1ee8223493e1.jpg" Selector="&lt;html app='chrome.exe' title='CreditQuest Launch Page' /&gt;" Title="CreditQuest Launch Page" Url="http://tw-fcqap01/CreditQuest.Test/default.htm" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+          <uix:NCheckState DisplayName="Check App State 'Desktop'" sap:VirtualizedContainerService.HintSize="954,338" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V3">
+            <uix:NCheckState.IfExists>
+              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Uipath Opened CQ Credit Manager&quot;]" />
+              </Sequence>
+            </uix:NCheckState.IfExists>
+            <uix:NCheckState.IfNotExists>
+              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;THROW: Credit Manager did not appear.&quot;]" />
+                <Throw Exception="[New ApplicationException(&quot;Credit Manager did not appear during intial all applications.&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              </Sequence>
+            </uix:NCheckState.IfNotExists>
+            <uix:NCheckState.Target>
+              <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_desktop.aspx" DesignTimeRectangle="192, 66, 1468, 28" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Desktop'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='xtdPdsHeaderTitle' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='xtdPdsHeaderTitle' type='' tag='TD' class='PDS_TITLE_TEXT' aaname='Desktop' check:innerText='Desktop' /&gt;" Guid="4e5382b7-f2e4-4145-ad22-33209c9ac1cb" ImageBase64="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" InformativeScreenshot="5013b95db040f1ac3884a1089eb4a380.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive" />
+            </uix:NCheckState.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NCheckState>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="324,232" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard DisplayName="Use Browser Chrome: Credit Manager" sap:VirtualizedContainerService.HintSize="282,52" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="e1ce8a39-1688-437e-b424-14c5ab0c81c0">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Initialize: Opening Production CrediQuest Credit Manager&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Credit Manager'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e1ce8a39-1688-437e-b424-14c5ab0c81c0" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/default.htm" DesignTimeRectangle="694, 270, 531, 44" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Credit Manager'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='P' class='' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Credit Manager&amp;#xD;&amp;#xA;End-to-end commercial credit management' /&gt;" Guid="ad046eee-0fec-49d5-97df-5710880bdd4d" ImageBase64="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" InformativeScreenshot="ce623d0079771e22938f3368c51d6598.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CreditQuest Launch Page' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="627, 203, 117, 23" ElementType="Text" FriendlyName="'CREDITQUEST'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='lbl' tableRow='1' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='lbl' type='' tag='LABEL' class='application' aaname='CREDITQUEST' check:innerText='CREDITQUEST' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHkAAAAbCAYAAABYxiAYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOHSURBVGhD7Zgtl6swEIbvX8OgUChUFQpVhaqqQlWh8FVVKBSqqgpVVYVCVaGq3htKEiYQWii799xd8p4zJl9M5gnJJH9g9OtlIK9ABvIKZCCvQAbyCmQgr0AG8gpkIK9AA8j1LUO0dWFbFixmtuNhG2W41bzBUwUOvF41G64fIrlUvB1XlSLQthcWIGVdqjQY1Om/36hCGoh2B+YRU3FQ+o7a4dlaqp2zB8du621ngzC5sC+oKg7dGOoQJB5BKvvR9lqjg9Q3ZHEI37V5vQ3H2yJKC9x5k0/np0Cu0q2EOzC7BdFqDLIwG15y5W2ZFkCWZnsssJT010B+OWd3j7OMsArtSyE38eELTGe2GHMx5PKEDW9kByeUj7b4fj12DsgJ6CeFKkMonQ2RCyYUcs8BKgpZNHuUGXYu72uzMWXQNZAV0Xq6QImuMVz+PTs44srHrvI9KddDmwd55PtPPXDed39vmImGd5wjR5YPwzZhflwS8jUWAzqIyU/YOkEGewZiBDLTJRJtiWMLIDd6nPfyb3Okc0sh0+Dq5jys+x7Id+Knh+TGi99qNuTpHVqNQ+4m5uFY8sKFkFHnCEV/74h22KWQr4gdUR/hwkuF6jzkdRb8U9v5eyCr87Zs/3kOi510XLMhEye1AetrBDLdrp2YhZHrzZksAjYKWevfUshv5kzPP+7M55A1pvwczdbs9XIDlngFMfJykHFy/UvIOusnSQby0BTIrZ5ZfuAMYG+1BGdD7nUgGaVeryHvz7295odv1x4/dz6H/BrCQI8KxWkHTyaxW2QDJrMhNw69SkLIYGOJF8lUB6v0RydeXQJZHj1eZiFSVsUFES+fDflOYtOLG/3eMGwfQFavE/QKlXRObFj5s1S3cu/Iwy4w+/PIdj0T8rdeocqjvDZamxgFH5teoayN2DmYWIwcXt7F6MFun4FchC5Jj6f9ySVOG9HOxeEiJsjKg+FC6/QJZKYmyOp5QGzsMYSuPho0d3riJSBRyAOb8hiiaFoQpj8ANaoZOFfftjGX+UFcfHkmMwvE4E18pjyGKPoQcqN7kc571lQceLCJifu2ha04SBZAnvWsqWh6EPrPmvLb3g6Z/I2FapR5gtAnMXL9t8+gOpOQG9Ul8kT/rKl3fQFkIxbvIoYvgW+Q3N5eWv9rGchjqgvEvo9YOSJ+pgzkFchAXoEM5BXIQF6BDORfL+Avh1X6T9sKXW8AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="54, -8, 1812, 890" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAbxSURBVFhHpZZtTFvnFcf9pWuypg3tmjVrGmLeEoMBG2PaJBDb2CkvyQJpvlXtFqRpmrSXT5s67a3pl0nTptXkhdAklEsCbZdG3VsrVe3AhhBCs3ZDi5ZAo21OA5hAOztNmrXhXj9n//M8j415SUe7I/30P+fh+vzPufcasC03YgF3zkzQ0zITrDLAyPshb3ImVEXTQS/NBDn3RmeClcZ0qHIvX6s/9v/HVIPbfjVU1com2kxcra2k6VovqBQM14sIVBpTAbddt/nsoTb2htlUGgWUWcYQ9dWAR0wFOPcgV8r1VMCj8AOfZ59uufzgyWES00a6sUfm8ww0cTZiuPZViLi/Qp1xrohNbV7m3ZiurXChUSzbIIO/QjDKUBlpE4r73BmdhE5ucys4V/X/HoI3h1EsvYFSjTaa9Kmm8W3aSDXPMJGmxkWTNS4BBaoer3ZhCMfSQ/Azh1FMGWU1z5ipxnIA1hq3kDUbaENlJHMxLmul49XljFDqii35LZnwucMZE4XI3khvo41Uzg1lzc1l7aIrOGO0KV3ZupAycWVLWVjbqnC/tNve/h3/nAmboqk2I7mNNpn57jfoxss9ZMYnKR3i5rskZl4la2QXWecqGcGaYn3LQ5JzHpx5BM5kTcNZ70PlS3uMbUYzjYUq1Fb6dknFxDKvr6YbJ3u0JVE8Kah/bBaYdGkqpU8xzNSLZL3jJ/OtChgxbgzhxjDQYbeqoajVXXAbu3M8LzxGzL4fBjO3io1Z39tSRuN1W+nWpTFp8JeYSd8yPqKqZ65R1T4N8qbwdYqOzsprxM0xst6ugZmLDZUOc85aDi3HEOVJGsG74H5hd4u7ZzdVANb+Jq80ZfCsBOv133TLxkein5AXhhmezso1R3ENh4h3K7PhMk1pljJOMXumpMXm7m42ALm6m4S7p1k8+Ys6ury5lN7b7BTMxGP1siFvV/l0UuLROse1eefv4C5xpC7sFdZZJ5lnS8hagtRwiWFzdTdHXScwwIkmTTO9useLIZwUe8RJN177nWy289kPqeJnyTlglNF0rutvdt6QnxFTJ4R5thhm2TgwlINS0NRQ8Yit/HhTsvz4LkpT1rWLth9spL/7yij2cIm4dWmUxuIWudF8MYnbkKTJJF7MTyZguBGGmiEJMSZInS1K2MqMr8JUImSu659/u5piVcWCN4lcnCXXTxNLA7P5dYLKoRH9QlpDRWSeKSSLQW4NaZV1gbCVdu6kUpiWGjuF1C6lj7Q30vkap2zSd/EWlaHpQtgoW7PP+zA0h3WmAEb5wjoDhgowTD7O5uABks7OHUKxk6BAqvjeUz5hxidoMpGi0p/8+zMxiscmProAkzwyB/Ogdgxhl7XKN3CdsJU8v+OvJR2NpNhBqGXuZH2+UQz2n5SbtHRcJycaO38MWD+Ful9dk59JTZ+CGRvlCnMwlyzJBrBecG4Oro/aHB0NRvGxRpqjQQ7gONYgOP/6a0/JZn/+1yyVwLwYKP1A5nP13HkvHhmH9fYWMk+vBw/B9CHBqnOyWE+vM2yOow0tIGPIyPpovQCsdPy8+ioe6rtJjh99QA6YSF0Izg/1/kdee228E4brYLYO2z6I/EGYK6y0Dqzba7MbgZziI/XJTUfqKRsH69E6wXi79ojR9/8hG//pwi0K/jJJm2CYzdeOfUjn/qlevInEu5QYLCFz4CuatTBdK9JqnX5A5hTNUX+WNz1X37rpuTraqJH5kTqRroHwGntE1/nfSgOOi5OWHIaZwEuaDr6m849bsN1aGD+QwWLt/7JUa2CNsPrXGNKcw9HeYN/Y/igxRVrTeRaisH27CPQ8Sa+MvkEX9R3hGL9+lYy/vUJP/P4H5O/wwWiNYkBr//0ytwbuFzIH2H7+f0ZFbaHWosPbKU1hG+ujxKaFhyWkNCT4ZxldwKk/FMHkS8pU6n3YVipZyFlTA/ct/k/ZHg7kFBwOxQraVOOCQyEqBKx8JpXP2ubX2Tze9TDM7hVm9F4YAlaAM605wormxLTl4sAQ9oK2YCzdMP9gkApA/qGgkHCu66XOL7+JZxxdjQHuAathuBqGUNSa2KJbvzB4iPwDtTHZ9EAt5R2sFQznafJY8XNWmR8I0ve7y8mM3I1N71EKrOgqmK4SnM9G7ob5ik83TwcPkbe/NgbIfiAg8vYHpMochvb9Kk9T076VLr+B5xxZxabQu+ZhRe6Kfbxc8+zAIM/YW2F+W/wYxi86Xs4ns28ljL4oMSMrBNdmBPStDGe+758n+G7khv3GhrCfNrT6Re6zPsF5btgn6+q2zTBZobmTzF4QuTNp9q5s/fj1z7H17QKD5Kz/9bYWDNCFAaLQJKCTp/A7PXJHItX7hZFU7wpjtu+OluVvbLP9F5lmWAkTeM7rAAAAAElFTkSuQmCC" InformativeScreenshot="ba0ef7abd3420e3d437ed7bbcfeb4565.jpg" Selector="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" Title="Credit Manager" Url="http://pw-fcqap01/CreditQuest/CreditManager/html/app_default.aspx" />
             </uix:NApplicationCard.TargetApp>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -160,26 +243,28 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </uix:NApplicationCard>
-          <uix:NCheckState DisplayName="Check App State 'Desktop'" sap:VirtualizedContainerService.HintSize="258,52" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V3">
+          <uix:NCheckState DisplayName="Check App State 'Desktop'" sap:VirtualizedContainerService.HintSize="282,52" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V3">
             <uix:NCheckState.IfExists>
-              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,207" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_16">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Uipath Opened CQ Credit Manager&quot;]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Uipath Opened CQ Credit Manager&quot;]" />
               </Sequence>
             </uix:NCheckState.IfExists>
             <uix:NCheckState.IfNotExists>
-              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,337" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;THROW: Credit Manager did not appear.&quot;]" />
-                <Throw Exception="[New ApplicationException(&quot;Credit Manager did not appear during intial all applications.&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;THROW: Credit Manager did not appear.&quot;]" />
+                <Throw Exception="[New ApplicationException(&quot;Credit Manager did not appear during intial all applications.&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
               </Sequence>
             </uix:NCheckState.IfNotExists>
             <uix:NCheckState.Target>
@@ -193,9 +278,6 @@
             </sap:WorkflowViewStateService.ViewState>
           </uix:NCheckState>
         </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_14" />
       </If.Else>
     </If>
   </Sequence>
